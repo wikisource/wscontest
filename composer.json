@@ -32,5 +32,16 @@
         "jakub-onderka/php-parallel-lint": "^1.0",
         "mediawiki/mediawiki-codesniffer": "^19.0",
         "phpunit/phpunit": "^5.0"
+    },
+    "scripts": {
+        "mkconfig": [
+            "php -r \"file_exists('config.php') || copy('config.dist.php', 'config.php');\""
+        ],
+        "post-install-cmd": [
+            "@mkconfig"
+        ],
+        "post-update-cmd": [
+            "@mkconfig"
+        ]
     }
 }

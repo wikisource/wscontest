@@ -17,7 +17,7 @@ if ( substr( basename( $_SERVER['PHP_SELF'] ), 0, 7 ) === 'phpunit' ) {
 	$configFilename = __DIR__ . '/config.php';
 }
 if ( file_exists( $configFilename ) ) {
-	$config = ( function () use ( $configFilename ) {
+	function getConfig( $configFilename ) {
 		require_once $configFilename;
 		$reqVars = [ 'dbHost', 'dbName', 'dbUser', 'dbPass', 'oauthToken', 'oauthSecret' ];
 		foreach ( $reqVars as $reqVar ) {
@@ -26,9 +26,10 @@ if ( file_exists( $configFilename ) ) {
 				exit( 1 );
 			}
 		}
-		unset( $configFilename );
+		unset( $configFilename, $reqVars );
 		return get_defined_vars();
-	} )();
+	};
+	$config = getConfig( $configFilename );
 } else {
 	echo 'Please create config.php';
 	exit();
@@ -37,6 +38,7 @@ $configDefaults = [
 	'varDir' => __DIR__ . '/var',
 ];
 $config = array_merge( ( isset( $config ) ? $config : [] ), $configDefaults );
+$config['displayErrorDetails'] = ( isset( $config['debug'] ) && $config['debug'] );
 
 // Set up the application.
 $app = new App( [ 'settings' => $config ] );
