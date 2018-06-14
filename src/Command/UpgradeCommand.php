@@ -22,7 +22,7 @@ class UpgradeCommand extends Command {
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$sql = 'CREATE TABLE IF NOT EXISTS contests (
             id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(250) CHARACTER SET utf8mb4 NOT NULL UNIQUE,
+            name VARCHAR(190) CHARACTER SET utf8mb4 NOT NULL UNIQUE,
             start_date DATETIME NOT NULL,
             end_date DATETIME NOT NULL
         ) DEFAULT CHARSET=utf8mb4;';
@@ -30,7 +30,7 @@ class UpgradeCommand extends Command {
 
 		$sql = 'CREATE TABLE IF NOT EXISTS users (
             id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(250) CHARACTER SET utf8mb4 NOT NULL UNIQUE
+            name VARCHAR(190) CHARACTER SET utf8mb4 NOT NULL UNIQUE
         ) DEFAULT CHARSET=utf8mb4;';
 		$this->db->query( $sql );
 
@@ -54,7 +54,7 @@ class UpgradeCommand extends Command {
 
 		$sql = 'CREATE TABLE IF NOT EXISTS index_pages (
             id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-            url VARCHAR(250) CHARACTER SET utf8mb4 NOT NULL UNIQUE
+            url VARCHAR(190) CHARACTER SET utf8mb4 NOT NULL UNIQUE
         ) DEFAULT CHARSET=utf8mb4;';
 		$this->db->query( $sql );
 
