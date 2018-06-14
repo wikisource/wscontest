@@ -2,7 +2,7 @@
 
 $dbUser = 'root';
 $dbPass = 'dev123dev';
-//$dbDsn = "mysql://localhost;dbname=wscontest;host=127.0.0.1";
+// $dbDsn = "mysql://localhost;dbname=wscontest;host=127.0.0.1";
 $dbHost = 'localhost';
 $dbName = 'wscontest_test';
 

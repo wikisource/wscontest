@@ -23,7 +23,7 @@ class IndexPage extends Model {
 	}
 
 	public function contests() {
-		return $this->belongsToMany(Contest::class, 'contest_index_pages' );
+		return $this->belongsToMany( Contest::class, 'contest_index_pages' );
 	}
 
 	/**
@@ -47,7 +47,6 @@ class IndexPage extends Model {
 	}
 
 	public function getDomainName() {
-		
 		return $this->getWikisourceIndexPage()->getWikisource()->getDomainName();
 	}
 }

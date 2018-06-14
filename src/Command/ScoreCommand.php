@@ -21,6 +21,7 @@ class ScoreCommand extends Command {
 	protected function configure() {
 		parent::configure();
 		$this->setName( 'score' );
+		$this->setDescription( 'Retrieve scores from Wikisources.' );
 	}
 
 	protected $points;
@@ -54,7 +55,7 @@ class ScoreCommand extends Command {
 			Score::where( [ 'index_page_id' => $indexPage->id ] )->delete();
 
 			// Go through each contest that uses this IndexPage and save the score.
-			foreach ($indexPage->contests()->get() as $contest) {
+			foreach ( $indexPage->contests()->get() as $contest ) {
 				// Save new scores.
 				$this->calculateScore(
 					$wikisource,
@@ -136,7 +137,7 @@ class ScoreCommand extends Command {
 
 		// Page moved from 3 to 4.
 		if ( $quality === 4 && $oldQuality === 3 && $timestamp >= $contestStart &&
-		     $timestamp < $contestEnd ) {
+			 $timestamp < $contestEnd ) {
 			$data[$userId]['points'] += 1;
 			$data[$userId]['validations'] += 1;
 			$data[$userId]['contributions'] += 1;
@@ -144,7 +145,7 @@ class ScoreCommand extends Command {
 
 		// Page moved from 4 to 3 (even after the end of the contest).
 		if ( $quality === 3 && $oldQuality === 4 && $timestamp >= $contestStart &&
-		     $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
+			 $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
 			$data[$oldUserId]['points'] -= 1;
 			$data[$oldUserId]['validations'] -= 1;
 			$data[$oldUserId]['contributions'] -= 1;
@@ -152,7 +153,7 @@ class ScoreCommand extends Command {
 
 		// Page moved from 3 to anything lower.
 		if ( $quality < 3 && $oldQuality === 3 && $timestamp >= $contestStart &&
-		     $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
+			 $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
 			$data[$oldUserId]['points'] -= 3;
 			$data[$oldUserId]['contributions'] -= 1;
 		}
@@ -173,7 +174,6 @@ class ScoreCommand extends Command {
 			$score->contributions = $scores['contributions'];
 			$score->save();
 		}
-
 	}
 
 }

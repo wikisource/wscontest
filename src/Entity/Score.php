@@ -19,19 +19,19 @@ class Score extends Model {
 	protected $revisionUrl;
 
 	public function indexPage() {
-		return $this->belongsTo(IndexPage::class);
+		return $this->belongsTo( IndexPage::class );
 	}
 
 	public function contest() {
-		return $this->belongsTo(Contest::class);
+		return $this->belongsTo( Contest::class );
 	}
 
 	public function user() {
-		return $this->belongsTo(User::class);
+		return $this->belongsTo( User::class );
 	}
 
 	public function getRevisionUrl() {
-		if ($this->revisionUrl) {
+		if ( $this->revisionUrl ) {
 			return $this->revisionUrl;
 		}
 		$this->revisionUrl = 'https://' . $this->indexPage->getDomainName()

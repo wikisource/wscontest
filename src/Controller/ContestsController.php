@@ -20,8 +20,8 @@ class ContestsController extends Controller {
 	public function index( Request $request, Response $response, $args ) {
 		$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : false;
 		if ( $username ) {
-			$contests = Contest::whereHas( 'admins', function ( Builder $query ) use ($username) {
-				$query->where('name', 'LIKE', $username);
+			$contests = Contest::whereHas( 'admins', function ( Builder $query ) use ( $username ) {
+				$query->where( 'name', 'LIKE', $username );
 			} )->get();
 		} else {
 			$this->setFlash( 'not-logged-in', 'warning' );
@@ -34,12 +34,12 @@ class ContestsController extends Controller {
 	}
 
 	protected function viewUser( $response, $contest, $userId ) {
-		$scores = Score::where('user_id', $userId)
-			->whereHas('indexPage', function (Builder $b) use ($contest) {
-				return $b->where('contest_id', $contest->id);
-			})
+		$scores = Score::where( 'user_id', $userId )
+			->whereHas( 'indexPage', function ( Builder $b ) use ( $contest ) {
+				return $b->where( 'contest_id', $contest->id );
+			} )
 			->with( 'indexPage' )
-			->orderBy('revision_datetime')
+			->orderBy( 'revision_datetime' )
 			->get();
 		return $this->renderView( $response, 'contests_viewuser.html.twig', [
 			'contest' => $contest,
@@ -50,17 +50,17 @@ class ContestsController extends Controller {
 
 	public function view( Request $request, Response $response, $args ) {
 		// Find the contest.
-		$id = $request->getAttribute('id');
-		$contest = Contest::find($id);
-		if (!$contest) {
-			$this->setFlash('contest-not-found', 'warning', [$id]);
+		$id = $request->getAttribute( 'id' );
+		$contest = Contest::find( $id );
+		if ( !$contest ) {
+			$this->setFlash( 'contest-not-found', 'warning', [ $id ] );
 			return $response->withRedirect( $this->router->urlFor( 'contests' ) );
 		}
 
 		// If a user ID is requested, show only the scores for that user.
-		$userId = $request->getQueryParam('u');
-		if ($userId) {
-			return $this->viewUser($response, $contest, $userId);
+		$userId = $request->getQueryParam( 'u' );
+		if ( $userId ) {
+			return $this->viewUser( $response, $contest, $userId );
 		}
 
 		$scores = Score::where( 'contest_id', $contest->id )
@@ -131,8 +131,7 @@ class ContestsController extends Controller {
 			}
 
 			// Index pages.
-			$indexPagesQuery = $this->db->prepare( 
-				'SELECT url '
+			$indexPagesQuery = $this->db->prepare( 'SELECT url '
 				. ' FROM index_pages ip '
 				. '   JOIN contest_index_pages cip ON cip.index_page_id = ip.id '
 				. ' WHERE contest_id = :id'
@@ -145,7 +144,7 @@ class ContestsController extends Controller {
 
 		}
 
-		if (!$id) {
+		if ( !$id ) {
 			$now = new DateTime( 'now', new \DateTimeZone( 'UTC' ) );
 			$contest = [
 				'start_date' => $now->format( 'Y-m-d H:i:s' ),
@@ -181,7 +180,7 @@ class ContestsController extends Controller {
 		try {
 			$contest->save();
 		} catch ( QueryException $exception ) {
-			$this->setFlash('unable-to-save', 'error', [$exception->getMessage()]);
+			$this->setFlash( 'unable-to-save', 'error', [ $exception->getMessage() ] );
 			return $this->renderView( $response, 'contests_edit.html.twig', [
 				'contest' => $contest,
 				'admins' => $request->getParam( 'admins' ),
@@ -198,7 +197,7 @@ class ContestsController extends Controller {
 		}
 		$adminUserIds = [];
 		foreach ( $admins as $admin ) {
-			$adminUserIds[] = User::firstOrCreate( ['name' => $admin ] )->id;
+			$adminUserIds[] = User::firstOrCreate( [ 'name' => $admin ] )->id;
 		}
 		$contest->admins()->sync( $adminUserIds );
 
@@ -206,7 +205,7 @@ class ContestsController extends Controller {
 		$excludedUserIds = [];
 		$excludedUsers = Str::explode( $request->getParam( 'excluded_users' ) );
 		foreach ( $excludedUsers as $excludedUser ) {
-			$excludedUserIds[] = User::firstOrCreate( ['name' => $excludedUser ] )->id;
+			$excludedUserIds[] = User::firstOrCreate( [ 'name' => $excludedUser ] )->id;
 		}
 		$contest->excludedUsers()->sync( $excludedUserIds );
 

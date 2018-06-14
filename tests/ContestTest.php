@@ -10,8 +10,7 @@ class ContestTest extends TestBase {
 	 * A contest has a name, a start date (defaults to today), and an end date (two weeks after
 	 * the start date).
 	 */
-	public function testContestBasics()
-	{
+	public function testContestBasics() {
 		$contest = new Contest;
 		$contest->name = 'Test contest';
 		$contest->start_date = '2018-01-02 3:04';
