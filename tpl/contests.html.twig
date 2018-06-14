@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <p>
+        <a href="{{ path_for('contests_create') }}" class="btn btn-success {% if not username %}disabled{% endif %}" role="button">
+        {{ msg('create-contest') }}
+        </a>
+    </p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ msg('contest-col-header') }}</th>
+            <th>{{ msg('start-date-col-header') }}</th>
+            <th>{{ msg('end-date-col-header') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contest in contests %}
+            <tr>
+                <td><a href="{{ path_for('contests_view', {id: contest.id}) }}">{{ contest.name }}</a></td>
+                <td>{{ contest.start_date }}</td>
+                <td>{{ contest.end_date }}</td>
+            </tr>
+        {% endfor %}
+        {% if not contests %}
+            <tr><td colspan="4">{{ msg('no-contests') }}</td></tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}

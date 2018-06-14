@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <h2>
+        {% if contest.id %}{{ msg('edit-contest') }}{% else %}{{ msg('create-contest') }}{% endif %}
+    </h2>
+
+    <form action="{{ path_for('contests_save') }}" class="form" method="post">
+        {% if contest.id %}
+            <input type="hidden" name="id" value="{{ contest.id }}" />
+        {% endif %}
+        <p>
+            <label for="name">{{ msg('name-label') }}</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ contest.name }}" required />
+        </p>
+        <div class="row">
+            <p class="col-md-6 form-group">
+                <label for="start-date">{{ msg('start-date-label') }}</label>
+                <input type="text" id="start-date" name="start_date" class="form-control" value="{{ contest.start_date }}" required />
+                <span class="help-block">{{ msg('times-are-utc') }}</span>
+            </p>
+            <p class="col-md-6 form-group">
+                <label for="end-date">{{ msg('end-date-label') }}</label>
+                <input type="text" id="end-date" name="end_date" class="form-control" value="{{ contest.end_date }}" required />
+                <span class="help-block">{{ msg('times-are-utc') }}</span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="col-md-6 form-group">
+                <label for="index_pages">Index pages:</label>
+                <textarea id="index_pages" name="index_pages" class="form-control" rows="12">{{ index_pages }}</textarea>
+                <span class="help-block">Full URLs to Index pages, one per line.</span>
+            </p>
+            <p class="col-md-3 form-group">
+                <label for="admins">Admins:</label>
+                <textarea id="admins" name="admins" class="form-control" rows="12" required>{{ admins }}</textarea>
+                <span class="help-block">{{ msg('one-username-per-line') }}</span>
+            </p>
+            <p class="col-md-3 form-group">
+                <label for="excluded_users">{{ msg('excluded-users') }}</label>
+                <textarea id="excluded_users" name="excluded_users" class="form-control" rows="12">{{ excluded_users }}</textarea>
+                <span class="help-block">{{ msg('one-username-per-line') }}</span>
+            </p>
+        </div>
+        <p>
+            <input type="submit" value="{{ msg('save') }}" class="btn btn-success" />
+            {% if contest.id %}
+                <a href="{{ path_for('contests_view', {id: contest.id}) }}" class="btn btn-default">{{ msg('cancel') }}</a>
+            {% else %}
+                <a href="{{ path_for('contests') }}" class="btn btn-default">{{ msg('cancel') }}</a>
+            {% endif %}
+        </p>
+    </form>
+
+{% endblock %}

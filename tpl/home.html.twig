@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+<p>
+    {{ msg('stats-summary', [people|number_format, contests|number_format]) }}
+</p>
+
+{% endblock %}

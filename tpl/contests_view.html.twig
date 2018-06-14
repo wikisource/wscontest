@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+<h2>{{ contest.name }}</h2>
+
+<dl class="dl-horizontal">
+    <dt>{{ msg('dates') }}</dt>
+    <dd>{{ msg('start-date-label') }} {{ contest.start_date }}</dd>
+    <dd>{{ msg('end-date-label') }} {{ contest.end_date }}</dd>
+    <dt>{{ msg('administrators') }}</dt>
+    <dd>
+        <ul class="list-inline">
+        {% for admin in contest.admins %}
+            <li><a href="https://meta.wikimedia.org/wiki/User:{{ admin.name }}">{{ admin.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </dd>
+    <dt>{{ msg('excluded-users') }}</dt>
+    <dd>
+        <ul class="list-inline">
+            {% for excluded_user in contest.excludedUsers %}
+                <li><a href="https://meta.wikimedia.org/wiki/User:{{ excluded_user.name }}">{{ excluded_user.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </dd>
+</dl>
+
+<p>
+    <a class="btn btn-default {% if not can_edit %}disabled{% endif %}" href="{{ path_for('contests_edit', {id: contest.id}) }}">Edit</a>
+</p>
+
+<h3 id="index_pages">Index pages</h3>
+<ol>
+    {% for ip in contest.indexPages %}
+        <li><a href="{{ ip.url }}">{{ ip.url }}</a></li>
+    {% endfor %}
+</ol>
+
+<h3 id="scores">Scores</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ msg('user') }}</th>
+            <th>{{ msg('points') }}</th>
+            <th>{{ msg('contributions') }}</th>
+            <th>{{ msg('validations') }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for score in scores %}
+            <tr>
+                <td><a href="https://meta.wikimedia.org/wiki/User:{{ score.username }}">{{ score.username }}</a></td>
+                <td>{{ score.points }}</td>
+                <td>{{ score.contributions }}</td>
+                <td>{{ score.validations }}</td>
+                <td>
+                    <a href="{{ path_for('contests_view', {id: contest.id}) }}?u={{ score.user_id }}">{{ msg('details') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
