@@ -14,7 +14,20 @@
 		<script type="text/javascript" src="script.js" ></script>
 	{% endblock %}
 </head>
-<body class="{{ username ? 'logged-in' : 'logged-out' }} container">
+<body>
+
+<div class="alert alert-warning">
+    <p>
+        <strong>This site is not yet ready for use.</strong>
+        Anything may change at any time, and data may need to be deleted!
+    </p>
+    <p>
+        That said, please do test things,
+        and <a href="https://phabricator.wikimedia.org/tag/tool-wscontest">report all the bugs</a> you find.
+    </p>
+</div>
+
+<div class="{{ username ? 'logged-in' : 'logged-out' }} container">
 
 <header class="page-header">
 	<h1>{{ msg('app-title') }}</h1>
@@ -62,5 +75,6 @@
 	{% endfor %}
 {% endif %}
 
+</div>
 </body>
 </html>
