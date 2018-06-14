@@ -65,7 +65,10 @@ $container['view'] = function ( Container $container ) {
 		];
 	}
 	$view = new Twig( __DIR__ . '/tpl', $twigOptions );
-	$view->addExtension( new Twig_Extension_Debug() );
+	$view->getEnvironment()->addGlobal( 'debug', $container['settings']['debug'] );
+	if ( $container['settings']['debug'] ) {
+		$view->addExtension( new Twig_Extension_Debug() );
+	}
 	$basePath = rtrim( str_ireplace( 'index.php', '', $container['request']->getUri()->getBasePath() ), '/' );
 	$view->addExtension( new TwigExtension( $container['router'], $basePath ) );
 

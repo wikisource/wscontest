@@ -52,13 +52,15 @@
 	</ul>
 </footer>
 
-{% for q in query_log() %}
-<pre>{{ q.query }}
-{% if q.bindings %}{% for b in q.bindings %}> {{ b }}
-{% endfor %}{% endif %}
-</pre>
-{% endfor %}
+{% if debug %}
+	{% for q in query_log() %}
+	<pre>{{ q.query }}{% if q.bindings %}
 
+{% for b in q.bindings %}> {{ b }}
+{% endfor %}{% endif %}
+	</pre>
+	{% endfor %}
+{% endif %}
 
 </body>
 </html>
