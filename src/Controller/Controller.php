@@ -28,6 +28,10 @@ abstract class Controller {
 
 	protected $requireLogin = true;
 
+	/**
+	 * Controller constructor.
+	 * @param ContainerInterface $container
+	 */
 	public function __construct( ContainerInterface $container ) {
 		$this->container = $container;
 		$this->view = $container->get( 'view' );
@@ -36,6 +40,12 @@ abstract class Controller {
 		$this->settings = $container->get( 'settings' );
 	}
 
+	/**
+	 * @param Response $response
+	 * @param string $view
+	 * @param mixed[] $data
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	protected function renderView( Response $response, $view, $data ) {
 		return $this->view->render(
 			$response,
@@ -47,6 +57,11 @@ abstract class Controller {
 		);
 	}
 
+	/**
+	 * @param string $message
+	 * @param string $type
+	 * @param array $params
+	 */
 	protected function setFlash( $message, $type = 'info', $params = [] ) {
 		$_SESSION['flash'] = [
 			'type' => $type,
@@ -55,6 +70,9 @@ abstract class Controller {
 		];
 	}
 
+	/**
+	 * @return string[]|bool
+	 */
 	protected function getFlash() {
 		if ( isset( $_SESSION['flash'] ) ) {
 			$flash = $_SESSION['flash'];

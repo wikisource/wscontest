@@ -8,7 +8,9 @@ use Wikisource\WsContest\Command\UpgradeCommand;
 abstract class TestBase extends \PHPUnit\Framework\TestCase {
 
 	public function setUp() {
+		// @codingStandardsIgnoreStart
 		global $app;
+		// @codingStandardsIgnoreEnd
 
 		// Empty all existing tables.
 		$db = $app->getContainer()->get( 'db' );

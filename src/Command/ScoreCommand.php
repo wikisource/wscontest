@@ -28,10 +28,10 @@ class ScoreCommand extends Command {
 
 	/**
 	 * Executes the current command.
-	 *
-	 * @return null|int null or 0 if everything went fine, or an error code
-	 *
 	 * @see setCode()
+	 * @param InputInterface $input
+	 * @param OutputInterface $output
+	 * @return null|int Null or 0 if everything went fine, or an error code.
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$wikisourceApi = new WikisourceApi();
@@ -69,6 +69,12 @@ class ScoreCommand extends Command {
 		return 0;
 	}
 
+	/**
+	 * @param Wikisource $wikisource
+	 * @param string $indexPageTitle
+	 * @param Contest $contest
+	 * @param int $indexPageId
+	 */
 	protected function calculateScore(
 		Wikisource $wikisource, $indexPageTitle, Contest $contest, $indexPageId
 	) {
@@ -81,6 +87,12 @@ class ScoreCommand extends Command {
 		}
 	}
 
+	/**
+	 * @param Contest $contest
+	 * @param WikisourceApi $api
+	 * @param string $pageTitle
+	 * @param int $indexPageId
+	 */
 	protected function processPage( Contest $contest, $api, $pageTitle, $indexPageId ) {
 		// @TODO fix for 50 revisions limit.
 		$response = $api->getRequest( FluentRequest::factory()
@@ -92,7 +104,7 @@ class ScoreCommand extends Command {
 		// Go through the page's revisions.
 		$pageInfo = array_shift( $response['query']['pages'] );
 		if ( !isset( $pageInfo['revisions'] ) ) {
-			return [];
+			return;
 		}
 
 		$oldTimestamp = false;
@@ -114,6 +126,17 @@ class ScoreCommand extends Command {
 		}
 	}
 
+	/**
+	 * @param int $indexPageId
+	 * @param int $revisionId
+	 * @param Contest $contest
+	 * @param int $quality
+	 * @param int $userId
+	 * @param int $timestamp
+	 * @param int $oldQuality
+	 * @param int $oldUserId
+	 * @param int $oldTimestamp
+	 */
 	protected function processRevision(
 		$indexPageId, $revisionId, Contest $contest, $quality, $userId, $timestamp, $oldQuality,
 		$oldUserId, $oldTimestamp

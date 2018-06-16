@@ -2,4 +2,5 @@
 <ruleset>
     <rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki" />
     <file>.</file>
+    <exclude-pattern>var/</exclude-pattern>
 </ruleset>

@@ -17,6 +17,10 @@ if ( substr( basename( $_SERVER['PHP_SELF'] ), 0, 7 ) === 'phpunit' ) {
 	$configFilename = __DIR__ . '/config.php';
 }
 if ( file_exists( $configFilename ) ) {
+	/**
+	 * @param string $configFilename
+	 * @return string[]
+	 */
 	function getConfig( $configFilename ) {
 		require_once $configFilename;
 		$reqVars = [ 'dbHost', 'dbName', 'dbUser', 'dbPass', 'oauthToken', 'oauthSecret' ];
@@ -69,13 +73,20 @@ $container['view'] = function ( Container $container ) {
 	if ( $container['settings']['debug'] ) {
 		$view->addExtension( new Twig_Extension_Debug() );
 	}
-	$basePath = rtrim( str_ireplace( 'index.php', '', $container['request']->getUri()->getBasePath() ), '/' );
+	$basePath = rtrim(
+		str_ireplace(
+			'index.php', '', $container['request']->getUri()->getBasePath()
+		),
+		'/'
+	);
 	$view->addExtension( new TwigExtension( $container['router'], $basePath ) );
 
 	// Add filters.
-	$view->getEnvironment()->addFilter( new Twig_SimpleFilter( 'wordwrap', function ( $str, $width = 75 ) {
-		return wordwrap( $str, $width );
-	} ) );
+	$view->getEnvironment()->addFilter(
+		new Twig_SimpleFilter( 'wordwrap', function ( $str, $width = 75 ) {
+			return wordwrap( $str, $width );
+		} )
+	);
 
 	$view->getEnvironment()->addFunction(
 		new Twig_SimpleFunction( 'msg', function ( $msg, $vars = [] ) use ( $container ) {
@@ -96,9 +107,10 @@ $container['view'] = function ( Container $container ) {
 // Database.
 $container['db'] = function ( Container $container ) {
 	$config = new Configuration();
+	$url = "mysql://{$container['settings']['dbHost']};dbname={$container['settings']['dbName']}";
 	$connectionParams = [
 		'driver' => 'pdo_mysql',
-		'url' => 'mysql://' . $container['settings']['dbHost'] . ';dbname=' . $container['settings']['dbName'],
+		'url' => $url,
 		'port' => $container['settings']['dbPort'],
 		'user' => $container['settings']['dbUser'],
 		'password' => $container['settings']['dbPass'],

@@ -2,8 +2,6 @@
 
 namespace Wikisource\WsContest\Controller;
 
-use DateInterval;
-use DateTime;
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
@@ -17,6 +15,12 @@ use Wikisource\WsContest\Str;
 
 class ContestsController extends Controller {
 
+	/**
+	 * @param Request $request
+	 * @param Response $response
+	 * @param string[] $args
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function index( Request $request, Response $response, $args ) {
 		$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : false;
 		if ( $username ) {
@@ -33,6 +37,12 @@ class ContestsController extends Controller {
 		] );
 	}
 
+	/**
+	 * @param Response $response
+	 * @param Contest $contest
+	 * @param int $userId
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	protected function viewUser( $response, $contest, $userId ) {
 		$scores = Score::where( 'user_id', $userId )
 			->whereHas( 'indexPage', function ( Builder $b ) use ( $contest ) {
@@ -48,6 +58,12 @@ class ContestsController extends Controller {
 		] );
 	}
 
+	/**
+	 * @param Request $request
+	 * @param Response $response
+	 * @param string[] $args
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function view( Request $request, Response $response, $args ) {
 		// Find the contest.
 		$id = $request->getAttribute( 'id' );
@@ -82,10 +98,16 @@ class ContestsController extends Controller {
 		return $this->renderView( $response, 'contests_view.html.twig', [
 			'contest' => $contest,
 			'scores' => $scores,
-			'can_edit' => ( $contest->hasAdmin( $_SESSION['username'] )->count() > 0 ), 
+			'can_edit' => ( $contest->hasAdmin( $_SESSION['username'] )->count() > 0 ),
 		] );
 	}
 
+	/**
+	 * @param Request $request
+	 * @param Response $response
+	 * @param string[] $args
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function edit( Request $request, Response $response, $args ) {
 		if ( !isset( $_SESSION['username'] ) ) {
 			return $response->withRedirect( $this->router->urlFor( 'login' ) );
@@ -145,11 +167,7 @@ class ContestsController extends Controller {
 		}
 
 		if ( !$id ) {
-			$now = new DateTime( 'now', new \DateTimeZone( 'UTC' ) );
-			$contest = [
-				'start_date' => $now->format( 'Y-m-d H:i:s' ),
-				'end_date' => $now->add( new DateInterval( 'P14D' ) )->format( 'Y-m-d H:i:s' ),
-			];
+			$contest = new Contest();
 			$admins = $_SESSION['username'];
 			$excludedUsers = '';
 			$indexPages = '';
@@ -163,6 +181,12 @@ class ContestsController extends Controller {
 		] );
 	}
 
+	/**
+	 * @param Request $request
+	 * @param Response $response
+	 * @param string[] $args
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function save( Request $request, Response $response, $args ) {
 		if ( !isset( $_SESSION['username'] ) ) {
 			return $response->withRedirect( $this->router->urlFor( 'login' ) );

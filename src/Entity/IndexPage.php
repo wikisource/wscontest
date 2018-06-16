@@ -46,6 +46,10 @@ class IndexPage extends Model {
 		return $this->wsIndexPage;
 	}
 
+	/**
+	 * @return string
+	 * @throws Exception
+	 */
 	public function getDomainName() {
 		return $this->getWikisourceIndexPage()->getWikisource()->getDomainName();
 	}

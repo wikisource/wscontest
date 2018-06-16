@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e55e4087240151653c7ee4482d184880",
+    "content-hash": "8df606b7f1e28da84fdba9116f2f6b9a",
     "packages": [
         {
             "name": "addwiki/mediawiki-api",
@@ -1196,16 +1196,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.29.2",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337"
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ed6aa898982f441ccc9b2acdec51490f2bc5d337",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/863a1a651ea324e1838da3a52753a4239b9d4bea",
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea",
                 "shasum": ""
             },
             "require": {
@@ -1240,7 +1240,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-05-29T15:23:46+00:00"
+            "time": "2018-06-15T11:52:26+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -2502,6 +2502,52 @@
                 "mediawiki"
             ],
             "time": "2018-05-24T17:18:06+00:00"
+        },
+        {
+            "name": "mediawiki/minus-x",
+            "version": "0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/mediawiki-tools-minus-x.git",
+                "reference": "7e0ec5befc8feceb7572f4918d2db956ff7fc810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/mediawiki-tools-minus-x/zipball/7e0ec5befc8feceb7572f4918d2db956ff7fc810",
+                "reference": "7e0ec5befc8feceb7572f4918d2db956ff7fc810",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/console": "^3.3.5"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "0.3.2",
+                "jakub-onderka/php-parallel-lint": "0.9.2",
+                "mediawiki/mediawiki-codesniffer": "16.0.0"
+            },
+            "bin": [
+                "bin/minus-x"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MediaWiki\\MinusX\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kunal Mehta",
+                    "email": "legoktm@member.fsf.org"
+                }
+            ],
+            "description": "Removes executable bit from files that shouldn't be executable",
+            "homepage": "https://www.mediawiki.org/wiki/MinusX",
+            "time": "2018-02-17T17:27:38+00:00"
         },
         {
             "name": "myclabs/deep-copy",

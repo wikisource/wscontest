@@ -31,7 +31,8 @@
     "require-dev": {
         "jakub-onderka/php-parallel-lint": "^1.0",
         "mediawiki/mediawiki-codesniffer": "^19.0",
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^5.0",
+        "mediawiki/minus-x": "^0.3"
     },
     "scripts": {
         "mkconfig": [

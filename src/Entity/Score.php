@@ -30,6 +30,9 @@ class Score extends Model {
 		return $this->belongsTo( User::class );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getRevisionUrl() {
 		if ( $this->revisionUrl ) {
 			return $this->revisionUrl;

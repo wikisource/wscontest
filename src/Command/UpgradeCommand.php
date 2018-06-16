@@ -17,7 +17,10 @@ class UpgradeCommand extends Command {
 	}
 
 	/**
-	 * @return null|int null or 0 if everything went fine, or an error code
+	 * @param InputInterface $input
+	 * @param OutputInterface $output
+	 * @return null|int Null or 0 if everything went fine, or an error code.
+	 * @throws \Doctrine\DBAL\DBALException
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$sql = 'CREATE TABLE IF NOT EXISTS contests (
@@ -62,8 +65,10 @@ class UpgradeCommand extends Command {
             contest_id INT(10) UNSIGNED NOT NULL,
             index_page_id INT(10) UNSIGNED NOT NULL,
             CONSTRAINT contest_index_pages_pk PRIMARY KEY (contest_id, index_page_id),
-            CONSTRAINT contest_index_pages_contest_fk FOREIGN KEY (contest_id) REFERENCES contests (id),
-            CONSTRAINT contest_index_pages_index_page_fk FOREIGN KEY (index_page_id) REFERENCES index_pages (id)
+            CONSTRAINT contest_index_pages_contest_fk
+                FOREIGN KEY (contest_id) REFERENCES contests (id),
+            CONSTRAINT contest_index_pages_index_page_fk
+                FOREIGN KEY (index_page_id) REFERENCES index_pages (id)
         ) DEFAULT CHARSET=utf8mb4;';
 		$this->db->query( $sql );
 

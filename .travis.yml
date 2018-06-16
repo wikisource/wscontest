@@ -1,0 +1,11 @@
+language: php
+php:
+  - '5.6'
+  - '7.0'
+install:
+  - composer install
+script:
+  - vendor/bin/parallel-lint . --exclude vendor/
+  - vendor/bin/phpcs -p -s
+  - vendor/bin/minus-x check .
+  - vendor/bin/phpunit
