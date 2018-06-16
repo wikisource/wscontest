@@ -7,9 +7,7 @@ install:
   - composer install
   - mysql -e "CREATE DATABASE wscontest_tests;" -uroot
   - cp config.dist.php tests/config.php
-  - echo "\$dbUser = 'root';\$dbPass = '';\$dbName = 'wscontest_test';" > tests/config.php
-  - cat tests/config.php
-  - bin/wscontest upgrade
+  - echo "\$dbUser = 'root';\$dbPass = '';\$dbName = 'wscontest_test';" >> tests/config.php
 
 script:
   - vendor/bin/parallel-lint . --exclude vendor/
