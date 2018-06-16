@@ -12,6 +12,12 @@ abstract class TestBase extends \PHPUnit\Framework\TestCase {
 		global $app;
 		// @codingStandardsIgnoreEnd
 
+		// Install application.
+		$upgradeCommand = new UpgradeCommand();
+		$upgradeCommand->setSlimApp( $app );
+		$commandTester = new CommandTester( $upgradeCommand );
+		$commandTester->execute( [] );
+
 		// Empty all existing tables.
 		$db = $app->getContainer()->get( 'db' );
 		$db->query( 'SET foreign_key_checks = 0' );
@@ -23,12 +29,6 @@ abstract class TestBase extends \PHPUnit\Framework\TestCase {
 		$db->query( 'TRUNCATE contests' );
 		$db->query( 'TRUNCATE scores' );
 		$db->query( 'SET foreign_key_checks = 1' );
-
-		// Install application.
-		$upgradeCommand = new UpgradeCommand();
-		$upgradeCommand->setSlimApp( $app );
-		$commandTester = new CommandTester( $upgradeCommand );
-		$commandTester->execute( [] );
 	}
 
 }
