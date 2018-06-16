@@ -2,3 +2,5 @@
 /vendor/
 /var/
 /config.php
+/tests/config.php
+
