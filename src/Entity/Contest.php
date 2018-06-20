@@ -94,7 +94,7 @@ class Contest extends Model {
 	 */
 	public function scopeHasAdmin( Builder $query, $username ) {
 		return $query->whereHas( 'admins', function ( Builder $query ) use ( $username ) {
-			$query->where( 'name', 'LIKE', $username );
+				$query->where( 'name', '=', $username );
 		} );
 	}
 

@@ -22,18 +22,19 @@ class ContestsController extends Controller {
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function index( Request $request, Response $response, $args ) {
+		$contests = Contest::where( 'end_date', '<', Manager::raw( 'NOW()' ) );
+
 		$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : false;
-		if ( $username ) {
-			$contests = Contest::whereHas( 'admins', function ( Builder $query ) use ( $username ) {
-				$query->where( 'name', 'LIKE', $username );
-			} )->get();
-		} else {
+		if ( !$username ) {
 			$this->setFlash( 'not-logged-in', 'warning' );
-			$contests = [];
+		} else {
+			$contests->orWhereHas( 'admins', function ( Builder $query ) use ( $username ) {
+				$query->where( 'name', '=', $username );
+			} );
 		}
 
 		return $this->renderView( $response, 'contests.html.twig', [
-			'contests' => $contests,
+			'contests' => $contests->get(),
 		] );
 	}
 
