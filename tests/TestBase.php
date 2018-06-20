@@ -8,9 +8,7 @@ use Wikisource\WsContest\Command\UpgradeCommand;
 abstract class TestBase extends \PHPUnit\Framework\TestCase {
 
 	public function setUp() {
-		// @codingStandardsIgnoreStart
 		global $app;
-		// @codingStandardsIgnoreEnd
 
 		// Install application.
 		$upgradeCommand = new UpgradeCommand();

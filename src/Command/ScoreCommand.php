@@ -51,6 +51,8 @@ class ScoreCommand extends Command {
 				continue;
 			}
 
+			$output->writeln( "Scoring: $indexPage->url" );
+
 			// Delete old scores.
 			Score::where( [ 'index_page_id' => $indexPage->id ] )->delete();
 

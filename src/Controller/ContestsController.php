@@ -94,6 +94,7 @@ class ContestsController extends Controller {
 				Manager::raw( 'SUM(contributions)' ),
 				Manager::raw( 'SUM(validations)' )
 			)
+			->whereNotIn( 'users.id', $contest->excludedUsers()->pluck( 'user_id' )->toArray() )
 			->get();
 		return $this->renderView( $response, 'contests_view.html.twig', [
 			'contest' => $contest,
