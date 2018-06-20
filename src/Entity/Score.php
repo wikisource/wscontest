@@ -38,7 +38,7 @@ class Score extends Model {
 			return $this->revisionUrl;
 		}
 		$this->revisionUrl = 'https://' . $this->indexPage->getDomainName()
-			. '/w/index.php?oldid=' . $this->revision_id;
+			. '/w/index.php?oldid=' . $this->revision_id . '&diff=prev';
 		return $this->revisionUrl;
 	}
 }

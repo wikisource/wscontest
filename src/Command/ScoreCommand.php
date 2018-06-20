@@ -102,6 +102,7 @@ class ScoreCommand extends Command {
 			->setParam( 'prop', 'revisions' )
 			->setParam( 'titles', $pageTitle )
 			->setParam( 'rvlimit', 50 )
+			->setParam( 'rvdir', 'newer' )
 			->setParam( 'rvprop', 'user|timestamp|content|ids' ) );
 		// Go through the page's revisions.
 		$pageInfo = array_shift( $response['query']['pages'] );
@@ -162,23 +163,28 @@ class ScoreCommand extends Command {
 
 		// Page moved from 3 to 4.
 		if ( $quality === 4 && $oldQuality === 3 && $timestamp >= $contestStart &&
-			 $timestamp < $contestEnd ) {
+			 $timestamp < $contestEnd
+		) {
 			$data[$userId]['points'] += 1;
 			$data[$userId]['validations'] += 1;
 			$data[$userId]['contributions'] += 1;
 		}
 
 		// Page moved from 4 to 3 (even after the end of the contest).
-		if ( $quality === 3 && $oldQuality === 4 && $timestamp >= $contestStart &&
-			 $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
+		if ( $quality === 3 && $oldQuality === 4 && $timestamp >= $contestStart
+			&& $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd
+			&& $oldUserId
+		) {
 			$data[$oldUserId]['points'] -= 1;
 			$data[$oldUserId]['validations'] -= 1;
 			$data[$oldUserId]['contributions'] -= 1;
 		}
 
 		// Page moved from 3 to anything lower.
-		if ( $quality < 3 && $oldQuality === 3 && $timestamp >= $contestStart &&
-			 $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd ) {
+		if ( $quality < 3 && $oldQuality === 3 && $timestamp >= $contestStart
+			&& $oldTimestamp >= $contestStart && $oldTimestamp <= $contestEnd
+			&& $oldUserId
+		) {
 			$data[$oldUserId]['points'] -= 3;
 			$data[$oldUserId]['contributions'] -= 1;
 		}

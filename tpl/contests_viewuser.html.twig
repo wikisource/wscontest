@@ -4,7 +4,7 @@
 
 <ol class="breadcrumb">
     <li><a href="{{ path_for('contests_view', {id: contest.id}) }}">{{ msg('contest') }} <em>{{ contest.name }}</em></a></li>
-    </li><li class="active">{{ msg('user-results') }}</li>
+    <li class="active">{{ msg('user-results') }}</li>
 </ol>
 
 <h2>{{ user.name }}</h2>
@@ -23,7 +23,7 @@
     <tbody>
     {% for score in scores %}
         <tr>
-            <td>{{ score.indexPage.url }} </td>
+            <td><a href="{{ score.indexPage.url }}">{{ score.indexPage.url }}</a></td>
             <td><a href="{{ score.getRevisionUrl() }}">{{ score.revision_id }}</a></td>
             <td>{{ score.revision_datetime }}</td>
             <td>{{ score.points }}</td>
