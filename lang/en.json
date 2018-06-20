@@ -32,5 +32,10 @@
   "user": "User",
   "points": "Points",
   "contributions": "Contributions",
-  "validations": "Validations"
+  "validations": "Validations",
+  "index-page": "Index page",
+  "user-results": "User results",
+  "contest": "Contest:",
+  "revision": "Revision",
+  "date": "Date"
 }

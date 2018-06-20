@@ -3,7 +3,7 @@ Wikisource Contest Tool
 
 https://github.com/wikisource/contests
 
-[![Build Status](https://travis-ci.org/wikisource/contests.svg?branch=master)](https://travis-ci.org/wikisource/contests)
+[![Build Status](https://travis-ci.org/wikisource/wscontest.svg?branch=master)](https://travis-ci.org/wikisource/wscontest)
 
 ## TODO
 
