@@ -14,6 +14,7 @@
             <th>{{ msg('contest-col-header') }}</th>
             <th>{{ msg('start-date-col-header') }}</th>
             <th>{{ msg('end-date-col-header') }}</th>
+            <th>{{ msg('administrators') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,13 @@
                 <td><a href="{{ path_for('contests_view', {id: contest.id}) }}">{{ contest.name }}</a></td>
                 <td>{{ contest.start_date }}</td>
                 <td>{{ contest.end_date }}</td>
+                <td>
+                    <ul class="list-inline">
+                    {% for admin in contest.admins %}
+                        <li><a href="https://meta.wikimedia.org/wiki/User:{{ admin.name }}">{{ admin.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </td>
             </tr>
         {% endfor %}
         {% if not contests %}

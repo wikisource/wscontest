@@ -33,7 +33,7 @@
 	<h1>{{ msg('app-title') }}</h1>
 	<ul class="list-inline">
 		<li><a href="{{path_for('home')}}">{{ msg('homepage') }}</a></li>
-		<li><a href="{{path_for('contests')}}">{{ msg('my-contests') }}</a></li>
+		<li><a href="{{path_for('contests')}}">{{ msg('contests') }}</a></li>
 		{% if username %}
 			<li>{{ msg('logged-in-as', [username]) }}</li>
 			<li><a href="{{path_for('logout')}}">{{ msg('logout') }}</a></li>
