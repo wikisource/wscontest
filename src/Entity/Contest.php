@@ -5,7 +5,6 @@ namespace Wikisource\WsContest\Entity;
 use DateInterval;
 use DateTime;
 use DateTimeZone;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 
 class Contest extends Model {
@@ -20,7 +19,6 @@ class Contest extends Model {
 	/**
 	 * Contest constructor.
 	 * @param array $attributes
-	 * @throws Exception
 	 */
 	public function __construct( array $attributes = [] ) {
 		$now = new DateTime( 'now', new DateTimeZone( 'UTC' ) );

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Wikisource\Api\WikisourceApi;
+use Wikisource\Api\WikisourceApiException;
 use Wikisource\WsContest\Entity\Contest;
 use Wikisource\WsContest\Entity\IndexPage;
 use Wikisource\WsContest\Entity\Score;
@@ -22,19 +24,25 @@ class ContestsController extends Controller {
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function index( Request $request, Response $response, $args ) {
-		$contests = Contest::where( 'end_date', '<', Manager::raw( 'NOW()' ) );
-
 		$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : false;
 		if ( !$username ) {
 			$this->setFlash( 'not-logged-in', 'warning' );
-		} else {
-			$contests->orWhereHas( 'admins', function ( Builder $query ) use ( $username ) {
-				$query->where( 'name', '=', $username );
-			} );
 		}
-
+		$sql = 'SELECT c.* FROM contests c'
+			. '   LEFT JOIN admins a ON a.contest_id=c.id '
+			. '   LEFT JOIN users u ON u.id=a.user_id'
+			. ' WHERE (u.name IS NULL OR u.name = :username )';
+		$contests = $this->db->prepare( $sql );
+		$contests->execute( [ 'username' => $username ] );
+		$contests = $contests->fetchAll();
+		foreach ( $contests as &$contest ) {
+			$sql2 = 'SELECT u.* FROM users u JOIN admins a ON a.user_id=u.id WHERE a.contest_id = :cid';
+			$admins = $this->db->prepare( $sql2 );
+			$admins->execute( [ 'cid' => $contest['id'] ] );
+			$contest['admins'] = $admins->fetchAll();
+		}
 		return $this->renderView( $response, 'contests.html.twig', [
-			'contests' => $contests->get(),
+			'contests' => $contests,
 		] );
 	}
 
@@ -238,7 +246,26 @@ class ContestsController extends Controller {
 		// Index pages.
 		$indexPageUrls = Str::explode( $request->getParam( 'index_pages' ) );
 		$indexPageIds = [];
-		foreach ( $indexPageUrls as $indexPageUrl ) {
+		foreach ( $indexPageUrls as $indexPageUrlString ) {
+			$indexPageUrl = urldecode( $indexPageUrlString );
+			// Check validity.
+			$wikisourceApi = new WikisourceApi();
+			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPageUrl );
+			if ( !$wikisource ) {
+				$this->setFlash( 'error-loading-wikisource', 'warning', [ $indexPageUrl ] );
+				continue;
+			}
+			try {
+				$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPageUrl );
+			} catch ( WikisourceApiException $e ) {
+				$this->setFlash( $e->getMessage() );
+				continue;
+			}
+			if ( !$wsIndexPage->loaded() ) {
+				$this->setFlash( 'error-loading-indexpage', 'warning', [ $indexPageUrl ] );
+				continue;
+			}
+			// Save.
 			$indexPageIds[] = IndexPage::firstOrCreate( [ 'url' => $indexPageUrl ] )->id;
 		}
 		$contest->indexPages()->sync( $indexPageIds );
