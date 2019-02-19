@@ -35,7 +35,7 @@ if ( file_exists( $configFilename ) ) {
 	};
 	$config = getConfig( $configFilename );
 } else {
-	echo 'Please create config.php';
+	echo "Please create $configFilename\n";
 	exit();
 }
 $configDefaults = [

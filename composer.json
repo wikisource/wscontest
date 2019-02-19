@@ -4,12 +4,12 @@
     "require": {
         "slim/slim": "^3.10",
         "slim/twig-view": "^2.4",
-        "mediawiki/oauthclient": "^0.1",
-        "krinkle/intuition": "^0.7",
-        "tedivm/stash": "^0.14",
+        "mediawiki/oauthclient": "^1.0",
+        "krinkle/intuition": "^1.2",
+        "tedivm/stash": "^0.15",
         "addwiki/mediawiki-api": "^0.7",
         "doctrine/dbal": "^2.5",
-        "symfony/console": "^3.4",
+        "symfony/console": "^4.2",
         "wikisource/api": "^1.4",
         "illuminate/database": "^5.2"
     },
@@ -25,13 +25,13 @@
     },
     "config": {
         "platform": {
-            "php": "5.6"
+            "php": "7.2"
         }
     },
     "require-dev": {
         "jakub-onderka/php-parallel-lint": "^1.0",
-        "mediawiki/mediawiki-codesniffer": "^19.0",
-        "phpunit/phpunit": "^5.0",
+        "mediawiki/mediawiki-codesniffer": "^24.0",
+        "phpunit/phpunit": "^8.0",
         "mediawiki/minus-x": "^0.3"
     },
     "scripts": {
@@ -43,6 +43,12 @@
         ],
         "post-update-cmd": [
             "@mkconfig"
+        ],
+        "test": [
+            "parallel-lint . --exclude vendor/ --exclude var/",
+            "phpcs -p -s",
+            "minus-x check .",
+            "phpunit"
         ]
     }
 }

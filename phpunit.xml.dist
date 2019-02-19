@@ -6,7 +6,7 @@
          beStrictAboutOutputDuringTests="true"
          verbose="true">
     <testsuites>
-        <testsuite>
+        <testsuite name="wscontest">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

@@ -6,6 +6,7 @@ use DateInterval;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Expression;
 
 class Contest extends Model {
 
@@ -96,4 +97,13 @@ class Contest extends Model {
 		} );
 	}
 
+	/**
+	 * @param Builder $query
+	 * @return Builder
+	 */
+	public function scopeInProgress( Builder $query ) {
+		return $query
+			->where( 'start_date', '<=', new Expression( 'NOW()' ) )
+			->where( 'end_date', '>=', new Expression( 'NOW()' ) );
+	}
 }

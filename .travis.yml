@@ -1,8 +1,9 @@
 language: php
 services: mysql
+
 php:
-  - '5.6'
-  - '7.0'
+  - '7.2'
+
 install:
   - composer install
   - mysql -e "CREATE DATABASE wscontest_tests;" -uroot
@@ -10,7 +11,4 @@ install:
   - echo -e "\$dbUser = 'root';\n\$dbPass = '';\n\$dbName = 'wscontest_tests';" >> tests/config.php
 
 script:
-  - vendor/bin/parallel-lint . --exclude vendor/
-  - vendor/bin/phpcs -p -s
-  - vendor/bin/minus-x check .
-  - vendor/bin/phpunit
+  - composer test

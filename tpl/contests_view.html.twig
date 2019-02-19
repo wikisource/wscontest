@@ -37,7 +37,9 @@
     {% endfor %}
 </ol>
 
-<h3 id="scores">Scores</h3>
+<div id="scores">
+    <h3>{{ msg('scores') }}</h3>
+    {% if can_view_scores %}
     <table class="table">
         <thead>
         <tr>
@@ -62,5 +64,9 @@
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <div class="alert alert-success"><p>{{ msg('contest-in-progress') }}</p></div>
+    {% endif %}
+</div>
 
 {% endblock %}

@@ -39,5 +39,7 @@
   "user-results": "User results",
   "contest": "Contest:",
   "revision": "Revision",
-  "date": "Date"
+  "date": "Date",
+  "scores": "Scores",
+  "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators."
 }
