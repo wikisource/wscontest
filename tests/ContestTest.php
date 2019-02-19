@@ -20,4 +20,16 @@ class ContestTest extends TestBase {
 		$this->assertEquals( 'Test contest', $contest->name );
 		$this->assertEquals( '2018-01-02 03:04:00', $contest->start_date );
 	}
+
+	/**
+	 * @covers \Wikisource\WsContest\Entity\Contest::scopeInProgress()
+	 */
+	public function testInProgress() {
+		$contest = new Contest();
+		$contest->name = 'Test contest';
+		$contest->start_date = '2018-01-01 01:00';
+		$contest->end_date = '2018-01-10 19:00';
+		$contest->save();
+		static::assertEquals( 0, $contest->inProgress()->count() );
+	}
 }

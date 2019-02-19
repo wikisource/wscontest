@@ -2,6 +2,8 @@
 <ruleset>
     <rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
         <exclude name="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix" />
+        <exclude name="MediaWiki.PHP71Features.VoidReturnType.NotAllowed" />
+        <exclude name="MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix" />
     </rule>
     <file>.</file>
     <exclude-pattern>var/</exclude-pattern>

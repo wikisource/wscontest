@@ -7,7 +7,7 @@ use Wikisource\WsContest\Command\UpgradeCommand;
 
 abstract class TestBase extends \PHPUnit\Framework\TestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		global $app;
 
 		// Install application.

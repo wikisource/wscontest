@@ -105,10 +105,14 @@ class ContestsController extends Controller {
 			)
 			->whereNotIn( 'users.id', $contest->excludedUsers()->pluck( 'user_id' )->toArray() )
 			->get();
+		$inProgress = Contest::where( 'id', $id )->inProgress()->count() > 0;
+		$canEdit = isset( $_SESSION['username'] )
+			&& Contest::where( 'id', $id )->hasAdmin( $_SESSION['username'] )->count() > 0;
 		return $this->renderView( $response, 'contests_view.html.twig', [
 			'contest' => $contest,
 			'scores' => $scores,
-			'can_edit' => ( $contest->hasAdmin( $_SESSION['username'] )->count() > 0 ),
+			'can_edit' => $canEdit,
+			'can_view_scores' => $canEdit || !$inProgress,
 		] );
 	}
 

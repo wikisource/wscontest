@@ -3,4 +3,5 @@
 /var/
 /config.php
 /tests/config.php
+/.phpunit.result.cache
 
