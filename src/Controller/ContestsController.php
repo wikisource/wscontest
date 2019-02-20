@@ -218,7 +218,7 @@ class ContestsController extends Controller {
 		try {
 			$contest->save();
 		} catch ( QueryException $exception ) {
-			$this->setFlash( 'unable-to-save', 'error', [ $exception->getMessage() ] );
+			$this->setFlash( 'unable-to-save', 'warning', [ $exception->getMessage() ] );
 			return $this->renderView( $response, 'contests_edit.html.twig', [
 				'contest' => $contest,
 				'admins' => $request->getParam( 'admins' ),
@@ -277,6 +277,35 @@ class ContestsController extends Controller {
 		$this->db->commit();
 		return $response->withRedirect(
 			$this->router->urlFor( 'contests_view', [ 'id' => $contest->id ] )
+		);
+	}
+
+	/**
+	 * Delete all scores for a given contest.
+	 * @param Request $request
+	 * @param Response $response
+	 * @param array $args
+	 * @return Response
+	 */
+	public function deleteScores( Request $request, Response $response, $args ) {
+		$contestId = (int)$request->getParam( 'contest_id' );
+
+		if ( !isset( $_SESSION['username'] ) ) {
+			return $response->withStatus( 403 );
+		}
+
+		// Only admins can delete scores.
+		$isAdmin = Contest::where( 'id', $contestId )->hasAdmin( $_SESSION['username'] )->count() > 0;
+		if ( !$isAdmin ) {
+			return $response->withStatus( 403 );
+		}
+
+		// Delete.
+		Score::where( [ 'contest_id' => $contestId ] )->delete();
+
+		// Redirect to contest-view page.
+		return $response->withRedirect(
+			$this->router->urlFor( 'contests_view', [ 'id' => $contestId ] )
 		);
 	}
 }

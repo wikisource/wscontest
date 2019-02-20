@@ -19,6 +19,8 @@ $app->get( '/c/new', ContestsController::class . ':edit' )->setName( 'contests_c
 $app->post( '/c/save', ContestsController::class . ':save' )->setName( 'contests_save' );
 $app->get( '/c/{id:[0-9]+}', ContestsController::class . ':view' )->setName( 'contests_view' );
 $app->get( '/c/{id:[0-9]+}/edit', ContestsController::class . ':edit' )->setName( 'contests_edit' );
+$app->post( '/c/delete-scores', ContestsController::class . ':deleteScores' )
+	->setName( 'contests_delete_scores' );
 
 // Run the application.
 $app->run();
