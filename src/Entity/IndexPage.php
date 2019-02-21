@@ -3,6 +3,7 @@
 namespace Wikisource\WsContest\Entity;
 
 use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
 use Wikisource\Api\WikisourceApi;
 
@@ -19,7 +20,7 @@ class IndexPage extends Model {
 	protected $wsIndexPage;
 
 	public function scores() {
-		$this->hasMany( Score::class );
+		return $this->hasMany( Score::class );
 	}
 
 	public function contests() {
@@ -52,5 +53,21 @@ class IndexPage extends Model {
 	 */
 	public function getDomainName() {
 		return $this->getWikisourceIndexPage()->getWikisource()->getDomainName();
+	}
+
+	/**
+	 * An IndexPage needs to be scored if it
+	 *   a) has no scores; or
+	 *   b) is part of a Contest that is in progress.
+	 *
+	 * @param Builder $query
+	 * @return Builder
+	 */
+	public function scopeNeedsScoring( Builder $query ) {
+		return $query
+			->doesntHave( 'scores' )
+			->orWhereHas( 'contests', function ( Builder $query ) {
+				return $query->inProgress();
+			} );
 	}
 }

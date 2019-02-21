@@ -3,6 +3,7 @@
 namespace Wikisource\WsContest\Command;
 
 use Mediawiki\Api\FluentRequest;
+use Mediawiki\Api\MediawikiApi;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
@@ -35,7 +36,7 @@ class ScoreCommand extends Command {
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$wikisourceApi = new WikisourceApi();
-		$indexPages = IndexPage::all();
+		$indexPages = IndexPage::needsScoring()->get();
 		foreach ( $indexPages as $indexPage ) {
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage->url );
@@ -78,7 +79,7 @@ class ScoreCommand extends Command {
 	 * @param int $indexPageId
 	 */
 	protected function calculateScore(
-		Wikisource $wikisource, $indexPageTitle, Contest $contest, $indexPageId
+		Wikisource $wikisource, string $indexPageTitle, Contest $contest, int $indexPageId
 	) {
 		$wsIndexPage = new WikisourceIndexPage( $wikisource );
 
@@ -91,11 +92,13 @@ class ScoreCommand extends Command {
 
 	/**
 	 * @param Contest $contest
-	 * @param WikisourceApi $api
+	 * @param MediawikiApi $api
 	 * @param string $pageTitle
 	 * @param int $indexPageId
 	 */
-	protected function processPage( Contest $contest, $api, $pageTitle, $indexPageId ) {
+	protected function processPage(
+		Contest $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
+	) {
 		// @TODO fix for 50 revisions limit.
 		$response = $api->getRequest( FluentRequest::factory()
 			->setAction( 'query' )
