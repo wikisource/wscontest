@@ -85,7 +85,7 @@ class ScoreCommand extends Command {
 
 		$wsIndexPage->loadFromTitle( $indexPageTitle );
 		$api = $wikisource->getMediawikiApi();
-		foreach ( $wsIndexPage->getPageList() as $page ) {
+		foreach ( $wsIndexPage->getPageList( true ) as $page ) {
 			$this->processPage( $contest, $api, $page['title'], $indexPageId );
 		}
 	}
