@@ -41,5 +41,6 @@
   "revision": "Revision",
   "date": "Date",
   "scores": "Scores",
-  "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators."
+  "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators.",
+  "reset-scores": "Reset scores"
 }
