@@ -252,6 +252,12 @@ class ContestsController extends Controller {
 		$indexPageIds = [];
 		foreach ( $indexPageUrls as $indexPageUrlString ) {
 			$indexPageUrl = urldecode( $indexPageUrlString );
+			// Do we already know about it?
+			$existingIndexPage = IndexPage::firstOrNew( [ 'url' => $indexPageUrl ] );
+			if ( $existingIndexPage->id ) {
+				$indexPageIds[] = $existingIndexPage->id;
+				continue;
+			}
 			// Check validity.
 			$wikisourceApi = new WikisourceApi();
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPageUrl );

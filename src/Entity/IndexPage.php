@@ -65,6 +65,7 @@ class IndexPage extends Model {
 	 */
 	public function scopeNeedsScoring( Builder $query ) {
 		return $query
+			->has( 'contests' )
 			->doesntHave( 'scores' )
 			->orWhereHas( 'contests', function ( Builder $query ) {
 				return $query->inProgress();
