@@ -36,11 +36,13 @@
   "contributions": "Contributions",
   "validations": "Validations",
   "index-page": "Index page",
+  "index-pages": "Index pages",
   "user-results": "User results",
   "contest": "Contest:",
   "revision": "Revision",
   "date": "Date",
   "scores": "Scores",
   "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators.",
-  "reset-scores": "Reset scores"
+  "reset-scores": "Reset scores",
+  "wikitext-scores": "Get wikitext table of scores"
 }

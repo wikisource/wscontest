@@ -108,11 +108,17 @@ class ContestsController extends Controller {
 		$inProgress = Contest::where( 'id', $id )->inProgress()->count() > 0;
 		$canEdit = isset( $_SESSION['username'] )
 			&& Contest::where( 'id', $id )->hasAdmin( $_SESSION['username'] )->count() > 0;
-		return $this->renderView( $response, 'contests_view.html.twig', [
+		$viewFormat = $request->getAttribute( 'format', 'html' );
+		if ( $viewFormat === 'wikitext' ) {
+			$response = $response->withHeader( 'Content-Type', 'text/plain' );
+		}
+		$uri = $request->getUri();
+		return $this->renderView( $response, "contests_view.$viewFormat.twig", [
 			'contest' => $contest,
 			'scores' => $scores,
 			'can_edit' => $canEdit,
 			'can_view_scores' => $canEdit || !$inProgress,
+			'base_url' => $uri->getScheme() . '://' . $uri->getHost(),
 		] );
 	}
 

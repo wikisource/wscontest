@@ -27,10 +27,11 @@
 </dl>
 
 <p>
+    <a href="{{ path_for('contests_view', {id: contest.id, format: 'wikitext'}) }}" class="btn btn-default">{{ msg('wikitext-scores') }}</a>
     <a class="btn btn-default {% if not can_edit %}disabled{% endif %}" href="{{ path_for('contests_edit', {id: contest.id}) }}">Edit</a>
 </p>
 
-<h3 id="index_pages">Index pages</h3>
+<h3 id="index_pages">{{ msg('index-pages') }}</h3>
 <ol>
     {% for ip in contest.indexPages %}
         <li><a href="{{ ip.url }}">{{ ip.url }}</a></li>
