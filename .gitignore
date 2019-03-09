@@ -1,5 +1,6 @@
 /.idea/
 /vendor/
+/node_modules/
 /var/
 /config.php
 /tests/config.php
