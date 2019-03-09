@@ -3,7 +3,7 @@
 {% block main %}
 
 <ol class="breadcrumb">
-    <li><a href="{{ path_for('contests_view', {id: contest.id}) }}">{{ msg('contest') }} <em>{{ contest.name }}</em></a></li>
+    <li><a href="{{ path_for('contests_view', {id: contest.id}) }}">{{ msg('contest', [contest.name]) }}</a></li>
     <li class="active">{{ msg('user-results') }}</li>
 </ol>
 
