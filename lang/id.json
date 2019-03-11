@@ -1,0 +1,61 @@
+{
+  "@metadata": {
+    "authors": [
+      "Rachmat04"
+    ]
+  },
+
+  "app-title": "Kontes Wikisource",
+  "homepage": "Beranda",
+  "contests": "Kontes",
+  "login": "Masuk log",
+  "logged-in-as": "Anda masuk log sebagai $1",
+  "logout": "Keluar log",
+
+  "stats-summary": "$1 orang berpartisipasi dalam $2 kontes.",
+
+  "create-contest": "Buat kontes",
+  "edit-contest": "Ubah pengaturan kontes",
+  "name-label": "Nama:",
+  "dates": "Tanggal:",
+  "end-date-label": "Tangga dan waktu berakhir:",
+  "start-date-label": "Tanggal dan waktu mulai:",
+  "times-are-utc": "Waktu dalam zona waktu UTC.",
+  "excluded-users": "Tidak termasuk pengguna:",
+  "administrators": "Administrator:",
+  "one-username-per-line": "Satu nama pengguna per baris.",
+  "start-date-col-header": "Tanggal mulai",
+  "end-date-col-header": "Tanggal berakhir",
+  "contest-col-header": "Kontes",
+  "administrators-col-header": "Administrator",
+  "save": "Simpan",
+  "cancel": "Batalkan",
+
+  "error-loading-wikisource": "Tidak dapat memuat data Wikisource dari '$1'",
+  "error-loading-indexpage": "Tidak dapat memuat halaman Indeks dari '$1'",
+
+  "not-logged-in": "Anda belum masuk log dan tidak dapat membuat kontes baru.",
+  "no-contests": "Anda bukan administrator dari kontes yang ada.",
+
+  "contest": "Kontes: $1",
+  "details": "Detail",
+  "unable-to-save": "Tidak dapat menyimpan: $1",
+  "user": "Pengguna",
+  "points": "Poin",
+  "contributions": "Kontribusi",
+  "validations": "Validasi",
+  "index-page": "Halaman Indeks",
+  "index-pages": "Halaman-halaman Indeks",
+  "user-results": "Hasil pengguna",
+  "revision": "Revisi",
+  "date": "Tanggal",
+  "scores": "Skor",
+  "contest-in-progress": "Kontes ini sedang berlangsung, dan skor hanya dapat dilihat oleh administrator kontes.",
+  "reset-scores": "Atur ulang skor`",
+  "wikitext-scores": "Dapatkan tabel skor dalam teks wiki",
+
+  "this-is-wscontest": "Ini adalah perkakas Kontes Wikisource",
+  "gpl-link": "GPL 3.0+",
+  "source-code": "Kode sumber",
+  "issue-tracker": "Pelacak galat"
+}
