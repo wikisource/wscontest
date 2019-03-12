@@ -12,7 +12,7 @@
   "logged-in-as": "You are logged in as $1",
   "logout": "Log out",
 
-  "stats-summary": "$1 people have taken part in $2 contests.",
+  "stats-summary": "$1 {{PLURAL:$1|person|people}} have taken part in $2 {{PLURAL:$2|contest|contests}}.",
 
   "create-contest": "Create contest",
   "edit-contest": "Edit contest configuration",
@@ -52,7 +52,7 @@
   "scores": "Scores",
   "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators.",
   "reset-scores": "Reset scores",
-  "wikitext-scores": "Get wikitext table of scores",
+  "wikitext-scores": "Get Wikitext table of scores",
 
   "this-is-wscontest": "This is the Wikisource Contest tool",
   "gpl-link": "GPL 3.0+",
