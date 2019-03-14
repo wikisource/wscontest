@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"homepage": "Hjem",
+	"logout": "Log af",
+	"name-label": "Navn:",
+	"dates": "Dato:",
+	"administrators": "Administratorer:",
+	"administrators-col-header": "Administratorer",
+	"save": "Gem",
+	"details": "Detaljer",
+	"user": "Bruger",
+	"contributions": "Bidrag",
+	"date": "Dato",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Kildekode"
+}

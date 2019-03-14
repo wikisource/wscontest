@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirzali"
+		]
+	},
+	"homepage": "Keye",
+	"contests": "Mısabeqeyi",
+	"login": "Cı kewe",
+	"logout": "Bıveciye",
+	"name-label": "Name:",
+	"dates": "Tarix:",
+	"administrators": "İdarekari",
+	"start-date-col-header": "Tarixê destpêkerdışi",
+	"end-date-col-header": "Tarixê qediyayışi",
+	"contest-col-header": "Mısabeqa",
+	"administrators-col-header": "İdarekari",
+	"save": "Qeyd ke",
+	"cancel": "Bıtexelne",
+	"contest": "Mısabeqa: $1",
+	"details": "Teferuati",
+	"user": "Karber",
+	"points": "Nuqteyi",
+	"contributions": "İştıraki",
+	"index-pages": "Pelê rêzıni",
+	"revision": "Revizyon",
+	"date": "Tarix",
+	"source-code": "Kodê çımeyi"
+}

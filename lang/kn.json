@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gopala Krishna A"
+		]
+	},
+	"homepage": "ಮುಖ್ಯಪುಟ",
+	"name-label": "ಹೆಸರು:",
+	"dates": "ದಿನಾಂಕ:",
+	"contest-col-header": "ವಿಷಯ",
+	"error-loading-wikisource": "ವಿಕಿಸೋರ್ಸ್ ವಿಷಯವನ್ನು '$1' ರಿಂದ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ",
+	"not-logged-in": "ನೀವು ಲಾಗಿನ್ ಆಗಿಲ್ಲ. ಹೀಗಾಗಿ ನಿಮಗೆ ಯಾವುದೇ ವಿಷಯಗಳನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+	"no-contests": "ನೀವು ಯಾವುದೇ ಸ್ಪರ್ಧೆಯ ನಿರ್ವಾಹಕರು ಅಲ್ಲ.",
+	"validations": "ಪರಿಶೀಲನೆ",
+	"date": "ದಿನಾಂಕ",
+	"reset-scores": "ಮೂಲವನ್ನು ಮರುಹೊಂದಿಸಿ",
+	"source-code": "ಮೂಲ ಕೋಡ್",
+	"issue-tracker": "ತೊಂದರೆಯನ್ನು ಹೊಂದಿಸುವುದು"
+}

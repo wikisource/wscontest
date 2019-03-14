@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Shirayuki"
+		]
+	},
+	"homepage": "ホーム",
+	"contests": "コンテスト",
+	"login": "ログイン",
+	"logged-in-as": "$1 としてログインしています",
+	"logout": "ログアウト",
+	"create-contest": "コンテストを作成",
+	"name-label": "名前:",
+	"end-date-label": "終了日時:",
+	"start-date-label": "開始日時:",
+	"administrators": "管理者:",
+	"contest-col-header": "コンテスト",
+	"administrators-col-header": "管理者",
+	"save": "保存",
+	"cancel": "キャンセル",
+	"contest": "コンテスト: $1",
+	"details": "詳細",
+	"unable-to-save": "保存できません: $1",
+	"user": "利用者",
+	"source-code": "ソース コード"
+}
