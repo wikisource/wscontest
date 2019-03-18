@@ -98,11 +98,9 @@ class ContestsController extends Controller {
 			)
 			->join( 'users', 'users.id', '=', 'user_id' )
 			->groupBy( 'user_id' )
-			->orderBy(
-				Manager::raw( 'SUM(points)' ),
-				Manager::raw( 'SUM(contributions)' ),
-				Manager::raw( 'SUM(validations)' )
-			)
+			->orderBy( Manager::raw( 'SUM(points)' ) )
+			->orderBy( Manager::raw( 'SUM(contributions)' ) )
+			->orderBy( Manager::raw( 'SUM(validations)' ) )
 			->whereNotIn( 'users.id', $contest->excludedUsers()->pluck( 'user_id' )->toArray() )
 			->get();
 		$inProgress = Contest::where( 'id', $id )->inProgress()->count() > 0;
