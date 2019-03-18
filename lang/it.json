@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"CristianCantoro"
+			"CristianCantoro",
+			"Beta16"
 		]
 	},
 	"app-title": "Contest di rilettura su Wikisource",
@@ -10,7 +11,7 @@
 	"login": "Log in",
 	"logged-in-as": "Sei loggato come $1",
 	"logout": "Log out",
-	"stats-summary": "$1 persone hanno partecipato a $2 contest.",
+	"stats-summary": "$1 {{PLURAL:$1|persona|persone}} hanno partecipato a $2 {{PLURAL:$2|concorso|concorsi}}.",
 	"create-contest": "Crea contest",
 	"edit-contest": "Modifica la configurazione del contest",
 	"name-label": "Nome:",

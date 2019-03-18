@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Samwilson"
+			"Samwilson",
+			"Robby"
 		]
 	},
 	"app-title": "Title of the tool.",
@@ -13,8 +14,8 @@
 	"stats-summary": "Summary sentence about the stats for the whole tool. $1 is the number of people; $2 is the number of contests.",
 	"create-contest": "Header text displayed above the contest-creation form.",
 	"edit-contest": "Header text displayed above the contest-editing form.",
-	"name-label": "Form label for the 'name' field.",
-	"dates": "Form label for the two dates fields.",
+	"name-label": "Form label for the 'name' field.\n{{Identical|Name}}",
+	"dates": "Form label for the two dates fields.\n{{Identical|Date}}",
 	"end-date-label": "Form label for the 'end date and time' field.",
 	"start-date-label": "Form label for the 'start date and time' field.",
 	"times-are-utc": "Help text for all time fields.",
@@ -24,9 +25,9 @@
 	"start-date-col-header": "Table column header for the 'start date' column.",
 	"end-date-col-header": "Table column header for the 'end date' column.",
 	"contest-col-header": "Table column header for the 'contest' column.",
-	"administrators-col-header": "Table column header for the 'administrators' column.",
+	"administrators-col-header": "Table column header for the 'administrators' column.\n{{Identical|Administrator}}",
 	"save": "Text of the 'save' button on the contest creating/editing form..",
-	"cancel": "Text of the 'cancel' button on the contest creating/editing form.",
+	"cancel": "Text of the 'cancel' button on the contest creating/editing form.\n{{Identical|Cancel}}",
 	"error-loading-wikisource": "Error message shown when a Wikisource could not be loaded. $1 is the URL that was attempted.",
 	"error-loading-indexpage": "Error message shown when an Index Page could not be loaded. $1 is the URL that was attempted.",
 	"not-logged-in": "Message shown on the contest-list page when a user is not logged in.",
@@ -42,7 +43,7 @@
 	"index-pages": "Section header for the list of index pages.",
 	"user-results": "Breadcrumb text for the user results page.",
 	"revision": "Table header of the user details' table.",
-	"date": "Table header of the user details' table.",
+	"date": "Table header of the user details' table.\n{{Identical|Date}}",
 	"scores": "Header text for the scores section.",
 	"contest-in-progress": "Message displayed to non-administrators when the contest is progress",
 	"reset-scores": "Button text to delete all scores (to force recalculation).",

@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Michaelbrabec"
+		]
+	},
+	"homepage": "Domů",
+	"login": "Přihlásit se",
+	"logged-in-as": "Jste {{GENDER:|přihlášen|přihlášena|přihlášeni}} jako $1.",
+	"logout": "Odhlásit se",
+	"create-contest": "Vytvořit soutěž",
+	"edit-contest": "Upravit nastavení soutěže",
+	"name-label": "Jméno:",
+	"dates": "Datum:",
+	"one-username-per-line": "Jedno jméno na řádek.",
+	"contest-col-header": "Soutěž",
+	"administrators-col-header": "Správci",
+	"save": "Uložit",
+	"cancel": "Storno",
+	"contest": "Soutěž: $1",
+	"user": "Uživatel",
+	"contributions": "Příspěvky",
+	"validations": "Ověření",
+	"revision": "Revize",
+	"date": "Datum",
+	"scores": "Skóre",
+	"reset-scores": "Resetovat skóre",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Zdrojový kód"
+}

@@ -10,7 +10,7 @@
 	"login": "Anmelden",
 	"logged-in-as": "Du bist angemeldet als $1",
 	"logout": "Abmelden",
-	"stats-summary": "$1 Personen haben in $2 Wettbewerben teilgenommen.",
+	"stats-summary": "{{PLURAL:$1|Eine Person hat|$1 Personen haben}} in {{PLURAL:$2|einem Wettbewerb|$2 Wettbewerben}} teilgenommen.",
 	"create-contest": "Wettbewerb erstellen",
 	"edit-contest": "Konfiguration des Wettbewerbs bearbeiten",
 	"name-label": "Name:",

@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saraiki"
+		]
+	},
+	"homepage": "گھر",
+	"login": "لاگ ان تھیوو",
+	"logout": "لاگ آؤٹ",
+	"name-label": "ناں:",
+	"dates": "تریخ:",
+	"start-date-col-header": "شروع کرݨ دی تریخ",
+	"end-date-col-header": "ختم کرݨ دی تریخ",
+	"administrators-col-header": "منتظمین",
+	"cancel": "منسوخ",
+	"user": "ورتݨ آلا",
+	"date": "تریخ",
+	"scores": "سکور"
+}

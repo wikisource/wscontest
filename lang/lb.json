@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"contests": "Concoursen",
+	"logout": "Ausloggen",
+	"name-label": "Numm:",
+	"dates": "Datum:",
+	"one-username-per-line": "Ee Benotzernumm pro Linn.",
+	"start-date-col-header": "Ufanksdatum",
+	"administrators-col-header": "Administrateuren",
+	"cancel": "Ofbriechen",
+	"contest": "Concours: $1",
+	"user": "Benotzer",
+	"contributions": "Kontributiounen",
+	"date": "Datum",
+	"scores": "Punkten",
+	"gpl-link": "GPL 3.0+"
+}

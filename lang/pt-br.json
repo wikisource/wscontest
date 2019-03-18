@@ -10,7 +10,7 @@
 	"login": "Entrar",
 	"logged-in-as": "Você entrou como $1",
 	"logout": "Sair",
-	"stats-summary": "$1 pessoas participaram em concursos de $2.",
+	"stats-summary": "$1 {{PLURAL:$1|pessoa|pessoas}} participaram de {{PLURAL:$2|concurso|concursos}} $2.",
 	"create-contest": "Criar concurso",
 	"edit-contest": "Editar configuração do concurso",
 	"name-label": "Nome:",

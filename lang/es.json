@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Marcelo9987"
+		]
+	},
+	"app-title": "Concursos de Wikisource",
+	"homepage": "Inicio",
+	"contests": "Concursos",
+	"login": "Acceder",
+	"logged-in-as": "Has accedido como $1",
+	"logout": "Salir",
+	"create-contest": "Crear concurso",
+	"edit-contest": "Editar configuración de concurso",
+	"name-label": "Nombre:",
+	"dates": "Fecha:",
+	"times-are-utc": "Los horarios corresponden a UTC.",
+	"excluded-users": "Usuarios excluidos:",
+	"administrators": "Administradores:",
+	"one-username-per-line": "Un nombre de usuario por renglón.",
+	"contest-col-header": "Concurso",
+	"administrators-col-header": "Administradores",
+	"save": "Guardar",
+	"cancel": "Cancelar",
+	"error-loading-wikisource": "No se puede cargar la información de Wikisource de «$1»",
+	"not-logged-in": "No has accedido a tu cuenta y no puedes crear concursos nuevos.",
+	"no-contests": "No administras ningún concurso.",
+	"contest": "Concurso: $1",
+	"details": "Detalles",
+	"unable-to-save": "Incapaz de guardar: $1",
+	"user": "Usuario",
+	"points": "Puntos",
+	"contributions": "Contribuciones",
+	"validations": "Validaciones",
+	"index-page": "Indexar página",
+	"user-results": "Resultados de usuario",
+	"revision": "Revisión",
+	"date": "Fecha",
+	"scores": "Puntuaciones",
+	"source-code": "Código fuente"
+}
