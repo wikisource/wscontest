@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Omotecho"
 		]
 	},
 	"homepage": "ホーム",
@@ -11,16 +12,22 @@
 	"logout": "ログアウト",
 	"create-contest": "コンテストを作成",
 	"name-label": "名前:",
+	"dates": "日付:",
 	"end-date-label": "終了日時:",
 	"start-date-label": "開始日時:",
 	"administrators": "管理者:",
+	"start-date-col-header": "開始日",
+	"end-date-col-header": "終了日",
 	"contest-col-header": "コンテスト",
 	"administrators-col-header": "管理者",
 	"save": "保存",
 	"cancel": "キャンセル",
+	"error-loading-indexpage": "'$1'から索引ページの読み込みに失敗しました",
 	"contest": "コンテスト: $1",
 	"details": "詳細",
 	"unable-to-save": "保存できません: $1",
 	"user": "利用者",
+	"index-page": "索引ページ",
+	"date": "日付",
 	"source-code": "ソース コード"
 }

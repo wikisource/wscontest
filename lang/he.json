@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"YaronSh"
+		]
+	},
+	"app-title": "תחרויות ויקיטקסט",
+	"homepage": "בית",
+	"contests": "תחרויות",
+	"login": "כניסה",
+	"logged-in-as": "נכנסת בשם $1",
+	"logout": "יציאה",
+	"stats-summary": "ב{{PLURAL:$2|תחרות|־$2 תחרויות}} השתת{{PLURAL:$1|ף משתתף אחד|פו $1 משתתפים}}.",
+	"create-contest": "יצירת תחרות",
+	"edit-contest": "עריכת הגדרות תחרות",
+	"name-label": "שם:",
+	"dates": "תאריך:",
+	"end-date-label": "מועד סיום:",
+	"start-date-label": "מועד התחלה:",
+	"times-are-utc": "הזמנים הם בזמן אוניברסלי מתואם.",
+	"excluded-users": "משתמשים שלא נכללו:",
+	"administrators": "מנהלים:",
+	"one-username-per-line": "שם משתמש אחד בכל שורה.",
+	"start-date-col-header": "מועד התחלה",
+	"end-date-col-header": "מועד סיום",
+	"contest-col-header": "תחרות",
+	"administrators-col-header": "מנהלים",
+	"save": "שמירה",
+	"cancel": "ביטול",
+	"error-loading-wikisource": "לא ניתן לטעון פרטי ויקיטקסט מ־‚$1’"
+}

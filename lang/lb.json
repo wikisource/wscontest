@@ -5,17 +5,27 @@
 		]
 	},
 	"contests": "Concoursen",
+	"login": "Aloggen",
 	"logout": "Ausloggen",
 	"name-label": "Numm:",
 	"dates": "Datum:",
+	"administrators": "Administrateuren:",
 	"one-username-per-line": "Ee Benotzernumm pro Linn.",
 	"start-date-col-header": "Ufanksdatum",
+	"end-date-col-header": "Schlussdatum",
+	"contest-col-header": "Concours",
 	"administrators-col-header": "Administrateuren",
+	"save": "Späicheren",
 	"cancel": "Ofbriechen",
 	"contest": "Concours: $1",
+	"details": "Detailer",
 	"user": "Benotzer",
+	"points": "Punkten",
 	"contributions": "Kontributiounen",
+	"validations": "Validatiounen",
+	"revision": "Versioun",
 	"date": "Datum",
 	"scores": "Punkten",
-	"gpl-link": "GPL 3.0+"
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Quellcode"
 }

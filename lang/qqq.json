@@ -26,7 +26,7 @@
 	"end-date-col-header": "Table column header for the 'end date' column.",
 	"contest-col-header": "Table column header for the 'contest' column.",
 	"administrators-col-header": "Table column header for the 'administrators' column.\n{{Identical|Administrator}}",
-	"save": "Text of the 'save' button on the contest creating/editing form..",
+	"save": "Text of the 'save' button on the contest creating/editing form..\n{{Identical|Save}}",
 	"cancel": "Text of the 'cancel' button on the contest creating/editing form.\n{{Identical|Cancel}}",
 	"error-loading-wikisource": "Error message shown when a Wikisource could not be loaded. $1 is the URL that was attempted.",
 	"error-loading-indexpage": "Error message shown when an Index Page could not be loaded. $1 is the URL that was attempted.",

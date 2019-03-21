@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"homepage": "Hem",
+	"contests": "Tävling",
+	"login": "Logga in",
+	"logged-in-as": "Du är inloggad som $1",
+	"logout": "Logga ut",
+	"create-contest": "Skapa tävling",
+	"edit-contest": "Redigera tävlingskonfiguration",
+	"name-label": "Namn:",
+	"dates": "Datum:",
+	"end-date-label": "Slutdatum och -tid:",
+	"start-date-label": "Startdatum och -tid:",
+	"administrators": "Administratörer:",
+	"one-username-per-line": "Ett användarnamn per rad.",
+	"start-date-col-header": "Startdatum",
+	"end-date-col-header": "Slutdatum",
+	"contest-col-header": "Tävling",
+	"administrators-col-header": "Administratörer",
+	"save": "Spara",
+	"cancel": "Avbryt",
+	"contest": "Tävling: $1",
+	"details": "Detaljer",
+	"user": "Användare",
+	"contributions": "Bidrag",
+	"index-pages": "Indexsidor",
+	"user-results": "Användarresultat",
+	"revision": "Sidversion",
+	"date": "Datum",
+	"scores": "Poäng",
+	"reset-scores": "Återställ poäng",
+	"this-is-wscontest": "Detta är Wikisources tävlingsverktyg",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Källkod",
+	"issue-tracker": "Ärendehanterare"
+}
