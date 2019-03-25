@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bodhisattwa Mandal"
+			"Bodhisattwa Mandal",
+			"আফতাবুজ্জামান"
 		]
 	},
 	"app-title": "উইকিসংকলন প্রতিযোগিতা",
@@ -10,7 +11,7 @@
 	"login": "প্রবেশ করুন",
 	"logged-in-as": "আপনি $1 হিসেবে প্রবেশ করেছেন",
 	"logout": "প্রস্থান করুন",
-	"stats-summary": "$1 জন $2 প্রতিযোগিতায় অংশগ্রহণ করেছেন।",
+	"stats-summary": "$1 জন {{PLURAL:$1|ব্যক্তি}} $2টি {{PLURAL:$2|প্রতিযোগিতায়}} অংশগ্রহণ করেছেন।",
 	"create-contest": "প্রতিযোগিতা তৈরি করুন",
 	"edit-contest": "প্রতিযোগিতার সেটিং সম্পাদনা করুন",
 	"name-label": "নাম:",
@@ -19,11 +20,12 @@
 	"start-date-label": "শুরুর তারিখ ও সময়:",
 	"times-are-utc": "ইউটিসি সময়াঞ্চলে সময় রয়েছে।",
 	"excluded-users": "অন্তর্ভুক্ত নন এমন ব্যবহারকারী:",
-	"administrators": "সংগঠক",
-	"one-username-per-line": "প্রতি লাইনে একটি করে ব্যবহারকারী নাম",
+	"administrators": "প্রশাসক:",
+	"one-username-per-line": "প্রতি লাইনে একটি করে ব্যবহারকারী নাম।",
 	"start-date-col-header": "শুরুর তারিখ",
 	"end-date-col-header": "শেষের তারিখ",
 	"contest-col-header": "প্রতিযোগিতা",
+	"administrators-col-header": "প্রশাসকগণ",
 	"save": "সংরক্ষণ করুন",
 	"cancel": "বাতিল করুন",
 	"error-loading-wikisource": "'$1' থেকে উইকিসংকলন লোড করা যাচ্ছে না",
