@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"ArslanX"
+		]
+	},
+	"homepage": "Баш",
+	"login": "Гирмек",
+	"logout": "Чыкъмакъ",
+	"name-label": "Ат:",
+	"dates": "Тарх:",
+	"start-date-col-header": "Баш тархы",
+	"end-date-col-header": "Ахыр тархы",
+	"save": "Сакъламакъ",
+	"cancel": "Гери алмакъ",
+	"user": "Къоллавчу",
+	"user-results": "Къоллавчу натижалар",
+	"date": "Тарх"
+}

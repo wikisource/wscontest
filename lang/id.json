@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rachmat04"
+			"Rachmat04",
+			"Veracious"
 		]
 	},
 	"app-title": "Kontes Wikisource",
@@ -18,8 +19,8 @@
 	"end-date-label": "Tangga dan waktu berakhir:",
 	"start-date-label": "Tanggal dan waktu mulai:",
 	"times-are-utc": "Waktu dalam zona waktu UTC.",
-	"excluded-users": "Tidak termasuk pengguna:",
-	"administrators": "Administrator:",
+	"excluded-users": "Pengguna yang dikecualikan:",
+	"administrators": "Pengurus:",
 	"one-username-per-line": "Satu nama pengguna per baris.",
 	"start-date-col-header": "Tanggal mulai",
 	"end-date-col-header": "Tanggal berakhir",
@@ -30,7 +31,7 @@
 	"error-loading-wikisource": "Tidak dapat memuat data Wikisource dari '$1'",
 	"error-loading-indexpage": "Tidak dapat memuat halaman Indeks dari '$1'",
 	"not-logged-in": "Anda belum masuk log dan tidak dapat membuat kontes baru.",
-	"no-contests": "Anda bukan administrator dari kontes yang ada.",
+	"no-contests": "Anda bukan pengurus dari kontes yang ada.",
 	"contest": "Kontes: $1",
 	"details": "Detail",
 	"unable-to-save": "Tidak dapat menyimpan: $1",
