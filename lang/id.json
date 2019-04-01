@@ -25,7 +25,7 @@
 	"start-date-col-header": "Tanggal mulai",
 	"end-date-col-header": "Tanggal berakhir",
 	"contest-col-header": "Kontes",
-	"administrators-col-header": "Administrator",
+	"administrators-col-header": "Pengurus",
 	"save": "Simpan",
 	"cancel": "Batalkan",
 	"error-loading-wikisource": "Tidak dapat memuat data Wikisource dari '$1'",

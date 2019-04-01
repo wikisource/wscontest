@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"homepage": "ပင်မ",
+	"login": "အကောင့်ဝင်ရန်",
+	"logout": "ထွက်ရန်",
+	"name-label": "အမည်:",
+	"dates": "နေ့စွဲ:",
+	"administrators": "စီမံခန့်ခွဲသူများ",
+	"start-date-col-header": "စတင်သည့်ရက်စွဲ",
+	"end-date-col-header": "ကုန်ဆုံးသည့်ရက်စွဲ",
+	"contest-col-header": "ပြိုင်ပွဲ",
+	"administrators-col-header": "စီမံခန့်ခွဲသူများ",
+	"save": "သိမ်းရန်",
+	"cancel": "မလုပ်တော့ပါ",
+	"contest": "ပြိုင်ပွဲ: $1",
+	"details": "အသေးစိတ်များ",
+	"date": "နေ့စွဲ",
+	"scores": "ရမှတ်များ"
+}

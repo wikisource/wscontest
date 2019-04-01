@@ -4,6 +4,7 @@
 			"Robby"
 		]
 	},
+	"app-title": "Wikisource-Concoursen",
 	"homepage": "Haaptsäit",
 	"contests": "Concoursen",
 	"login": "Aloggen",
@@ -18,8 +19,10 @@
 	"administrators-col-header": "Administrateuren",
 	"save": "Späicheren",
 	"cancel": "Ofbriechen",
+	"not-logged-in": "Dir sidd net ageloggt a kënnt dofir keng Concoursen uleeën.",
 	"contest": "Concours: $1",
 	"details": "Detailer",
+	"unable-to-save": "Konnt net gespäichert ginn: $1",
 	"user": "Benotzer",
 	"points": "Punkten",
 	"contributions": "Kontributiounen",
