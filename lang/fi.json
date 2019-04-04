@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"app-title": "Wikiaineisto-kilpailut",
+	"homepage": "Etusivu",
+	"contests": "Kilpailut",
+	"login": "Kirjaudu sisään",
+	"logged-in-as": "Olet kirjautunut sisään nimellä $1",
+	"logout": "Kirjaudu ulos",
+	"stats-summary": "$1 {{PLURAL:$1|henkilö|henkilöä}} on osallistunut $2 {{PLURAL:$2|kilpailuun|kilpailuun}}.",
+	"create-contest": "Luo kilpailu",
+	"name-label": "Nimi:",
+	"dates": "Päiväys:",
+	"end-date-label": "Päättymispäivä ja aika:",
+	"start-date-label": "Alkamispäivä ja aika:",
+	"times-are-utc": "Ajat ovat UTC-aikavyöhykkeellä.",
+	"administrators": "Ylläpitäjät:",
+	"one-username-per-line": "Yksi käyttäjänimi per rivi.",
+	"start-date-col-header": "Alkamispäivä",
+	"end-date-col-header": "Päättymispäivä",
+	"contest-col-header": "Kilpailu",
+	"administrators-col-header": "Ylläpitäjät",
+	"save": "Tallenna",
+	"cancel": "Peruuta",
+	"details": "Tiedot",
+	"user": "Käyttäjä",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Lähdekoodi",
+	"issue-tracker": "Ongelmanseuranta"
+}
