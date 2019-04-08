@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Red Winged Duck"
+		]
+	},
+	"app-title": "Конкурсы Вікікрыніцаў",
+	"homepage": "Галоўная",
+	"contests": "Конкурсы",
+	"login": "Увайсьці",
+	"logged-in-as": "Вы ўвайшлі як $1",
+	"logout": "Выйсьці",
+	"stats-summary": "$1 {{PLURAL:$1|асоба ўзяла|асобы ўзялі|асобаў узялі}} ўдзел у $2 {{PLURAL:$2|конкурсе|конкурсах}}.",
+	"create-contest": "Стварэньне конкурсу",
+	"edit-contest": "Рэдагаваць канфігурацыю конкурсу",
+	"name-label": "Назва:",
+	"dates": "Дата:",
+	"end-date-label": "Дата і час заканчэньня:",
+	"start-date-label": "Дата і час пачатку:",
+	"times-are-utc": "Час паводле UTC.",
+	"excluded-users": "Выключаныя ўдзельнікі:"
+}

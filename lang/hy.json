@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac"
+		]
+	},
+	"homepage": "Գլխավոր էջ",
+	"contests": "Բովանդակություն",
+	"login": "Մուտք գործել",
+	"logged-in-as": "Դուք մտել եք որպես $1:",
+	"logout": "Դուրս գալ",
+	"name-label": "Անուն",
+	"dates": "Ամսաթիվ",
+	"administrators": "Ադմիններ",
+	"start-date-col-header": "Սկսբնական ամսաթիվը",
+	"end-date-col-header": "Ավարտելու ամսաթիվ",
+	"contest-col-header": "Բովանդակություն",
+	"administrators-col-header": "Ադմիններ",
+	"save": "Պահպանել",
+	"details": "Մանրամասներ",
+	"user": "Մասնակից",
+	"contributions": "Ներդրումներ"
+}

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geonuch"
+			"Geonuch",
+			"Horus"
 		]
 	},
 	"app-title": "การแข่งขันวิกิซอร์ซ",
@@ -16,10 +17,10 @@
 	"dates": "วันที่:",
 	"end-date-label": "วันและเวลาที่สิ้นสุด:",
 	"start-date-label": "วันและเวลาที่เริ่ม:",
-	"times-are-utc": "เวลาและเขตเวลายูทีซี",
-	"excluded-users": "ผู้ใช้ที่ได้รับการยกเว้น",
-	"administrators": "ผู้ดูแลระบบ",
-	"one-username-per-line": "ชื่อผู้ใช้หนึ่งรายการต่อบรรทัด",
+	"times-are-utc": "เวลาทั้งหมดเป็นเขตเวลายูทีซี",
+	"excluded-users": "ผู้ใช้ที่ได้รับการยกเว้น:",
+	"administrators": "ผู้ดูแลระบบ:",
+	"one-username-per-line": "ชื่อผู้ใช้หนึ่งชื่อต่อบรรทัด",
 	"start-date-col-header": "วันที่เริ่มต้น",
 	"end-date-col-header": "วันที่สิ้นสุด",
 	"contest-col-header": "การแข่งขัน",
@@ -32,7 +33,7 @@
 	"no-contests": "คุณไม่ได้เป็นผู้ดูแลระบบของการแข่งขันใด ๆ",
 	"contest": "การแข่งขัน: $1",
 	"details": "รายละเอียด",
-	"unable-to-save": "ไม่สามารถที่จะบันทึก: $1",
+	"unable-to-save": "ไม่สามารถบันทึก: $1",
 	"user": "ผู้ใช้",
 	"points": "แต้ม",
 	"contributions": "การเข้ามีส่วนร่วม",

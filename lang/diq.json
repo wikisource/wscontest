@@ -1,13 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mirzali"
+			"Mirzali",
+			"Orbot707"
 		]
 	},
+	"app-title": "Mısabeqeyên Wikiçımeyi",
 	"homepage": "Keye",
 	"contests": "Mısabeqeyi",
 	"login": "Cı kewe",
+	"logged-in-as": "Şıma be $1 ra kewtê cı",
 	"logout": "Bıveciye",
+	"stats-summary": "$2 {{PLURAL:$2|mısabeqa|mısabeqan}} de $1 {{PLURAL:$1|kesi|kesan}} iştırak kerd.",
+	"create-contest": "Mısabeqa vıraze",
 	"name-label": "Name:",
 	"dates": "Tarix:",
 	"administrators": "İdarekari",
@@ -22,9 +27,14 @@
 	"user": "Karber",
 	"points": "Nuqteyi",
 	"contributions": "İştıraki",
+	"validations": "Qebulkerdışi",
+	"index-page": "Pela zerreki",
 	"index-pages": "Pelê rêzıni",
 	"user-results": "Neticeyên karberi",
 	"revision": "Revizyon",
 	"date": "Tarix",
-	"source-code": "Kodê çımeyi"
+	"scores": "Puwani",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Kodê çımeyi",
+	"issue-tracker": "Vênayoğê meseleyi"
 }
