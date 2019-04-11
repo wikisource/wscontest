@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Rachmat04",
-			"Veracious"
+			"Veracious",
+			"Bagas Chrisara"
 		]
 	},
 	"app-title": "Kontes Wikisource",
@@ -11,7 +12,7 @@
 	"login": "Masuk log",
 	"logged-in-as": "Anda masuk log sebagai $1",
 	"logout": "Keluar log",
-	"stats-summary": "$1 orang berpartisipasi dalam $2 kontes.",
+	"stats-summary": "$1 {{PLURAL:$1|orang|orang}} telah mengambil bagian dalam $2 {{PLURAL:$2|kontes|kontes}}.",
 	"create-contest": "Buat kontes",
 	"edit-contest": "Ubah pengaturan kontes",
 	"name-label": "Nama:",

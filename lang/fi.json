@@ -25,6 +25,8 @@
 	"administrators-col-header": "Ylläpitäjät",
 	"save": "Tallenna",
 	"cancel": "Peruuta",
+	"not-logged-in": "Et ole kirjautunut sisään, etkä voi luoda uusia kilpailuja.",
+	"no-contests": "Et ole minkään kilpailun ylläpitäjä.",
 	"details": "Tiedot",
 	"unable-to-save": "Ei voi tallentaa: $1",
 	"user": "Käyttäjä",

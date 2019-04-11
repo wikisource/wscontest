@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amirsara",
+			"Meysamzare23"
+		]
+	},
+	"homepage": "صفحه اصلی",
+	"contests": "محتویات",
+	"login": "ورود",
+	"logged-in-as": "شما به عنوان  $1 وارد شدید.",
+	"logout": "خروج از سامانه",
+	"create-contest": "محتوایی ایجاد کنید",
+	"name-label": "نام",
+	"dates": "تاریخ:",
+	"administrators": "مدیران",
+	"one-username-per-line": "هر نام کاربری در یک خط.",
+	"start-date-col-header": "تاریخ شروع",
+	"end-date-col-header": "تاریخ پایان",
+	"administrators-col-header": "مدیران",
+	"save": "ذخیره",
+	"cancel": "لغو",
+	"not-logged-in": "شما وارد نشدید و امکان ایجاد پروژه جدید را ندارید.",
+	"no-contests": "شما مدیر هیچ پروژه ای نیستید.",
+	"contest": "پروژه:$1",
+	"details": "جزئیات",
+	"unable-to-save": "مشکل در ذخیره سازی : $1",
+	"user": "کاربر",
+	"points": "امتیازها",
+	"contributions": "مشارکت‌ها",
+	"index-page": "صفحه اصلی",
+	"index-pages": "صفحه‌های نمایه‌شده",
+	"scores": "امتیازها"
+}

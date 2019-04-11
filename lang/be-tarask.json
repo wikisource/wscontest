@@ -18,5 +18,6 @@
 	"end-date-label": "Дата і час заканчэньня:",
 	"start-date-label": "Дата і час пачатку:",
 	"times-are-utc": "Час паводле UTC.",
-	"excluded-users": "Выключаныя ўдзельнікі:"
+	"excluded-users": "Выключаныя ўдзельнікі:",
+	"administrators": "Адміністратары:"
 }
