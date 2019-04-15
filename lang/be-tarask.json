@@ -19,5 +19,8 @@
 	"start-date-label": "Дата і час пачатку:",
 	"times-are-utc": "Час паводле UTC.",
 	"excluded-users": "Выключаныя ўдзельнікі:",
-	"administrators": "Адміністратары:"
+	"administrators": "Адміністратары:",
+	"one-username-per-line": "Адно імя ўдзельніка на радок.",
+	"start-date-col-header": "Дата пачатку",
+	"end-date-col-header": "Дата заканчэньня"
 }
