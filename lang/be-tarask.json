@@ -22,5 +22,7 @@
 	"administrators": "Адміністратары:",
 	"one-username-per-line": "Адно імя ўдзельніка на радок.",
 	"start-date-col-header": "Дата пачатку",
-	"end-date-col-header": "Дата заканчэньня"
+	"end-date-col-header": "Дата заканчэньня",
+	"contest-col-header": "Конкурс",
+	"administrators-col-header": "Адміністратары"
 }
