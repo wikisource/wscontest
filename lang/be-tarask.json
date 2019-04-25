@@ -24,5 +24,8 @@
 	"start-date-col-header": "Дата пачатку",
 	"end-date-col-header": "Дата заканчэньня",
 	"contest-col-header": "Конкурс",
-	"administrators-col-header": "Адміністратары"
+	"administrators-col-header": "Адміністратары",
+	"save": "Захаваць",
+	"cancel": "Адмяніць",
+	"error-loading-wikisource": "Не атрымалася загрузіць зьвесткі Вікікрыніцаў з «$1»"
 }
