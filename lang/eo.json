@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Mirin"
+		]
+	},
+	"app-title": "Konkursoj de Vikifontaro",
+	"homepage": "Hejmo",
+	"contests": "Konkursoj",
+	"login": "Ensaluti",
+	"logout": "Elsaluti",
+	"create-contest": "Krei konkurson",
+	"name-label": "Nomo:",
+	"dates": "Dato:",
+	"administrators": "Administrantoj:",
+	"contest-col-header": "Konkurso",
+	"save": "Konservi",
+	"cancel": "Nuligi",
+	"contest": "Konkurso: $1",
+	"details": "Detaloj",
+	"user": "Uzanto",
+	"points": "Poentoj",
+	"date": "Dato",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Fontkodo"
+}
