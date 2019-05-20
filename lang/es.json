@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Marcelo9987"
+			"Marcelo9987",
+			"Ryo567"
 		]
 	},
 	"app-title": "Concursos de Wikisource",
@@ -16,10 +17,14 @@
 	"edit-contest": "Editar configuración de concurso",
 	"name-label": "Nombre:",
 	"dates": "Fecha:",
+	"end-date-label": "Fecha y hora de finalización:",
+	"start-date-label": "Fecha y hora de inicio:",
 	"times-are-utc": "Los horarios corresponden a UTC.",
 	"excluded-users": "Usuarios excluidos:",
 	"administrators": "Administradores:",
 	"one-username-per-line": "Un nombre de usuario por renglón.",
+	"start-date-col-header": "Fecha de inicio",
+	"end-date-col-header": "Fecha de finalziación",
 	"contest-col-header": "Concurso",
 	"administrators-col-header": "Administradores",
 	"save": "Guardar",
@@ -39,5 +44,7 @@
 	"revision": "Revisión",
 	"date": "Fecha",
 	"scores": "Puntuaciones",
+	"reset-scores": "Reiniciar puntuación",
+	"gpl-link": "GPL 3.0+",
 	"source-code": "Código fuente"
 }

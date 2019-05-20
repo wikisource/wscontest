@@ -36,5 +36,8 @@
 	"unable-to-save": "Немагчыма захаваць: $1",
 	"user": "Удзельнік",
 	"points": "Пункты",
-	"contributions": "Унёсак"
+	"contributions": "Унёсак",
+	"validations": "Праверкі",
+	"user-results": "Вынікі ўдзельнікаў",
+	"revision": "Вэрсія"
 }
