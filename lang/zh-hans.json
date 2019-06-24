@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"神樂坂秀吉"
+		]
+	},
+	"app-title": "维基文库内容",
+	"homepage": "首页",
+	"contests": "内容",
+	"login": "登录",
+	"logged-in-as": "您已作为$1登录。",
+	"logout": "退出",
+	"create-contest": "创建内容",
+	"administrators": "管理员：",
+	"contest-col-header": "内容",
+	"administrators-col-header": "管理员",
+	"save": "保存",
+	"cancel": "取消",
+	"details": "详情",
+	"unable-to-save": "保存失败：$1",
+	"user": "用户",
+	"contributions": "贡献"
+}
