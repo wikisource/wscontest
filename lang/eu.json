@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"An13sa"
+		]
+	},
+	"homepage": "Hasiera",
+	"contests": "Lehiaketak",
+	"login": "Saioa hasi",
+	"logout": "Saioa itxi",
+	"name-label": "Izena:",
+	"administrators": "Administratzaileak:",
+	"contest-col-header": "Lehiaketa",
+	"administrators-col-header": "Administratzaileak",
+	"save": "Gorde",
+	"cancel": "Utzi",
+	"details": "Xehetasunak",
+	"date": "Data",
+	"gpl-link": "GPL 3.0+"
+}
