@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"ToJack"
+		]
+	},
+	"app-title": "Мӯҳтавои Викитека",
+	"homepage": "Хона",
+	"contests": "Муҳтаво",
+	"login": "Вуруд",
+	"logged-in-as": "Шумо чун $1 ворид шудаед",
+	"logout": "Хуруҷ",
+	"stats-summary": "$1 {{PLURAL:$1|нафар}} дар $2 {{PLURAL:$2|мӯҳтаво}} иштирок мекунанд.",
+	"create-contest": "Сохтани муҳтаво",
+	"edit-contest": "Конфигуратсияи мӯҳтаворо ворид кунед",
+	"name-label": "Ном:",
+	"dates": "Сана:",
+	"end-date-label": "Замони охир:",
+	"start-date-label": "Вақти оғоз:",
+	"times-are-utc": "Соат ба вақти UTC мебошад.",
+	"excluded-users": "Корбарони истисноӣ:",
+	"administrators": "Администраторҳо:",
+	"one-username-per-line": "Дар як хат номи як корбар.",
+	"start-date-col-header": "Санаи оғоз",
+	"end-date-col-header": "Санаи тамом",
+	"contest-col-header": "Мӯҳтаво",
+	"administrators-col-header": "Администраторҳо",
+	"save": "Захира кардан",
+	"cancel": "Тамом кардан",
+	"contributions": "Саҳмгузориҳо",
+	"index-page": "Индекси саҳифа",
+	"index-pages": "Индекси саҳифаҳо",
+	"user-results": "Натоиҷи корбар",
+	"revision": "Нусха",
+	"date": "Сана",
+	"scores": "Имтиёз",
+	"source-code": "Рамзи манобеъ"
+}
