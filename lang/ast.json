@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"app-title": "Concursos de Wikisource",
+	"homepage": "Entamu",
+	"contests": "Concursos",
+	"login": "Aniciar sesión",
+	"logged-in-as": "Aniciasti sesión como $1.",
+	"logout": "Salir",
+	"stats-summary": "$1 {{PLURAL:$1|persona participó|persones participaron}} en $2 {{PLURAL:$2|concursu|concursos}}.",
+	"create-contest": "Crear concursu",
+	"edit-contest": "Editar la configuración de concursu",
+	"name-label": "Nome:",
+	"dates": "Data:",
+	"end-date-label": "Data y hora de final:",
+	"start-date-label": "Data y hora de principiu:",
+	"times-are-utc": "Los horarios tán na estaya horaria UTC.",
+	"excluded-users": "Usuarios escluyíos:",
+	"administrators": "Alministradores:",
+	"one-username-per-line": "Un nome d'usuariu por filera.",
+	"start-date-col-header": "Data d'aniciu",
+	"end-date-col-header": "Data final",
+	"contest-col-header": "Concursu",
+	"administrators-col-header": "Alministradores",
+	"save": "Guardar",
+	"cancel": "Encaboxar",
+	"error-loading-wikisource": "Nun pué cargase la información de Wikisource de '$1'",
+	"error-loading-indexpage": "Nun pué cargase la páxina d'índiz de '$1'",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Códigu fonte",
+	"issue-tracker": "Siguimientu de fallos"
+}
