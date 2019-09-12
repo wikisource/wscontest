@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"神樂坂秀吉",
-			"予弦"
+			"予弦",
+			"A Chinese Wikipedian"
 		]
 	},
 	"app-title": "维基文库内容",
@@ -12,7 +13,10 @@
 	"logged-in-as": "您已作为$1登录。",
 	"logout": "退出",
 	"create-contest": "创建内容",
+	"dates": "日期：",
 	"administrators": "管理员：",
+	"start-date-col-header": "起始日期",
+	"end-date-col-header": "截止日期",
 	"contest-col-header": "内容",
 	"administrators-col-header": "管理员",
 	"save": "保存",
@@ -20,5 +24,9 @@
 	"details": "详情",
 	"unable-to-save": "保存失败：$1",
 	"user": "用户",
-	"contributions": "贡献"
+	"points": "点",
+	"contributions": "贡献",
+	"revision": "修订版本",
+	"date": "日期",
+	"scores": "得分"
 }
