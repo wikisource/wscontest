@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kingu"
+			"Kingu",
+			"Jon Harald Søby"
 		]
 	},
 	"app-title": "Wikisource-konkurranser",
@@ -10,12 +11,14 @@
 	"login": "Logg inn",
 	"logged-in-as": "Du er innlogget som $1",
 	"logout": "Logg ut",
+	"stats-summary": "$1 {{PLURAL:$1|person|personer}} har deltatt i {{PLURAL:$2|én konkurranse|$2 konkurranser}}.",
 	"create-contest": "Opprett konkurranse",
 	"edit-contest": "Rediger konkurranseoppsett",
 	"name-label": "Navn:",
 	"dates": "Dato:",
 	"end-date-label": "Sluttdato og tid:",
 	"start-date-label": "Startdato og tid:",
+	"times-are-utc": "Tidspunkt er i UTC-tid.",
 	"excluded-users": "Ekskluderte brukere",
 	"administrators": "Administratorer:",
 	"one-username-per-line": "Ett brukernavn per linje.",
@@ -26,13 +29,20 @@
 	"save": "Lagre",
 	"cancel": "Avbryt",
 	"error-loading-wikisource": "Kunne ikke laste inn Wikisource-info fra \"$1\"",
+	"error-loading-indexpage": "Kunne ikke laste indekssiden fra «$1»",
 	"not-logged-in": "Du er ikke logget inn og kan ikke opprette nye konkurranser.",
+	"no-contests": "Du er ikke administrator i noen konkurranser.",
 	"contest": "Konkurranse: $1",
 	"details": "Detaljer",
+	"unable-to-save": "Kunne ikke lagre: $1",
 	"user": "Bruker",
 	"points": "Poeng",
 	"contributions": "Bidrag",
+	"validations": "Valideringer",
+	"index-page": "Indeksside",
+	"index-pages": "Indekssider",
 	"user-results": "Brukerresultater",
+	"revision": "Revisjon",
 	"date": "Dato",
 	"scores": "Poengsummer",
 	"contest-in-progress": "Konkurransen er underveis, og poengsummer kan kun ses av konkurranseadministratorene.",
