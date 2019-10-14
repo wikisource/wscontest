@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"Grkn gll"
 		]
 	},
 	"app-title": "VikiKaynak Yarışmaları",
@@ -35,7 +36,7 @@
 	"details": "Ayrıntılar",
 	"unable-to-save": "Kaydedilemiyor: $1",
 	"user": "Kullanıcı",
-	"points": "Puan",
+	"points": "Puanlar",
 	"contributions": "Katkılar",
 	"validations": "Doğrulama",
 	"index-page": "Dizin sayfası",
@@ -43,7 +44,7 @@
 	"user-results": "Kullanıcı sonuçları",
 	"revision": "Revizyon",
 	"date": "Tarih",
-	"scores": "Puan",
+	"scores": "Puanlar",
 	"contest-in-progress": "Bu yarışma halen devam etmektedir ve puanlar yalnızca yarışma yöneticileri tarafından görülebilir.",
 	"reset-scores": "Puanları sıfırla",
 	"wikitext-scores": "Wikitext puan tablosunu alın",
