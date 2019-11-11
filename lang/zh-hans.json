@@ -4,7 +4,8 @@
 			"神樂坂秀吉",
 			"予弦",
 			"A Chinese Wikipedian",
-			"A Retired User"
+			"A Retired User",
+			"沈澄心"
 		]
 	},
 	"app-title": "维基文库内容",
@@ -14,6 +15,7 @@
 	"logged-in-as": "您已作为$1登录。",
 	"logout": "退出",
 	"create-contest": "创建内容",
+	"name-label": "名称:",
 	"dates": "日期：",
 	"administrators": "管理员：",
 	"start-date-col-header": "起始日期",
@@ -29,5 +31,7 @@
 	"contributions": "贡献",
 	"revision": "修订版本",
 	"date": "日期",
-	"scores": "得分"
+	"scores": "得分",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "源代码"
 }
