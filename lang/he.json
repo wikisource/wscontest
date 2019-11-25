@@ -1,16 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"YaronSh"
+			"YaronSh",
+			"Amire80"
 		]
 	},
 	"app-title": "תחרויות ויקיטקסט",
 	"homepage": "בית",
 	"contests": "תחרויות",
 	"login": "כניסה",
-	"logged-in-as": "נכנסת בשם $1",
+	"logged-in-as": "נכנסת לחשבון $1",
 	"logout": "יציאה",
-	"stats-summary": "ב{{PLURAL:$2|תחרות|־$2 תחרויות}} השתת{{PLURAL:$1|ף משתתף אחד|פו $1 משתתפים}}.",
+	"stats-summary": "{{PLURAL:$1|אדם אחד השתתף|$1 אנשים השתתפו}} {{PLURAL:$2|בתחרות אחת|ב־$2 תחרויות}}",
 	"create-contest": "יצירת תחרות",
 	"edit-contest": "עריכת הגדרות תחרות",
 	"name-label": "שם:",
@@ -27,8 +28,8 @@
 	"administrators-col-header": "מנהלים",
 	"save": "שמירה",
 	"cancel": "ביטול",
-	"error-loading-wikisource": "לא ניתן לטעון פרטי ויקיטקסט מ־‚$1’",
-	"error-loading-indexpage": "לא ניתן לטעון עמוד אינדקס מתוך ‚$1’",
+	"error-loading-wikisource": "לא ניתן לטעון פרטי ויקיטקסט מהכתובת $1",
+	"error-loading-indexpage": "לא ניתן לטעון דף מפתח מתוך $1",
 	"not-logged-in": "לא נכנסת לחשבון ואין לך אפשרות ליצור תחרויות חדשות.",
 	"no-contests": "אין לך הרשאות ניהול בשום תחרות.",
 	"contest": "תחרות: $1",
@@ -38,17 +39,17 @@
 	"points": "נקודות",
 	"contributions": "תרומות",
 	"validations": "אימותים",
-	"index-page": "עמוד אינדקס",
-	"index-pages": "עמודי אינדקס",
+	"index-page": "דף מפתח",
+	"index-pages": "דפי מפתח",
 	"user-results": "תוצאות משתמשים",
-	"revision": "מהדורה",
+	"revision": "גרסה",
 	"date": "תאריך",
 	"scores": "ניקוד",
-	"contest-in-progress": "תחרות זו מתקיימת כרגע ורק מנהלים יכולים לצפות בניקוד שלה.",
+	"contest-in-progress": "תחרות זו נערכת כעת ורק מנהלים יכולים לצפות בניקוד שלה.",
 	"reset-scores": "איפוס ניקוד",
-	"wikitext-scores": "קבלת טבלת ויקיציטוט עם ניקוד",
+	"wikitext-scores": "קבלת טבלה בקוד ויקי עם ניקוד",
 	"this-is-wscontest": "זה הוא כלי תחרויות של ויקיטקסט",
 	"gpl-link": "GPL 3.0+‎",
 	"source-code": "קוד מקור",
-	"issue-tracker": "עוקב תקלות"
+	"issue-tracker": "כלי מעקב תקלות"
 }
