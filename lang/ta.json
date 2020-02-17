@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Balajijagadesh"
+		]
+	},
+	"app-title": "விக்கிமூலப் போட்டிகள்",
+	"homepage": "முகப்பு",
+	"contests": "போட்டிகள்",
+	"login": "புகுபதிகை",
+	"logged-in-as": "தாங்கள் $1ஆக புகுபதிகை செய்திருக்கிறீர்கள்.",
+	"logout": "விடுபதிகை",
+	"create-contest": "போட்டியை உருவாக்கு",
+	"edit-contest": "போட்டி அமைப்புகளைத் தொகுக்கவும்",
+	"name-label": "பெயர்:",
+	"dates": "தேதி:",
+	"administrators": "நிர்வாகிகள்:",
+	"start-date-col-header": "தொடக்கத் தேதி",
+	"end-date-col-header": "முடிவுத்தேதி",
+	"contest-col-header": "போட்டி",
+	"administrators-col-header": "நிர்வாகிகள்",
+	"save": "சேமி",
+	"cancel": "இரத்து செய்க",
+	"details": "விவரங்கள்",
+	"user": "பயனர்",
+	"points": "புள்ளிகள்",
+	"contributions": "பங்களிப்புகள்",
+	"validations": "சரிபார்ப்புகள்",
+	"index-page": "அட்டவணைப் பக்கம்",
+	"index-pages": "அட்டவணைப் பக்கங்கள்",
+	"date": "தேதி",
+	"scores": "புள்ளிகள்",
+	"source-code": "மூல நிரல்"
+}
