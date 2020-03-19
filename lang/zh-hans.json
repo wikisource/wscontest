@@ -36,6 +36,7 @@
 	"revision": "修订版本",
 	"date": "日期",
 	"scores": "得分",
+	"reset-scores": "重置得分",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "源代码"
 }
