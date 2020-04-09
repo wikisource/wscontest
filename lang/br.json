@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fulup",
 			"Gwenn-Ael"
 		]
 	},
@@ -10,7 +11,9 @@
 	"login": "Kevreañ",
 	"logged-in-as": "Kevreet oc'h evel $1",
 	"logout": "Digevreañ",
+	"stats-summary": "$1 den {{PLURAL:$1|en deus|o deus}} kemeret perzh e $2 {{PLURAL:$2|kenstrivadeg}}.",
 	"create-contest": "Krouiñ ur genstrivadeg",
+	"edit-contest": "Kemmañ kefluniadur ar genstrivadeg",
 	"name-label": "Anv :",
 	"dates": "Deiziad :",
 	"end-date-label": "Deiziad hag eur echuiñ:",
@@ -35,6 +38,7 @@
 	"user": "Implijer",
 	"points": "Poentoù",
 	"contributions": "Degasadennoù",
+	"validations": "Kadarnadennoù",
 	"index-page": "Pajenn venegeriñ",
 	"index-pages": "Pajennoù menegeriñ",
 	"user-results": "Disoc'hoù an implijer",
@@ -46,5 +50,6 @@
 	"wikitext-scores": "Kaout taolenn wikitestenn an notennoù",
 	"this-is-wscontest": "Hemañ eo benveg ar c'henstrivadegoù Wikisource",
 	"gpl-link": "GPL 3.0+",
-	"source-code": "Kod mammenn"
+	"source-code": "Kod mammenn",
+	"issue-tracker": "Heuliañ an drein"
 }
