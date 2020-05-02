@@ -116,9 +116,14 @@ class ScoreCommand extends Command {
 		$oldTimestamp = false;
 		$oldQuality = false;
 		$oldUser = false;
+		$pattern = '|<pagequality level="(\d)" user="(.+?)" />|';
 		foreach ( $pageInfo['revisions'] as $rev ) {
 			$content = $rev['*'];
-			preg_match( '|<pagequality level="(\d)" user="(.*?)" />|', $content, $qualityMatches );
+			$matched = preg_match( $pattern, $content, $qualityMatches );
+			if ( $matched !== 1 ) {
+				// Some revisions don't have a pagequality user.
+				continue;
+			}
 			$quality = (int)$qualityMatches[1];
 			$userId = User::firstOrCreate( [ 'name' => $qualityMatches[2] ] )->id;
 			$timestamp = strtotime( $rev['timestamp'] );
