@@ -125,7 +125,7 @@ class ScoreCommand extends Command {
 				continue;
 			}
 			$quality = (int)$qualityMatches[1];
-			$userId = User::firstOrCreate( [ 'name' => $qualityMatches[2] ] )->id;
+			$userId = User::getIdFromUsername( $qualityMatches[2] );
 			$timestamp = strtotime( $rev['timestamp'] );
 			$this->processRevision(
 				$indexPageId, $rev['revid'], $contest,
