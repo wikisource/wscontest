@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"YuzaTea"
 		]
 	},
 	"homepage": "대문",
@@ -25,10 +26,12 @@
 	"details": "자세한 사항",
 	"unable-to-save": "저장할 수 없습니다: $1",
 	"user": "사용자",
+	"points": "점수",
 	"contributions": "기여",
 	"index-page": "색인 문서",
 	"index-pages": "색인 문서",
 	"user-results": "사용자 결과",
+	"revision": "판",
 	"date": "날짜",
 	"scores": "점수",
 	"gpl-link": "GPL 3.0+",
