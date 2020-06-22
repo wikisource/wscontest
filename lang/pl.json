@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Rainbow P",
 			"Thoji"
 		]
 	},
@@ -49,5 +50,6 @@
 	"wikitext-scores": "Wstaw tabelę wyników Wikitext.",
 	"this-is-wscontest": "To jest narzędzie Wikisource Contest",
 	"gpl-link": "GPL 3.0+",
-	"source-code": "Kod źródłowy"
+	"source-code": "Kod źródłowy",
+	"issue-tracker": "Lista problemów"
 }
