@@ -9,7 +9,7 @@
 	"contests": "Lista contest",
 	"login": "Va drento",
 	"logged-in-as": "Te si ndà drento cofà $1",
-	"logout": "Và fora",
+	"logout": "Deslòghite",
 	"stats-summary": "$1 {{PLURAL:$1|persona|persone}} łe ga parteçipà a $2 {{PLURAL:$2|concorso|concorsi}}.",
 	"create-contest": "Crea contest",
 	"edit-contest": "Modifega ła configurasion del contest",
