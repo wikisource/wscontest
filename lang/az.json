@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Şeyx Şamil"
+		]
+	},
+	"homepage": "Ana səhifə",
+	"login": "Daxil ol",
+	"logout": "Hesabdan çıx",
+	"name-label": "Ad:",
+	"dates": "Tarix:",
+	"start-date-col-header": "Başlanğıc tarixi",
+	"end-date-col-header": "Bitmə tarixi",
+	"administrators-col-header": "İdarəçilər",
+	"save": "Saxla",
+	"cancel": "Ləğv et",
+	"details": "Detallar",
+	"user": "İstifadəçi",
+	"contributions": "Töhfələr",
+	"user-results": "İstigadəçi nəticələri",
+	"date": "Tarix",
+	"source-code": "Mənbə kodu"
+}
