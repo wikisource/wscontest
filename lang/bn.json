@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Al Riaz Uddin Ripon",
 			"Bodhisattwa Mandal",
 			"আফতাবুজ্জামান"
 		]
@@ -10,7 +11,7 @@
 	"contests": "প্রতিযোগিতা",
 	"login": "প্রবেশ করুন",
 	"logged-in-as": "আপনি $1 হিসেবে প্রবেশ করেছেন",
-	"logout": "প্রস্থান করুন",
+	"logout": "প্রস্থান",
 	"stats-summary": "$1 জন {{PLURAL:$1|ব্যক্তি}} $2টি {{PLURAL:$2|প্রতিযোগিতায়}} অংশগ্রহণ করেছেন।",
 	"create-contest": "প্রতিযোগিতা তৈরি করুন",
 	"edit-contest": "প্রতিযোগিতার সেটিং সম্পাদনা করুন",
