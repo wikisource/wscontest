@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"CristianCantoro"
+			"CristianCantoro",
+			"Luca.favorido"
 		]
 	},
 	"app-title": "Contest di rilettura su Wikisource",
@@ -11,7 +12,7 @@
 	"login": "Log in",
 	"logged-in-as": "Sei loggato come $1",
 	"logout": "Log out",
-	"stats-summary": "$1 {{PLURAL:$1|persona|persone}} hanno partecipato a $2 {{PLURAL:$2|concorso|concorsi}}.",
+	"stats-summary": "$1 {{PLURAL:$1|persona|persone}} hanno partecipato a $2 contest.",
 	"create-contest": "Crea contest",
 	"edit-contest": "Modifica la configurazione del contest",
 	"name-label": "Nome:",
@@ -34,22 +35,22 @@
 	"no-contests": "Non sei amministratore di alcun contest.",
 	"contest": "Contest: $1",
 	"details": "Dettagli",
-	"unable-to-save": "Impossibile salvarae: $1",
+	"unable-to-save": "Impossibile salvare: $1",
 	"user": "Utente",
 	"points": "Punti",
 	"contributions": "Contributi",
 	"validations": "Validazioni",
-	"index-page": "pagina Indice",
-	"index-pages": "pagine Indice",
+	"index-page": "Pagina indice",
+	"index-pages": "Pagine indice",
 	"user-results": "Risultati dell'utente",
 	"revision": "Revisione",
 	"date": "Data",
 	"scores": "Punteggi",
-	"contest-in-progress": "Questo contest è in corso, e i punteggi possono essere visto solo dagli amministratori del contest.",
+	"contest-in-progress": "Questo contest è in corso, e i punteggi possono essere visti solo dagli amministratori del contest.",
 	"reset-scores": "Resetta tutti i punteggi",
 	"wikitext-scores": "Ottieni la tabella dei punteggi in formato wikitesto",
-	"this-is-wscontest": "Quessto è il Wikisource Contest tool",
+	"this-is-wscontest": "Questo è lo strumento dei contest di Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Codice sorgente",
-	"issue-tracker": "Segnala un bug"
+	"issue-tracker": "Segnala un problema"
 }

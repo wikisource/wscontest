@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakim1bal"
+		]
+	},
+	"homepage": "ⴰⵙⵏⵓⴱⴳ",
+	"login": "ⴽⵛⵎ",
+	"logged-in-as": "ⵜⴽⵛⵎⴷ ⴰⵎ $1",
+	"logout": "ⴼⴼⵖ",
+	"name-label": "ⵉⵙⵎ:",
+	"dates": "ⴰⵙⴰⴽⵓⴷ:",
+	"save": "ⵃⴹⵓ",
+	"cancel": "ⵙⵔ",
+	"details": "ⵉⴼⵔⵓⵔⵉⵜⵏ",
+	"user": "ⴰⵏⵙⵙⵎⵔⵙ",
+	"contributions": "ⵜⵓⵎⵓⵜⵉⵏ",
+	"date": "ⴰⵙⴰⴽⵓⴷ",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "ⵜⴰⵏⴳⴰⵍⵜ ⵏ ⵓⵙⴰⴳⵎ"
+}
