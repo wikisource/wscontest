@@ -30,6 +30,6 @@ class ContestTest extends TestBase {
 		$contest->start_date = '2018-01-01 01:00';
 		$contest->end_date = '2018-01-10 19:00';
 		$contest->save();
-		static::assertEquals( 0, $contest->inProgress()->count() );
+		static::assertSame( 0, $contest->inProgress()->count() );
 	}
 }
