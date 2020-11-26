@@ -26,6 +26,7 @@ abstract class Controller {
 	/** @var Collection */
 	protected $settings;
 
+	/** @var bool */
 	protected $requireLogin = true;
 
 	/**

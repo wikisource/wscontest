@@ -5,12 +5,12 @@
         "slim/slim": "^3.10",
         "slim/twig-view": "^2.4",
         "mediawiki/oauthclient": "^1.0",
-        "krinkle/intuition": "^1.2",
+        "krinkle/intuition": "^2.2",
         "tedivm/stash": "^0.15",
         "addwiki/mediawiki-api": "^0.7",
         "doctrine/dbal": "^2.5",
         "symfony/console": "^4.2",
-        "wikisource/api": "^1.4",
+        "wikisource/api": "^2.0",
         "illuminate/database": "^5.2"
     },
     "autoload": {
@@ -29,8 +29,8 @@
         }
     },
     "require-dev": {
-        "jakub-onderka/php-parallel-lint": "^1.0",
-        "mediawiki/mediawiki-codesniffer": "^24.0",
+        "php-parallel-lint/php-parallel-lint": "^1.0",
+        "mediawiki/mediawiki-codesniffer": "^33.0",
         "phpunit/phpunit": "^8.0",
         "mediawiki/minus-x": "^0.3"
     },

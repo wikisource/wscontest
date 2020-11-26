@@ -25,8 +25,6 @@ class ScoreCommand extends Command {
 		$this->setDescription( 'Retrieve scores from Wikisources.' );
 	}
 
-	protected $points;
-
 	/**
 	 * Executes the current command.
 	 * @see setCode()

@@ -16,6 +16,7 @@ class Score extends Model {
 		'revision_id',
 	];
 
+	/** @var string */
 	protected $revisionUrl;
 
 	public function indexPage() {

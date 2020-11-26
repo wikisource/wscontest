@@ -12,6 +12,7 @@ use Slim\Http\Response;
 
 class AuthController extends Controller {
 
+	/** @var Client */
 	protected $oauthClient;
 
 	/**
