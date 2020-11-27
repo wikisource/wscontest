@@ -2764,16 +2764,16 @@
         },
         {
             "name": "wikisource/api",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikisource/api.git",
-                "reference": "e00a28cac5737653833d879587df0eb2b1432cbc"
+                "reference": "435228e52ec0e79322cce6c30c6b9fa6f224c9f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikisource/api/zipball/e00a28cac5737653833d879587df0eb2b1432cbc",
-                "reference": "e00a28cac5737653833d879587df0eb2b1432cbc",
+                "url": "https://api.github.com/repos/wikisource/api/zipball/435228e52ec0e79322cce6c30c6b9fa6f224c9f1",
+                "reference": "435228e52ec0e79322cce6c30c6b9fa6f224c9f1",
                 "shasum": ""
             },
             "require": {
@@ -2804,7 +2804,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "A PHP API to Wikisources (all languages).",
-            "time": "2020-11-26T09:18:35+00:00"
+            "time": "2020-11-27T01:44:06+00:00"
         }
     ],
     "packages-dev": [
