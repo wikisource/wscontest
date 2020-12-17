@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Renessaince"
 		]
 	},
 	"app-title": "Конкурсы Вікікрыніцаў",
@@ -26,7 +27,7 @@
 	"contest-col-header": "Конкурс",
 	"administrators-col-header": "Адміністратары",
 	"save": "Захаваць",
-	"cancel": "Адмяніць",
+	"cancel": "Скасаваць",
 	"error-loading-wikisource": "Не атрымалася загрузіць зьвесткі Вікікрыніцаў з «$1»",
 	"error-loading-indexpage": "Не атрымалася загрузіць ідэксавую старонку з «$1»",
 	"not-logged-in": "Вы не ўвайшлі і ня можаце ствараць новыя конкурсы.",
