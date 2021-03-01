@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chinamoonroll"
+		]
+	},
+	"app-title": "Kontés Wikipustaka",
+	"homepage": "Umah",
+	"contests": "Kontés",
+	"login": "Manjing log",
+	"logged-in-as": "Ida sampun manjing log manados $1",
+	"logout": "Medal log",
+	"stats-summary": "$1 {{PLURAL:$1|jadma|jadma-jadma}} sampun ngambil wagian ring $2 {{PLURAL:$2|kontés}}.",
+	"create-contest": "Ngardi kontés",
+	"edit-contest": "Setélan uahan kontés",
+	"name-label": "Peséngan:",
+	"dates": "Tanggal:",
+	"end-date-label": "Tanggal miwah kala untat:",
+	"start-date-label": "Tanggal miwah kala pangawit:",
+	"times-are-utc": "Kala ring wewengkon galah UTC.",
+	"excluded-users": "Sang anganggé tiosan:",
+	"administrators": "Prajuru:",
+	"one-username-per-line": "Asiki parab anganggé ring baris.",
+	"start-date-col-header": "Tanggal pangawit",
+	"end-date-col-header": "Tanggal puput",
+	"contest-col-header": "Kontés",
+	"administrators-col-header": "Prajuru",
+	"save": "Raksa",
+	"cancel": "Wangdé",
+	"error-loading-wikisource": "Tan kaprasida muat data Wikisource saking '$1'",
+	"error-loading-indexpage": "Tan prasida muat kaca Indéks saking '$1'"
+}
