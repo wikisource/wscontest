@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Likibp",
 			"Omotecho",
 			"Shirayuki"
 		]
@@ -22,12 +23,12 @@
 	"administrators-col-header": "管理者",
 	"save": "保存",
 	"cancel": "キャンセル",
-	"error-loading-indexpage": "'$1'から索引ページの読み込みに失敗しました",
+	"error-loading-indexpage": "'$1'から目録ページの読み込みに失敗しました",
 	"contest": "コンテスト: $1",
 	"details": "詳細",
 	"unable-to-save": "保存できません: $1",
 	"user": "利用者",
-	"index-page": "索引ページ",
+	"index-page": "目録ページ",
 	"date": "日付",
 	"source-code": "ソース コード"
 }
