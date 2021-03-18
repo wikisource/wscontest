@@ -48,6 +48,8 @@
 	"scores": "点数",
 	"contest-in-progress": "このコンテストは開催中で、点数はコンテスト管理者にのみ表示されます。",
 	"reset-scores": "点数をリセット",
+	"wikitext-scores": "得点一覧をウィキ語法の表で表示する",
+	"this-is-wscontest": "これはウィキソースコンテスト用のツールです",
 	"gpl-link": "GNU 通用公衆ライセンス規約 3.0+",
 	"source-code": "ソース コード",
 	"issue-tracker": "問題の追跡"
