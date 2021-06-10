@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MITO",
 			"Pyscowicz"
 		]
 	},
@@ -39,6 +40,7 @@
 	"contributions": "Muokkaukset",
 	"index-page": "Indeksisivu",
 	"index-pages": "Indeksisivut",
+	"revision": "Versio",
 	"date": "Päivämäärä",
 	"scores": "Tulokset",
 	"contest-in-progress": "Kilpailu on parhaillaan käynnissä ja tulokset ovat vain kilpailun ylläpitäjien nähtävissä.",
