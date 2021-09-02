@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Ата"
 		]
 	},
@@ -38,8 +39,8 @@
 	"points": "Бали",
 	"contributions": "Внесок",
 	"validations": "Підтвердження",
-	"index-page": "Сторінка Індексу",
-	"index-pages": "Сторінки Індексу",
+	"index-page": "Сторінка індексу",
+	"index-pages": "Сторінки індексу",
 	"user-results": "Результати користувача",
 	"revision": "Перевірка",
 	"date": "Дата",
