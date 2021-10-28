@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Avengium",
 			"Fitoschido",
 			"Marcelo9987",
 			"Ryo567"
@@ -30,6 +31,7 @@
 	"save": "Guardar",
 	"cancel": "Cancelar",
 	"error-loading-wikisource": "No se puede cargar la información de Wikisource de «$1»",
+	"error-loading-indexpage": "No se puede cargar la página de índice desde '$1'",
 	"not-logged-in": "No has accedido a tu cuenta y no puedes crear concursos nuevos.",
 	"no-contests": "No administras ningún concurso.",
 	"contest": "Concurso: $1",
@@ -40,11 +42,16 @@
 	"contributions": "Contribuciones",
 	"validations": "Validaciones",
 	"index-page": "Indexar página",
+	"index-pages": "Páginas de índice",
 	"user-results": "Resultados de usuario",
 	"revision": "Revisión",
 	"date": "Fecha",
 	"scores": "Puntuaciones",
+	"contest-in-progress": "Este concurso está en curso y solo los administradores del concurso pueden ver las puntuaciones.",
 	"reset-scores": "Restablecer puntuaciones",
+	"wikitext-scores": "Obtener tabla de puntuaciones en Wikitexto",
+	"this-is-wscontest": "Esta es la herramienta del concurso de Wikisource",
 	"gpl-link": "GPL 3.0+",
-	"source-code": "Código fuente"
+	"source-code": "Código fuente",
+	"issue-tracker": "Rastreador de problemas"
 }
