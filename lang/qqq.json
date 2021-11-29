@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Robby",
 			"Samwilson"
 		]
@@ -37,7 +38,7 @@
 	"unable-to-save": "Error message displayed when unable to save a contest. $1 is the reason.",
 	"user": "Table header of the user details' table.",
 	"points": "Table header of the user details' table.",
-	"contributions": "Table header of the user details' table.",
+	"contributions": "Table header of the user details' table.\n\n{{Identical|Contribution}}",
 	"validations": "Table header of the user details' table.",
 	"index-page": "Table header of the user details' table.",
 	"index-pages": "Section header for the list of index pages.",

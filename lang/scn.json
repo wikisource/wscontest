@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"login": "Trasi",
+	"logged-in-as": "Trasisti comu $1",
+	"logout": "Nesci",
+	"name-label": "Nomu:",
+	"dates": "Data:",
+	"administrators": "Amministratura:",
+	"administrators-col-header": "Amministratura",
+	"save": "Sarva",
+	"cancel": "Annulla",
+	"details": "Dittagghî",
+	"user": "Utenti",
+	"contributions": "Cuntribbuti",
+	"index-page": "Pàggina ìnnici",
+	"index-pages": "Pàggini ìnnici",
+	"user-results": "Risurtati di l'utenti",
+	"scores": "Punteggi",
+	"gpl-link": "GPL 3.0+",
+	"source-code": "Còdici surgenti"
+}
