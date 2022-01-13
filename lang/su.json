@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daud I.F. Argana",
 			"Kandar"
 		]
 	},
@@ -10,7 +11,7 @@
 	"login": "Asup log",
 	"logged-in-as": "Anjeun asup log salaku $1.",
 	"logout": "Kaluar log",
-	"stats-summary": "$1 {{PLURAL:$1|jalma|jalma}} geus miluan dina $2 {{PLURAL:$2|saémbara|saémbara}}.",
+	"stats-summary": "$1 {{PLURAL:$1|jalma}} geus miluan dina $2 {{PLURAL:$2|saémbara}}.",
 	"create-contest": "Jieun saémbara",
 	"edit-contest": "Ropéa aturan saémbara",
 	"name-label": "Ngaran:",
