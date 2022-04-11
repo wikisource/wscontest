@@ -48,7 +48,7 @@
 	"scores": "Scores",
 	"contest-in-progress": "Le concours est actuellement ouvert et les scores ne peuvent être vues que par les administrateurs du concours.",
 	"reset-scores": "Réinitialiser les scores",
-	"wikitext-scores": "Obtenir le tableau wikitexte des scores",
+	"wikitext-scores": "Obtenir le tableau des scores en wikicode",
 	"this-is-wscontest": "Ceci est l’outil des concours Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Code source",
