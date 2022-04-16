@@ -1,0 +1,6 @@
+toolforge:
+    intuition:
+        domain: 'wscontest'
+    oauth:
+        consumer_key: '%env(OAUTH_KEY)%'
+        consumer_secret: '%env(OAUTH_SECRET)%'

@@ -1,8 +1,8 @@
 <?php
 
-namespace Wikisource\WsContest;
+namespace App;
 
-class Str extends \Illuminate\Support\Str {
+class Str {
 
 	/**
 	 * Explode a newline-delimited string and remove duplicates and whitespace.

@@ -5,7 +5,7 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		banana: [
-			'./lang'
+			'./i18n'
 		],
 		jsonlint: {
 			all: [

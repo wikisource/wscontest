@@ -1,20 +1,50 @@
 <?php
 
-namespace Wikisource\WsContest\Command;
+namespace App\Command;
 
+use App\Repository\ContestRepository;
+use App\Repository\IndexPageRepository;
+use App\Repository\UserRepository;
 use Mediawiki\Api\FluentRequest;
 use Mediawiki\Api\MediawikiApi;
+use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
 use Wikisource\Api\Wikisource;
 use Wikisource\Api\WikisourceApi;
-use Wikisource\WsContest\Entity\Contest;
-use Wikisource\WsContest\Entity\IndexPage;
-use Wikisource\WsContest\Entity\Score;
-use Wikisource\WsContest\Entity\User;
 
 class ScoreCommand extends Command {
+
+	/** @var IndexPageRepository */
+	private $indexPageRepository;
+
+	/** @var ContestRepository */
+	private $contestRepository;
+
+	/** @var UserRepository */
+	private $userRepository;
+
+	/** @var CacheItemPoolInterface */
+	private $cache;
+
+	/**
+	 * @param IndexPageRepository $indexPageRepository
+	 * @param ContestRepository $contestRepository
+	 * @param UserRepository $userRepository
+	 * @param CacheItemPoolInterface $cache
+	 */
+	public function __construct(
+		IndexPageRepository $indexPageRepository, ContestRepository $contestRepository, UserRepository $userRepository,
+		CacheItemPoolInterface $cache
+	) {
+		parent::__construct();
+		$this->indexPageRepository = $indexPageRepository;
+		$this->contestRepository = $contestRepository;
+		$this->userRepository = $userRepository;
+		$this->cache = $cache;
+	}
 
 	/**
 	 * Configures the current command.
@@ -34,35 +64,36 @@ class ScoreCommand extends Command {
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$wikisourceApi = new WikisourceApi();
-		$indexPages = IndexPage::needsScoring()->get();
+		$wikisourceApi->setCache( $this->cache );
+		$indexPages = $this->indexPageRepository->needsScoring();
 		foreach ( $indexPages as $indexPage ) {
 			// Set up the Wikisource bits.
-			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage->url );
+			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );
 			if ( !$wikisource ) {
 				$output->writeln(
-					'Unable to determine Wikisource from URL: ' . $indexPage->url
+					'Unable to determine Wikisource from URL: ' . $indexPage['url']
 				);
 				continue;
 			}
-			$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPage->url );
+			$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPage['url'] );
 			if ( !$wsIndexPage->loaded() ) {
-				$output->writeln( 'Unable to load Index page from URL: ' . $indexPage->url );
+				$output->writeln( 'Unable to load Index page from URL: ' . $indexPage['url'] );
 				continue;
 			}
 
-			$output->writeln( "Scoring: $indexPage->url" );
+			$output->writeln( 'Scoring: ' . $indexPage['url'] );
 
 			// Delete old scores.
-			Score::where( [ 'index_page_id' => $indexPage->id ] )->delete();
+			$this->indexPageRepository->deleteScores( $indexPage['id'] );
 
-			// Go through each contest that uses this IndexPage and save the score.
-			foreach ( $indexPage->contests()->get() as $contest ) {
+			// Go through each contest that uses this Index Page and save the score.
+			foreach ( $this->indexPageRepository->getContests( $indexPage['id'] ) as $contest ) {
 				// Save new scores.
 				$this->calculateScore(
 					$wikisource,
 					$wsIndexPage->getTitle(),
 					$contest,
-					$indexPage->id
+					$indexPage['id']
 				);
 			}
 		}
@@ -73,11 +104,11 @@ class ScoreCommand extends Command {
 	/**
 	 * @param Wikisource $wikisource
 	 * @param string $indexPageTitle
-	 * @param Contest $contest
+	 * @param array $contest
 	 * @param int $indexPageId
 	 */
 	protected function calculateScore(
-		Wikisource $wikisource, string $indexPageTitle, Contest $contest, int $indexPageId
+		Wikisource $wikisource, string $indexPageTitle, array $contest, int $indexPageId
 	) {
 		$wsIndexPage = new WikisourceIndexPage( $wikisource );
 
@@ -89,13 +120,13 @@ class ScoreCommand extends Command {
 	}
 
 	/**
-	 * @param Contest $contest
+	 * @param array $contest
 	 * @param MediawikiApi $api
 	 * @param string $pageTitle
 	 * @param int $indexPageId
 	 */
 	protected function processPage(
-		Contest $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
+		array $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
 	) {
 		// @TODO fix for 50 revisions limit.
 		$response = $api->getRequest( FluentRequest::factory()
@@ -123,7 +154,7 @@ class ScoreCommand extends Command {
 				continue;
 			}
 			$quality = (int)$qualityMatches[1];
-			$userId = User::getIdFromUsername( $qualityMatches[2] );
+			$userId = $this->userRepository->getIdFromUsername( $qualityMatches[2] );
 			$timestamp = strtotime( $rev['timestamp'] );
 			$this->processRevision(
 				$indexPageId, $rev['revid'], $contest,
@@ -138,16 +169,16 @@ class ScoreCommand extends Command {
 	/**
 	 * @param int $indexPageId
 	 * @param int $revisionId
-	 * @param Contest $contest
+	 * @param array $contest
 	 * @param int $quality
-	 * @param int $userId
+	 * @param string $userId
 	 * @param int $timestamp
-	 * @param int $oldQuality
-	 * @param int $oldUserId
+	 * @param int|bool $oldQuality
+	 * @param int|false $oldUserId
 	 * @param int $oldTimestamp
 	 */
 	protected function processRevision(
-		$indexPageId, $revisionId, Contest $contest, $quality, $userId, $timestamp, $oldQuality,
+		$indexPageId, $revisionId, array $contest, $quality, $userId, $timestamp, $oldQuality,
 		$oldUserId, $oldTimestamp
 	) {
 		$data = [
@@ -156,8 +187,8 @@ class ScoreCommand extends Command {
 		if ( $oldUserId ) {
 			$data[$oldUserId] = [ 'points' => 0, 'contributions' => 0, 'validations' => 0 ];
 		}
-		$contestStart = strtotime( $contest->start_date );
-		$contestEnd = strtotime( $contest->end_date );
+		$contestStart = strtotime( $contest['start_date'] );
+		$contestEnd = strtotime( $contest['end_date'] );
 
 		// Page moved to 3 from anything lower (including not existing).
 		if ( $quality === 3 && ( !$oldQuality || $oldQuality < 3 )
@@ -199,17 +230,16 @@ class ScoreCommand extends Command {
 			if ( !$scores['points'] && !$scores['validations'] && !$scores['contributions'] ) {
 				continue;
 			}
-			$score = Score::firstOrNew( [
-				'contest_id' => $contest->id,
+			$this->indexPageRepository->saveScore( [
+				'contest_id' => $contest['id'],
 				'index_page_id' => $indexPageId,
 				'user_id' => $dataUserId,
 				'revision_id' => $revisionId,
+				'revision_datetime' => date( 'Y-m-d H:i:s', $timestamp ),
+				'points' => $scores['points'],
+				'validations' => $scores['validations'],
+				'contributions' => $scores['contributions'],
 			] );
-			$score->revision_datetime = date( 'Y-m-d H:i:s', $timestamp );
-			$score->points = $scores['points'];
-			$score->validations = $scores['validations'];
-			$score->contributions = $scores['contributions'];
-			$score->save();
 		}
 	}
 

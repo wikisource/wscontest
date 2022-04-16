@@ -1,23 +1,18 @@
 <?php
 
-namespace Wikisource\WsContest\Tests;
+namespace App\Tests;
 
-use Symfony\Component\Console\Tester\CommandTester;
-use Wikisource\WsContest\Command\UpgradeCommand;
+use Doctrine\DBAL\Connection;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-abstract class TestBase extends \PHPUnit\Framework\TestCase {
+abstract class TestBase extends KernelTestCase {
 
 	public function setUp(): void {
-		global $app;
-
-		// Install application.
-		$upgradeCommand = new UpgradeCommand();
-		$upgradeCommand->setSlimApp( $app );
-		$commandTester = new CommandTester( $upgradeCommand );
-		$commandTester->execute( [] );
+		self::bootKernel();
+		$container = static::getContainer();
 
 		// Empty all existing tables.
-		$db = $app->getContainer()->get( 'db' );
+		$db = $container->get( Connection::class );
 		$db->query( 'SET foreign_key_checks = 0' );
 		$db->query( 'TRUNCATE admins' );
 		$db->query( 'TRUNCATE excluded_users' );
