@@ -38,11 +38,14 @@ jobs:
         extensions: pdo
 
     - name: Install
+      env:
+        APP_ENV: test
+        # Match Toolforge's MariaDB version.
+        DATABASE_URL: mysql://root:testpwd@127.0.0.1:3306/wscontest_tests?serverVersion=mariadb-10.1.48
       run: |
-        cp config.dist.php tests/config.php
-        echo -e "\$dbHost = '127.0.0.1';\n\$dbUser = 'root';\n\$dbPass = 'testpwd';\n\$dbName = 'wscontest_tests';" >> tests/config.php
         composer install
-        npm install
+        ./bin/console doctrine:migrations:migrate
+        npm ci
 
     - name: Test
       run: |

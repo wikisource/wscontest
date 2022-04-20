@@ -1,0 +1,17 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+    csrf_protection: true
+    http_method_override: true
+
+    session:
+        handler_id: null
+        save_path: "%kernel.project_dir%/var/sessions/%kernel.environment%"
+        cookie_secure: auto
+        cookie_samesite: lax
+        # Lifetime of 90 days.
+        cookie_lifetime: 7776000
+        gc_maxlifetime: 7776000
+
+    php_errors:
+        log: true

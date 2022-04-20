@@ -1,25 +1,27 @@
 <?php
 
-namespace Wikisource\WsContest\Controller;
+namespace App\Controller;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-use Wikisource\WsContest\Entity\Contest;
-use Wikisource\WsContest\Entity\User;
+use App\Repository\ContestRepository;
+use App\Repository\UserRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+// phpcs:ignore MediaWiki.Classes.UnusedUseStatement.UnusedUse
+use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends Controller {
+class HomeController extends AbstractController {
 
 	/**
-	 * @param Request $request
-	 * @param Response $response
-	 * @param string $args
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/", name="home")
+	 * @param ContestRepository $contestRepository
+	 * @param UserRepository $userRepository
+	 * @return Response
 	 */
-	public function home( Request $request, Response $response, $args ) {
-		return $this->renderView( $response, 'home.html.twig', [
-			'contests' => Contest::all()->count(),
-			'people' => User::all()->count(),
+	public function home( ContestRepository $contestRepository, UserRepository $userRepository ): Response {
+		return $this->render( 'home.html.twig', [
+			'contests' => $contestRepository->count(),
+			'people' => $userRepository->count(),
 		] );
 	}
-
 }

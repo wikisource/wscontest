@@ -1,0 +1,5 @@
+framework:
+    cache:
+        prefix_seed: wikisource/wscontest
+        pools:
+            cache.replicas: ~

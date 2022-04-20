@@ -1,0 +1,31 @@
+== {{ msg('contest', [contest.name]) }} ==
+
+; {{ msg('dates') }}
+: {{ msg('start-date-label') }} {{ contest.start_date }}
+: {{ msg('end-date-label') }} {{ contest.end_date }}
+; {{ msg('administrators') }}
+{% for admin in contest.admins %}
+:* [[meta:User:{{ admin.name }}|{{ admin.name }}]]
+{% endfor %}
+; {{ msg('excluded-users') }}
+{% for excluded_user in contest.excludedUsers %}
+;* [[meta:User:{{ excluded_user.name }}|{{ excluded_user.name }}]]
+{% endfor %}
+; {{ msg('index-pages') }}
+{% for ip in contest.indexPages %}
+:* {{ ip.url }}
+{% endfor %}
+
+{% if can_view_scores %}
+{|class="wikitable"
+|+ {{ msg('scores') }}
+! {{ msg('user') }} !! {{ msg('points') }} !! {{ msg('contributions') }} !! {{ msg('validations') }} !!
+|-
+{% for score in scores %}
+| [[meta:User:{{ score.username }}|{{ score.username }}]] || {{ score.points }} || {{ score.contributions }} || {{ score.validations }} || [{{ base_url }}{{ path('contests_view', {id: contest.id}) }}?u={{ score.user_id }} {{ msg('details') }}]
+|-
+{% endfor %}
+|}
+{% else %}
+<div class="alert alert-success"><p>{{ msg('contest-in-progress') }}</p></div>
+{% endif %}

@@ -1,197 +1,156 @@
 <?php
 
-namespace Wikisource\WsContest\Controller;
+namespace App\Controller;
 
-use Illuminate\Database\Capsule\Manager;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\QueryException;
-use Slim\Http\Request;
-use Slim\Http\Response;
-use Wikisource\Api\WikisourceApi;
-use Wikisource\Api\WikisourceApiException;
-use Wikisource\WsContest\Entity\Contest;
-use Wikisource\WsContest\Entity\IndexPage;
-use Wikisource\WsContest\Entity\Score;
-use Wikisource\WsContest\Entity\User;
-use Wikisource\WsContest\Str;
+use App\Repository\ContestRepository;
+use App\Repository\IndexPageRepository;
+use App\Repository\UserRepository;
+use App\Str;
+use DateInterval;
+use DateTime;
+use DateTimeZone;
+use Krinkle\Intuition\Intuition;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+// phpcs:ignore MediaWiki.Classes.UnusedUseStatement.UnusedUse
+use Symfony\Component\Routing\Annotation\Route;
 
-class ContestsController extends Controller {
+class ContestsController extends AbstractController {
 
 	/**
-	 * @param Request $request
-	 * @param Response $response
-	 * @param string[] $args
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @param Session $session
+	 * @return string|null
 	 */
-	public function index( Request $request, Response $response, $args ) {
-		$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : false;
+	private function getLoggedInUsername( Session $session ): ?string {
+		return $session->has( 'logged_in_user' )
+			? $session->get( 'logged_in_user' )->username
+			: null;
+	}
+
+	/**
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c", name="contests")
+	 * @param Session $session
+	 * @param ContestRepository $contestRepository
+	 * @return Response
+	 */
+	public function index( Session $session, ContestRepository $contestRepository ): Response {
+		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
-			$this->setFlash( 'not-logged-in', 'warning' );
+			$this->addFlash( 'warning', [ 'not-logged-in', [ 'foo' ] ] );
 		}
-		$sql = 'SELECT c.* FROM contests c'
-			. '   LEFT JOIN admins a ON a.contest_id=c.id '
-			. '   LEFT JOIN users u ON u.id=a.user_id'
-			. ' WHERE (u.name IS NULL OR u.name = :username )';
-		$contests = $this->db->prepare( $sql );
-		$contests->execute( [ 'username' => $username ] );
-		$contests = $contests->fetchAll();
-		foreach ( $contests as &$contest ) {
-			$sql2 = 'SELECT u.* FROM users u JOIN admins a ON a.user_id=u.id WHERE a.contest_id = :cid';
-			$admins = $this->db->prepare( $sql2 );
-			$admins->execute( [ 'cid' => $contest['id'] ] );
-			$contest['admins'] = $admins->fetchAll();
-		}
-		return $this->renderView( $response, 'contests.html.twig', [
-			'contests' => $contests,
+		return $this->render( 'contests.html.twig', [
+			'username' => $username,
+			'contests' => $username ? $contestRepository->getContestsForUser( $username ) : null,
 		] );
 	}
 
 	/**
-	 * @param Response $response
-	 * @param Contest $contest
-	 * @param int $userId
-	 * @return \Psr\Http\Message\ResponseInterface
-	 */
-	protected function viewUser( $response, $contest, $userId ) {
-		$scores = Score::where( 'user_id', $userId )
-			->whereHas( 'indexPage', function ( Builder $b ) use ( $contest ) {
-				return $b->where( 'contest_id', $contest->id );
-			} )
-			->with( 'indexPage' )
-			->orderBy( 'revision_datetime' )
-			->get();
-		return $this->renderView( $response, 'contests_viewuser.html.twig', [
-			'contest' => $contest,
-			'scores' => $scores,
-			'user' => User::find( $userId ),
-		] );
-	}
-
-	/**
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/{id}", name="contests_view", requirements={"id"="\d+"})
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/{id}.{format}", name="contests_view", requirements={"id"="\d+"})
+	 * @param ContestRepository $contestRepository
+	 * @param UserRepository $userRepository
 	 * @param Request $request
-	 * @param Response $response
-	 * @param string[] $args
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @param Session $session
+	 * @param Intuition $intuition
+	 * @param string $id
+	 * @param ?string $format
+	 * @return Response
 	 */
-	public function view( Request $request, Response $response, $args ) {
+	public function view(
+		ContestRepository $contestRepository,
+		UserRepository $userRepository,
+		Request $request,
+		Session $session,
+		Intuition $intuition,
+		string $id,
+		?string $format = null
+	): Response {
 		// Find the contest.
-		$id = $request->getAttribute( 'id' );
-		$contest = Contest::find( $id );
+		$contest = $contestRepository->get( $id );
 		if ( !$contest ) {
-			$this->setFlash( 'contest-not-found', 'warning', [ $id ] );
-			return $response->withRedirect( $this->router->urlFor( 'contests' ) );
+			throw $this->createNotFoundException( $intuition->msg( 'contest-not-found' ) );
 		}
 
 		// If a user ID is requested, show only the scores for that user.
-		$userId = $request->getQueryParam( 'u' );
+		$userId = $request->get( 'u' );
 		if ( $userId ) {
-			return $this->viewUser( $response, $contest, $userId );
+			return $this->render( 'contests_viewuser.html.twig', [
+				'contest' => $contest,
+				'scores' => $contestRepository->getScoresForUser( $userId, $contest['id'] ),
+				'user' => $userRepository->get( $userId ),
+			] );
 		}
 
-		$scores = Score::where( 'contest_id', $contest->id )
-			->select(
-				'users.name AS username',
-				'user_id',
-				Manager::raw( 'SUM(points) AS points' ),
-				Manager::raw( 'SUM(contributions) AS contributions' ),
-				Manager::raw( 'SUM(validations) AS validations' )
-			)
-			->join( 'users', 'users.id', '=', 'user_id' )
-			->groupBy( 'user_id' )
-			->orderBy( Manager::raw( 'SUM(points)' ) )
-			->orderBy( Manager::raw( 'SUM(contributions)' ) )
-			->orderBy( Manager::raw( 'SUM(validations)' ) )
-			->whereNotIn( 'users.id', $contest->excludedUsers()->pluck( 'user_id' )->toArray() )
-			->get();
-		$inProgress = Contest::where( 'id', $id )->inProgress()->count() > 0;
-		$canEdit = isset( $_SESSION['username'] )
-			&& Contest::where( 'id', $id )->hasAdmin( $_SESSION['username'] )->count() > 0;
-		$viewFormat = $request->getAttribute( 'format', 'html' );
-		if ( $viewFormat === 'wikitext' ) {
-			$response = $response->withHeader( 'Content-Type', 'text/plain' );
-		}
-		$uri = $request->getUri();
-		return $this->renderView( $response, "contests_view.$viewFormat.twig", [
+		$username = $this->getLoggedInUsername( $session );
+		$canEdit = $username && $contestRepository->hasAdmin( $id, $username );
+		// $viewFormat = $request->getAttribute( 'format', 'html' );
+		// new Response();
+		// if ( $format === 'wikitext' ) {
+		// 	$response = $response->withHeader( 'Content-Type', 'text/plain' );
+		// }
+		$format = 'html';
+		return $this->render( "contests_view.$format.twig", [
 			'contest' => $contest,
-			'scores' => $scores,
+			'scores' => $contestRepository->getscores( $id ),
 			'can_edit' => $canEdit,
-			'can_view_scores' => $canEdit || !$inProgress,
-			'base_url' => $uri->getScheme() . '://' . $uri->getHost(),
+			'can_view_scores' => $canEdit || !$contest['in_progress'],
 		] );
 	}
 
 	/**
-	 * @param Request $request
-	 * @param Response $response
-	 * @param string[] $args
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/new", name="contests_create")
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/{id}/edit", name="contests_edit", requirements={"id"="\d+"})
+	 * @param Session $session
+	 * @param ContestRepository $contestRepository
+	 * @param ?string $id
+	 * @return Response
 	 */
-	public function edit( Request $request, Response $response, $args ) {
-		if ( !isset( $_SESSION['username'] ) ) {
-			return $response->withRedirect( $this->router->urlFor( 'login' ) );
+	public function edit( Session $session, ContestRepository $contestRepository, ?string $id = null ): Response {
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$username ) {
+			throw $this->createAccessDeniedException();
 		}
 
-		$id = $request->getAttribute( 'id' );
+		$indexPages = '';
+		$excludedUsers = '';
+		$admins = '';
 		if ( $id ) {
-			$contestQuery = $this->db->prepare( 'SELECT c.id, c.name, c.start_date, c.end_date
-            FROM contests c
-              JOIN admins a ON a.contest_id = c.id
-              JOIN users u ON a.user_id = u.id
-            WHERE c.id = :id AND u.name = :username
-            GROUP BY c.id
-            ' );
-			$contestQuery->execute( [ 'id' => $id, 'username' => $_SESSION['username'] ] );
-			$contest = $contestQuery->fetch();
-			$id = $contest['id'];
-
-			// Admins.
-			$adminsQuery = $this->db->prepare( 'SELECT u.name
-            FROM users u
-              JOIN admins a ON a.user_id=u.id
-              JOIN contests c ON a.contest_id=c.id
-            WHERE c.id = :id
-            ' );
-			$adminsQuery->execute( [ 'id' => $id ] );
-			$admins = '';
-			foreach ( $adminsQuery->fetchAll() as $admin ) {
-				$admins .= "\n" . $admin['name'];
+			$contest = $contestRepository->get( $id );
+			$isAdmin = false;
+			foreach ( $contest['admins'] as $admin ) {
+				$admins .= $admin['name'] . "\n";
+				$isAdmin = $isAdmin || $admin['name'] === $username;
 			}
-
-			// Excluded users.
-			$excludedUsersQuery = $this->db->prepare( 'SELECT u.name
-            FROM users u
-              JOIN excluded_users eu ON eu.user_id=u.id
-              JOIN contests c ON eu.contest_id=c.id
-            WHERE c.id = :id
-            ' );
-			$excludedUsersQuery->execute( [ 'id' => $id ] );
-			$excludedUsers = '';
-			foreach ( $excludedUsersQuery->fetchAll() as $excludedUser ) {
-				$excludedUsers .= "\n" . $excludedUser['name'];
+			if ( !$isAdmin ) {
+				throw $this->createAccessDeniedException();
 			}
-
-			// Index pages.
-			$indexPagesQuery = $this->db->prepare( 'SELECT url '
-				. ' FROM index_pages ip '
-				. '   JOIN contest_index_pages cip ON cip.index_page_id = ip.id '
-				. ' WHERE contest_id = :id'
-			);
-			$indexPagesQuery->execute( [ 'id' => $id ] );
-			$indexPages = '';
-			foreach ( $indexPagesQuery->fetchAll() as $indexPage ) {
+			foreach ( $contest['excluded_users'] as $excludedUser ) {
+				$excludedUsers .= $excludedUser['name'] . "\n";
+			}
+			foreach ( $contest['index_pages'] as $indexPage ) {
 				$indexPages .= $indexPage['url'] . "\n";
 			}
-
+		} else {
+			$now = new DateTime( 'now', new DateTimeZone( 'UTC' ) );
+			$twoWeeks = new DateInterval( 'P14D' );
+			$contest = [
+				'id' => false,
+				'name' => '',
+				'start_date' => $now->format( 'Y-m-d 00:00:01' ),
+				'end_date' => $now->add( $twoWeeks )->format( 'Y-m-d 23:59:59' ),
+			];
+			$admins = $username;
 		}
 
-		if ( !$id ) {
-			$contest = new Contest();
-			$admins = $_SESSION['username'];
-			$excludedUsers = '';
-			$indexPages = '';
-		}
-
-		return $this->renderView( $response, 'contests_edit.html.twig', [
+		return $this->render( 'contests_edit.html.twig', [
 			'contest' => $contest,
 			'admins' => $admins,
 			'index_pages' => $indexPages,
@@ -200,122 +159,87 @@ class ContestsController extends Controller {
 	}
 
 	/**
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route( "/c/save", name="contests_save" )
+	 * @param Session $session
 	 * @param Request $request
-	 * @param Response $response
-	 * @param string[] $args
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @param ContestRepository $contestRepository
+	 * @param IndexPageRepository $indexPageRepository
+	 * @return Response
 	 */
-	public function save( Request $request, Response $response, $args ) {
-		if ( !isset( $_SESSION['username'] ) ) {
-			return $response->withRedirect( $this->router->urlFor( 'login' ) );
+	public function save(
+		Session $session,
+		Request $request,
+		ContestRepository $contestRepository,
+		IndexPageRepository $indexPageRepository
+	): Response {
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$username ) {
+			throw new AccessDeniedHttpException();
+		}
+		if ( !$this->isCsrfTokenValid( 'contest-edit', $request->request->get( 'csrf_token' ) ) ) {
+			throw new AccessDeniedHttpException();
 		}
 
-		$this->db->beginTransaction();
-
-		// Get the contest, and give up if it doesn't exist.
-		// @TODO Check authorisation
-		$contest = Contest::firstOrNew( [ 'id' => $request->getParam( 'id' ) ] );
-
-		$contest->name = $request->getParam( 'name' );
-		$contest->start_date = $request->getParam( 'start_date' );
-		$contest->end_date = $request->getParam( 'end_date' );
-		try {
-			$contest->save();
-		} catch ( QueryException $exception ) {
-			$this->setFlash( 'unable-to-save', 'warning', [ $exception->getMessage() ] );
-			return $this->renderView( $response, 'contests_edit.html.twig', [
-				'contest' => $contest,
-				'admins' => $request->getParam( 'admins' ),
-				'index_pages' => $request->getParam( 'index_pages' ),
-				'excluded_users' => $request->getParam( 'excluded_users' ),
-			] );
+		// Get the contest, and check if the user is an admin.
+		$id = (string)$request->request->get( 'id', '' );
+		if ( $id ) {
+			$contest = $contestRepository->get( $id );
+			if ( $contest && !$contestRepository->hasAdmin( $id, $username ) ) {
+				throw new AccessDeniedHttpException();
+			}
 		}
 
-		// Save admins.
-		$admins = Str::explode( $request->getParam( 'admins' ) );
-		if ( !in_array( $_SESSION['username'], $admins ) ) {
+		$admins = array_filter( Str::explode( $request->request->get( 'admins', '' ) ) );
+		if ( !in_array( $username, $admins ) ) {
 			// Make sure the current user is always an admin, so they can't lock themselves out.
-			$admins[] = $_SESSION['username'];
+			$admins[] = $username;
 		}
-		$adminUserIds = [];
-		foreach ( $admins as $admin ) {
-			$adminUserIds[] = User::firstOrCreate( [ 'name' => $admin ] )->id;
-		}
-		$contest->admins()->sync( $adminUserIds );
 
-		// Excluded users.
-		$excludedUserIds = [];
-		$excludedUsers = Str::explode( $request->getParam( 'excluded_users' ) );
-		foreach ( $excludedUsers as $excludedUser ) {
-			$excludedUserIds[] = User::firstOrCreate( [ 'name' => $excludedUser ] )->id;
+		$indexPageUrls = Str::explode( $request->request->get( 'index_pages' ) );
+		$indexPageResult = $indexPageRepository->saveUrls( $indexPageUrls );
+		foreach ( $indexPageResult['warnings'] as $warning ) {
+			$this->addFlash( 'warning', $warning );
 		}
-		$contest->excludedUsers()->sync( $excludedUserIds );
 
-		// Index pages.
-		$indexPageUrls = Str::explode( $request->getParam( 'index_pages' ) );
-		$indexPageIds = [];
-		foreach ( $indexPageUrls as $indexPageUrlString ) {
-			$indexPageUrl = urldecode( $indexPageUrlString );
-			// Do we already know about it?
-			$existingIndexPage = IndexPage::firstOrNew( [ 'url' => $indexPageUrl ] );
-			if ( $existingIndexPage->id ) {
-				$indexPageIds[] = $existingIndexPage->id;
-				continue;
-			}
-			// Check validity.
-			$wikisourceApi = new WikisourceApi();
-			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPageUrl );
-			if ( !$wikisource ) {
-				$this->setFlash( 'error-loading-wikisource', 'warning', [ $indexPageUrl ] );
-				continue;
-			}
-			try {
-				$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPageUrl );
-			} catch ( WikisourceApiException $e ) {
-				$this->setFlash( $e->getMessage() );
-				continue;
-			}
-			if ( !$wsIndexPage->loaded() ) {
-				$this->setFlash( 'error-loading-indexpage', 'warning', [ $indexPageUrl ] );
-				continue;
-			}
-			// Save.
-			$indexPageIds[] = IndexPage::firstOrCreate( [ 'url' => $indexPageUrl ] )->id;
-		}
-		$contest->indexPages()->sync( $indexPageIds );
-
-		$this->db->commit();
-		return $response->withRedirect(
-			$this->router->urlFor( 'contests_view', [ 'id' => $contest->id ] )
+		$id = $contestRepository->save(
+			$id,
+			$request->request->get( 'name' ),
+			$request->request->get( 'start_date' ),
+			$request->request->get( 'end_date' ),
+			$admins,
+			Str::explode( $request->request->get( 'excluded_users' ) ),
+			$indexPageUrls
 		);
+
+		return $this->redirectToRoute( 'contests_view', [ 'id' => $id ] );
 	}
 
 	/**
 	 * Delete all scores for a given contest.
+	 *
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/delete-scores", name="contests_delete_scores")
+	 * @param Session $session
 	 * @param Request $request
-	 * @param Response $response
-	 * @param array $args
+	 * @param ContestRepository $contestRepository
 	 * @return Response
 	 */
-	public function deleteScores( Request $request, Response $response, $args ) {
-		$contestId = (int)$request->getParam( 'contest_id' );
+	public function deleteScores( Session $session, Request $request, ContestRepository $contestRepository ) {
+		$id = $request->request->get( 'contest_id' );
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$username ) {
+			throw new AccessDeniedHttpException();
+		}
+		if ( !$this->isCsrfTokenValid( 'reset-scores', $request->request->get( 'csrf_token' ) )
+			|| !$contestRepository->hasAdmin( $id, $username )
 
-		if ( !isset( $_SESSION['username'] ) ) {
-			return $response->withStatus( 403 );
+		) {
+			throw new AccessDeniedHttpException();
 		}
 
-		// Only admins can delete scores.
-		$isAdmin = Contest::where( 'id', $contestId )->hasAdmin( $_SESSION['username'] )->count() > 0;
-		if ( !$isAdmin ) {
-			return $response->withStatus( 403 );
-		}
+		$contestRepository->deleteScores( $id );
 
-		// Delete.
-		Score::where( [ 'contest_id' => $contestId ] )->delete();
-
-		// Redirect to contest-view page.
-		return $response->withRedirect(
-			$this->router->urlFor( 'contests_view', [ 'id' => $contestId ] )
-		);
+		return $this->redirectToRoute( 'contests_view', [ 'id' => $id ] );
 	}
 }

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+    <li><a href="{{ path('contests_view', {id: contest.id}) }}">{{ msg('contest', [contest.name]) }}</a></li>
+    <li class="active">{{ msg('user-results') }}</li>
+</ol>
+
+<h2>{{ user.name }}</h2>
+
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>{{ msg('index-page') }}</th>
+        <th>{{ msg('Revision') }}</th>
+        <th>{{ msg('Date') }}</th>
+        <th>{{ msg('points') }}</th>
+        <th>{{ msg('contributions') }}</th>
+        <th>{{ msg('validations') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for score in scores %}
+        <tr>
+            <td><a href="{{ score.index_page_url }}">{{ score.index_page_url }}</a></td>
+            <td>
+                {# @TODO revisionUrl = 'https://' . $this->indexPage->getDomainName() . '/w/index.php?oldid=' . $this->revision_id . '&diff=prev'; #}
+                {{ score.revision_id }}
+            </td>
+            <td>{{ score.revision_datetime }}</td>
+            <td>{{ score.points }}</td>
+            <td>{{ score.contributions }}</td>
+            <td>{{ score.validations }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
