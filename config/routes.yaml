@@ -1,2 +1,6 @@
 toolforge:
     resource: '@ToolforgeBundle/Resources/config/routes.yaml'
+
+old_oauth:
+    path: /login/callback
+    controller: Wikimedia\ToolforgeBundle\Controller\AuthController::oauthCallbackAction
