@@ -3,6 +3,7 @@
 		"authors": [
 			"Narazeni",
 			"Okras",
+			"Pacha Tchernof",
 			"Марио"
 		]
 	},
@@ -12,7 +13,7 @@
 	"login": "Войти",
 	"logged-in-as": "Вы вошли как $1.",
 	"logout": "Выйти",
-	"stats-summary": "$1 {{PLURAL:$1|человек|люди}} приняли участие в $2 {{PLURAL:$2|конкурс|конкурсы}}.",
+	"stats-summary": "$1 {{PLURAL:$1|человек|людей}} приняли участие в $2 {{PLURAL:$2|конкурсе|конкурсах}}.",
 	"create-contest": "Создать конкурс",
 	"edit-contest": "Редактировать конкурс конфигурации",
 	"name-label": "Имя:",

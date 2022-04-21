@@ -4,6 +4,7 @@
 			"500000000006城",
 			"A Chinese Wikipedian",
 			"A Retired User",
+			"GuoPC",
 			"予弦",
 			"沈澄心",
 			"神樂坂秀吉"
@@ -15,7 +16,7 @@
 	"login": "登录",
 	"logged-in-as": "您已作为$1登录。",
 	"logout": "退出",
-	"stats-summary": "$1 {{PLURAL:$1|person|people}}参加了$2{{PLURAL:$2|contest|contests}}.",
+	"stats-summary": "$2 项竞赛里有 $1 人参加。",
 	"create-contest": "创建内容",
 	"edit-contest": "编辑比赛配置",
 	"name-label": "名称:",
