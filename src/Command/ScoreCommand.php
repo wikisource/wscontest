@@ -2,15 +2,16 @@
 
 namespace App\Command;
 
-use App\Repository\ContestRepository;
 use App\Repository\IndexPageRepository;
 use App\Repository\UserRepository;
+use DateInterval;
 use Mediawiki\Api\FluentRequest;
 use Mediawiki\Api\MediawikiApi;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
 use Wikisource\Api\Wikisource;
 use Wikisource\Api\WikisourceApi;
@@ -20,28 +21,27 @@ class ScoreCommand extends Command {
 	/** @var IndexPageRepository */
 	private $indexPageRepository;
 
-	/** @var ContestRepository */
-	private $contestRepository;
-
 	/** @var UserRepository */
 	private $userRepository;
 
 	/** @var CacheItemPoolInterface */
 	private $cache;
 
+	/** @var SymfonyStyle */
+	private $io;
+
 	/**
 	 * @param IndexPageRepository $indexPageRepository
-	 * @param ContestRepository $contestRepository
 	 * @param UserRepository $userRepository
 	 * @param CacheItemPoolInterface $cache
 	 */
 	public function __construct(
-		IndexPageRepository $indexPageRepository, ContestRepository $contestRepository, UserRepository $userRepository,
+		IndexPageRepository $indexPageRepository,
+		UserRepository $userRepository,
 		CacheItemPoolInterface $cache
 	) {
 		parent::__construct();
 		$this->indexPageRepository = $indexPageRepository;
-		$this->contestRepository = $contestRepository;
 		$this->userRepository = $userRepository;
 		$this->cache = $cache;
 	}
@@ -63,6 +63,7 @@ class ScoreCommand extends Command {
 	 * @return null|int Null or 0 if everything went fine, or an error code.
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
+		$this->io = new SymfonyStyle( $input, $output );
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
 		$indexPages = $this->indexPageRepository->needsScoring();
@@ -70,18 +71,18 @@ class ScoreCommand extends Command {
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );
 			if ( !$wikisource ) {
-				$output->writeln(
+				$this->io->error(
 					'Unable to determine Wikisource from URL: ' . $indexPage['url']
 				);
 				continue;
 			}
 			$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPage['url'] );
 			if ( !$wsIndexPage->loaded() ) {
-				$output->writeln( 'Unable to load Index page from URL: ' . $indexPage['url'] );
+				$this->io->error( 'Unable to load Index page from URL: ' . $indexPage['url'] );
 				continue;
 			}
 
-			$output->writeln( 'Scoring: ' . $indexPage['url'] );
+			$this->io->writeln( 'Scoring: ' . $indexPage['url'] );
 
 			// Delete old scores.
 			$this->indexPageRepository->deleteScores( $indexPage['id'] );
@@ -128,14 +129,23 @@ class ScoreCommand extends Command {
 	protected function processPage(
 		array $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
 	) {
-		// @TODO fix for 50 revisions limit.
-		$response = $api->getRequest( FluentRequest::factory()
-			->setAction( 'query' )
-			->setParam( 'prop', 'revisions' )
-			->setParam( 'titles', $pageTitle )
-			->setParam( 'rvlimit', 50 )
-			->setParam( 'rvdir', 'newer' )
-			->setParam( 'rvprop', 'user|timestamp|content|ids' ) );
+		$cacheItem = $this->cache->getItem( md5( 'revisions_' . $pageTitle ) );
+		if ( $cacheItem->isHit() ) {
+			$response = $cacheItem->get();
+		} else {
+			$this->io->writeln( "Fetching revisions of $pageTitle", SymfonyStyle::VERBOSITY_VERBOSE );
+			$cacheItem->expiresAfter( new DateInterval( 'P1D' ) );
+			$response = $api->getRequest( FluentRequest::factory()
+				->setAction( 'query' )
+				->setParam( 'prop', 'revisions' )
+				->setParam( 'titles', $pageTitle )
+				->setParam( 'rvlimit', 5000 )
+				->setParam( 'rvdir', 'newer' )
+				->setParam( 'rvprop', 'user|timestamp|content|ids' ) );
+			$cacheItem->set( $response );
+			$this->cache->save( $cacheItem );
+		}
+
 		// Go through the page's revisions.
 		$pageInfo = array_shift( $response['query']['pages'] );
 		if ( !isset( $pageInfo['revisions'] ) ) {
