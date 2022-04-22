@@ -91,7 +91,7 @@ class IndexPageRepository extends RepositoryBase {
 	 * @return array
 	 */
 	public function needsScoring(): array {
-		$sql = 'SELECT index_pages.*, contests.id AS contest_id, contests.start_date, contests.end_date
+		$sql = 'SELECT DISTINCT index_pages.*, contests.id AS contest_id, contests.start_date, contests.end_date
 			FROM index_pages
 			LEFT JOIN scores ON (index_pages.id = scores.index_page_id)
 			JOIN contest_index_pages ON (index_pages.id = contest_index_pages.index_page_id)
