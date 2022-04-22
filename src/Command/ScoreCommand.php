@@ -10,6 +10,7 @@ use Mediawiki\Api\MediawikiApi;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
@@ -53,6 +54,7 @@ class ScoreCommand extends Command {
 		parent::configure();
 		$this->setName( 'score' );
 		$this->setDescription( 'Retrieve scores from Wikisources.' );
+		$this->addOption( 'indexes', 'i', InputOption::VALUE_REQUIRED, 'Number of index pages to process.', 5 );
 	}
 
 	/**
@@ -67,7 +69,9 @@ class ScoreCommand extends Command {
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
 		$indexPages = $this->indexPageRepository->needsScoring();
-		foreach ( $indexPages as $indexPage ) {
+		for ( $indexPageNum = 0; $indexPageNum < $input->getOption( 'indexes' ); $indexPageNum++ ) {
+			$indexPage = $indexPages[ $indexPageNum ];
+
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );
 			if ( !$wikisource ) {
@@ -88,7 +92,9 @@ class ScoreCommand extends Command {
 			$this->indexPageRepository->deleteScores( $indexPage['id'] );
 
 			// Go through each contest that uses this Index Page and save the score.
-			foreach ( $this->indexPageRepository->getContests( $indexPage['id'] ) as $contest ) {
+			$contests = $this->indexPageRepository->getContests( $indexPage['id'] );
+			foreach ( $contests as $contest ) {
+				$this->io->writeln( 'For contest: ' . $contest['name'], SymfonyStyle::VERBOSITY_VERBOSE );
 				// Save new scores.
 				$this->calculateScore(
 					$wikisource,
@@ -112,10 +118,10 @@ class ScoreCommand extends Command {
 		Wikisource $wikisource, string $indexPageTitle, array $contest, int $indexPageId
 	) {
 		$wsIndexPage = new WikisourceIndexPage( $wikisource );
-
 		$wsIndexPage->loadFromTitle( $indexPageTitle );
 		$api = $wikisource->getMediawikiApi();
-		foreach ( $wsIndexPage->getPageList( true ) as $page ) {
+		$indexPages = $wsIndexPage->getPageList( true );
+		foreach ( $indexPages as $page ) {
 			$this->processPage( $contest, $api, $page['title'], $indexPageId );
 		}
 	}
