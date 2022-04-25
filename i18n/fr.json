@@ -12,7 +12,7 @@
 	"login": "Connexion",
 	"logged-in-as": "Vous êtes connecté en tant que $1",
 	"logout": "Déconnexion",
-	"stats-summary": "$1 personne{{PLURAL:$1| a|s ont}} pris part à $2 concours{{PLURAL:$2||}}.",
+	"stats-summary": "$1 personne{{PLURAL:$1||s}} {{PLURAL:$1|a|ont}} pris part à $2 concours{{PLURAL:$2|}}.",
 	"create-contest": "Créer un concours",
 	"edit-contest": "Modifier la configuration du concours",
 	"name-label": "Nom :",
