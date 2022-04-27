@@ -10,7 +10,6 @@ use Mediawiki\Api\MediawikiApi;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
@@ -54,7 +53,6 @@ class ScoreCommand extends Command {
 		parent::configure();
 		$this->setName( 'score' );
 		$this->setDescription( 'Retrieve scores from Wikisources.' );
-		$this->addOption( 'indexes', 'i', InputOption::VALUE_REQUIRED, 'Number of index pages to process.', 5 );
 	}
 
 	/**
@@ -69,9 +67,7 @@ class ScoreCommand extends Command {
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
 		$indexPages = $this->indexPageRepository->needsScoring();
-		for ( $indexPageNum = 0; $indexPageNum < $input->getOption( 'indexes' ); $indexPageNum++ ) {
-			$indexPage = $indexPages[ $indexPageNum ];
-
+		foreach ( $indexPages as $indexPage ) {
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );
 			if ( !$wikisource ) {
@@ -135,7 +131,8 @@ class ScoreCommand extends Command {
 	protected function processPage(
 		array $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
 	) {
-		$cacheItem = $this->cache->getItem( md5( 'revisions_' . $pageTitle ) );
+		$cacheKey = 'revisions_' . $pageTitle . $contest['start_date'] . $contest['end_date'];
+		$cacheItem = $this->cache->getItem( md5( $cacheKey ) );
 		if ( $cacheItem->isHit() ) {
 			$response = $cacheItem->get();
 		} else {
@@ -146,6 +143,8 @@ class ScoreCommand extends Command {
 				->setParam( 'prop', 'revisions' )
 				->setParam( 'titles', $pageTitle )
 				->setParam( 'rvlimit', 5000 )
+				->setParam( 'rvstart', $contest['start_date'] )
+				->setParam( 'rvend', $contest['end_date'] )
 				->setParam( 'rvdir', 'newer' )
 				->setParam( 'rvprop', 'user|timestamp|content|ids' ) );
 			$cacheItem->set( $response );
@@ -167,8 +166,11 @@ class ScoreCommand extends Command {
 			$matched = preg_match( $pattern, $content, $qualityMatches );
 			if ( $matched !== 1 ) {
 				// Some revisions don't have a pagequality user.
+				$this->io->error( 'No pagequality found for revision ' . $rev['revid'] );
 				continue;
 			}
+			$msg = 'Processing revision ' . $rev['revid'] . ' by ' . $qualityMatches[2];
+			$this->io->writeln( $msg, SymfonyStyle::VERBOSITY_VERY_VERBOSE );
 			$quality = (int)$qualityMatches[1];
 			$userId = $this->userRepository->getIdFromUsername( $qualityMatches[2] );
 			$timestamp = strtotime( $rev['timestamp'] );
