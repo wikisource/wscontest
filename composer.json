@@ -42,6 +42,9 @@
         "sort-packages": true,
         "platform": {
             "php": "7.2.31"
+        },
+        "allow-plugins": {
+            "symfony/flex": false
         }
     },
     "autoload": {
@@ -60,15 +63,11 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
         "post-install-cmd": [
-            "@auto-scripts"
+            "./bin/console cache:clear"
         ],
         "post-update-cmd": [
-            "@auto-scripts"
+            "./bin/console cache:clear"
         ],
         "test": [
             "composer validate",
