@@ -27,6 +27,9 @@ class ScoreCommand extends Command {
 	/** @var CacheItemPoolInterface */
 	private $cache;
 
+	/** @var int Number of minutes between runs of this command. */
+	private $scoreCalculationInterval;
+
 	/** @var SymfonyStyle */
 	private $io;
 
@@ -34,16 +37,19 @@ class ScoreCommand extends Command {
 	 * @param IndexPageRepository $indexPageRepository
 	 * @param UserRepository $userRepository
 	 * @param CacheItemPoolInterface $cache
+	 * @param int $scoreCalculationInterval
 	 */
 	public function __construct(
 		IndexPageRepository $indexPageRepository,
 		UserRepository $userRepository,
-		CacheItemPoolInterface $cache
+		CacheItemPoolInterface $cache,
+		int $scoreCalculationInterval
 	) {
 		parent::__construct();
 		$this->indexPageRepository = $indexPageRepository;
 		$this->userRepository = $userRepository;
 		$this->cache = $cache;
+		$this->scoreCalculationInterval = $scoreCalculationInterval;
 	}
 
 	/**
@@ -66,7 +72,7 @@ class ScoreCommand extends Command {
 		$this->io = new SymfonyStyle( $input, $output );
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
-		$indexPages = $this->indexPageRepository->needsScoring();
+		$indexPages = $this->indexPageRepository->needsScoring( $this->scoreCalculationInterval );
 		foreach ( $indexPages as $indexPage ) {
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );

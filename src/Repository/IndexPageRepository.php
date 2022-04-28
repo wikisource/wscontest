@@ -87,18 +87,19 @@ class IndexPageRepository extends RepositoryBase {
 	/**
 	 * An Index Page needs to be scored if it
 	 * is part of a contest,
-	 * and one that either has no scores or is in progress.
+	 * and one that either: (has no scores) or (is in progress or recently finished).
+	 * @param int $scoreCalculationInterval
 	 * @return array
 	 */
-	public function needsScoring(): array {
+	public function needsScoring( int $scoreCalculationInterval ): array {
 		$sql = 'SELECT DISTINCT index_pages.*, contests.id AS contest_id, contests.start_date, contests.end_date
 			FROM index_pages
 			LEFT JOIN scores ON (index_pages.id = scores.index_page_id)
 			JOIN contest_index_pages ON (index_pages.id = contest_index_pages.index_page_id)
 			LEFT JOIN contests ON (contest_index_pages.contest_id = contests.id)
 			WHERE scores.id IS NULL
-				OR contests.end_date > NOW()';
-		return $this->db->executeQuery( $sql )->fetchAllAssociative();
+				OR contests.end_date > DATE_SUB( NOW(), INTERVAL :mins MINUTE )';
+		return $this->db->executeQuery( $sql, [ 'mins' => $scoreCalculationInterval * 3 ] )->fetchAllAssociative();
 	}
 
 	/**

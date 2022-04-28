@@ -51,7 +51,8 @@
   "date": "Date",
   "scores": "Scores",
   "contest-in-progress": "This contest is currently in progress, and scores can only be viewed by the contest administrators.",
-  "reset-scores": "Reset scores",
+  "scores-legend": "The scores below are calculated every $1 minutes while the contest is running, and then again when the contest has ended.",
+  "save-resets-scores": "Saving contest information will cause the scores to be recalculated (within $1 minutes).",
   "wikitext-scores": "Get Wikitext table of scores",
 
   "this-is-wscontest": "This is the Wikisource Contest tool",

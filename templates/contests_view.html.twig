@@ -41,39 +41,31 @@
 <div id="scores">
     <h3>{{ msg('scores') }}</h3>
     {% if can_view_scores %}
-        <form action="{{ path('contests_delete_scores') }}" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token( 'reset-scores' ) }}" />
-            <input type="hidden" name="contest_id" value="{{ contest.id }}" />
-            <p>
-                <button type="submit" class="btn btn-default {% if not can_edit %}disabled{% endif %}" {% if not can_edit %}disabled{% endif %} >
-                    {{ msg('reset-scores') }}
-                </button>
-            </p>
-        </form>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>{{ msg('user') }}</th>
-            <th>{{ msg('points') }}</th>
-            <th>{{ msg('contributions') }}</th>
-            <th>{{ msg('validations') }}</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for score in scores %}
-            <tr>
-                <td><a href="https://meta.wikimedia.org/wiki/User:{{ score.username }}">{{ score.username }}</a></td>
-                <td>{{ score.points }}</td>
-                <td>{{ score.contributions }}</td>
-                <td>{{ score.validations }}</td>
-                <td>
-                    <a href="{{ path('contests_view', {id: contest.id}) }}?u={{ score.user_id }}">{{ msg('details') }}</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table">
+            <caption>{{ msg('scores-legend', [score_calculation_interval~'']) }}</caption>
+            <thead>
+                <tr>
+                    <th>{{ msg('user') }}</th>
+                    <th>{{ msg('points') }}</th>
+                    <th>{{ msg('contributions') }}</th>
+                    <th>{{ msg('validations') }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for score in scores %}
+                <tr>
+                    <td><a href="https://meta.wikimedia.org/wiki/User:{{ score.username }}">{{ score.username }}</a></td>
+                    <td>{{ score.points }}</td>
+                    <td>{{ score.contributions }}</td>
+                    <td>{{ score.validations }}</td>
+                    <td>
+                        <a href="{{ path('contests_view', {id: contest.id}) }}?u={{ score.user_id }}">{{ msg('details') }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         <div class="alert alert-success"><p>{{ msg('contest-in-progress') }}</p></div>
     {% endif %}

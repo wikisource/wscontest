@@ -51,6 +51,7 @@
             {% else %}
                 <a href="{{ path('contests') }}" class="btn btn-default">{{ msg('cancel') }}</a>
             {% endif %}
+            <span class="help-block">{{ msg('save-resets-scores', [(score_calculation_interval * 2)~'']) }}</span>
         </p>
     </form>
 
