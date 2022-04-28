@@ -58,6 +58,7 @@ class ContestsController extends AbstractController {
 	 * @param Request $request
 	 * @param Session $session
 	 * @param Intuition $intuition
+	 * @param int $scoreCalculationInterval
 	 * @param string $id
 	 * @param ?string $format
 	 * @return Response
@@ -68,6 +69,7 @@ class ContestsController extends AbstractController {
 		Request $request,
 		Session $session,
 		Intuition $intuition,
+		int $scoreCalculationInterval,
 		string $id,
 		?string $format = null
 	): Response {
@@ -100,6 +102,7 @@ class ContestsController extends AbstractController {
 			'scores' => $contestRepository->getscores( $id ),
 			'can_edit' => $canEdit,
 			'can_view_scores' => $canEdit || !$contest['in_progress'],
+			'score_calculation_interval' => $scoreCalculationInterval,
 		] );
 	}
 
@@ -110,10 +113,15 @@ class ContestsController extends AbstractController {
 	 * @Route("/c/{id}/edit", name="contests_edit", requirements={"id"="\d+"})
 	 * @param Session $session
 	 * @param ContestRepository $contestRepository
+	 * @param int $scoreCalculationInterval
 	 * @param ?string $id
 	 * @return Response
 	 */
-	public function edit( Session $session, ContestRepository $contestRepository, ?string $id = null ): Response {
+	public function edit(
+		Session $session, ContestRepository $contestRepository,
+		int $scoreCalculationInterval,
+		?string $id = null
+	): Response {
 		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
 			throw $this->createAccessDeniedException();
@@ -155,6 +163,7 @@ class ContestsController extends AbstractController {
 			'admins' => $admins,
 			'index_pages' => $indexPages,
 			'excluded_users' => $excludedUsers,
+			'score_calculation_interval' => $scoreCalculationInterval,
 		] );
 	}
 
@@ -212,32 +221,7 @@ class ContestsController extends AbstractController {
 			$indexPageUrls
 		);
 
-		return $this->redirectToRoute( 'contests_view', [ 'id' => $id ] );
-	}
-
-	/**
-	 * Delete all scores for a given contest.
-	 *
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/delete-scores", name="contests_delete_scores")
-	 * @param Session $session
-	 * @param Request $request
-	 * @param ContestRepository $contestRepository
-	 * @return Response
-	 */
-	public function deleteScores( Session $session, Request $request, ContestRepository $contestRepository ) {
-		$id = $request->request->get( 'contest_id' );
-		$username = $this->getLoggedInUsername( $session );
-		if ( !$username ) {
-			throw new AccessDeniedHttpException();
-		}
-		if ( !$this->isCsrfTokenValid( 'reset-scores', $request->request->get( 'csrf_token' ) )
-			|| !$contestRepository->hasAdmin( $id, $username )
-
-		) {
-			throw new AccessDeniedHttpException();
-		}
-
+		// Reset scores, to ensure they'll be re-calculated.
 		$contestRepository->deleteScores( $id );
 
 		return $this->redirectToRoute( 'contests_view', [ 'id' => $id ] );
