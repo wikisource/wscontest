@@ -47,7 +47,6 @@
 	"date": "날짜",
 	"scores": "점수",
 	"contest-in-progress": "대회가 현재 진행 중이며, 관리자만 점수를 확인할 수 있습니다.",
-	"reset-scores": "점수 초기화",
 	"wikitext-scores": "점수를 위키 마크업 표로 가져오기",
 	"this-is-wscontest": "위키문헌 대회 도구 정보",
 	"gpl-link": "GPL 3.0+",

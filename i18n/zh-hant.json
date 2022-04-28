@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"Tranve"
+			"Tranve",
+			"Winston Sung"
 		]
 	},
 	"app-title": "維基文庫競賽",
@@ -26,7 +27,7 @@
 	"end-date-col-header": "結束日期",
 	"contest-col-header": "競賽",
 	"administrators-col-header": "管理員",
-	"save": "保存",
+	"save": "儲存",
 	"cancel": "取消",
 	"error-loading-wikisource": "無法從「$1」載入維基文庫資訊",
 	"error-loading-indexpage": "無法從「$1」載入首頁",
@@ -34,7 +35,7 @@
 	"no-contests": "您不是任何競賽的管理員。",
 	"contest": "競賽：$1",
 	"details": "詳情",
-	"unable-to-save": "無法保存：$1",
+	"unable-to-save": "無法儲存：$1",
 	"user": "使用者",
 	"points": "分數",
 	"contributions": "貢獻",
@@ -46,7 +47,6 @@
 	"date": "日期",
 	"scores": "得分",
 	"contest-in-progress": "此競賽目前正進行中，得分僅能由競賽管理員觀看。",
-	"reset-scores": "重新設定得分",
 	"wikitext-scores": "取得得分表格的 wikitext",
 	"this-is-wscontest": "關於維基文庫競賽工具",
 	"gpl-link": "GNU 通用公眾授權條款 3.0+",

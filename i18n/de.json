@@ -45,7 +45,6 @@
 	"date": "Datum",
 	"scores": "Punktestände",
 	"contest-in-progress": "Dieser Wettbewerb läuft derzeit noch. Punktestände können deshalb nur von Administratoren des Wettbewerbs angesehen werden.",
-	"reset-scores": "Punktestände zurücksetzen",
 	"wikitext-scores": "Wikitexttabelle der Punktestände abrufen",
 	"this-is-wscontest": "Dies ist das Werkzeug für Wikisource-Wettbewerbe",
 	"gpl-link": "GPL 3.0+",

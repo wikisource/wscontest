@@ -48,7 +48,6 @@
 	"date": "Fecha",
 	"scores": "Puntuaciones",
 	"contest-in-progress": "Este concurso está en curso y solo los administradores del concurso pueden ver las puntuaciones.",
-	"reset-scores": "Restablecer puntuaciones",
 	"wikitext-scores": "Obtener tabla de puntuaciones en Wikitexto",
 	"this-is-wscontest": "Esta es la herramienta del concurso de Wikisource",
 	"gpl-link": "GPL 3.0+",
