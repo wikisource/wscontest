@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK",
 			"Grkn gll",
 			"Hedda",
+			"SaldırganSincap",
 			"Stonecy"
 		]
 	},
@@ -13,7 +14,7 @@
 	"login": "Oturum aç",
 	"logged-in-as": "$1 olarak oturum açtınız.",
 	"logout": "Oturumu kapat",
-	"stats-summary": "$2 {{PLURAL:$2|yarışmaya|yarışmaya}} $1 {{PLURAL:$1|kişi|kişi}} katıldı.",
+	"stats-summary": "$2 {{PLURAL:$2|yarışmada}} $1 {{PLURAL:$1|kişi}} katıldı.",
 	"create-contest": "Yarışma oluştur",
 	"edit-contest": "Yarışma yapılandırmasını düzenle",
 	"name-label": "İsim:",

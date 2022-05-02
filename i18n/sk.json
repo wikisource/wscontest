@@ -46,6 +46,8 @@
 	"date": "Dátum",
 	"scores": "Skóre",
 	"contest-in-progress": "Táto súťaž práve prebieha a skóre môžu vidieť len správcovia súťaže.",
+	"scores-legend": "Skóre nižšie je aktualizované každých $1 minút počas trvania súťaže a po skončení je aktualizované znovu.",
+	"save-resets-scores": "Uloženie súťažných informácií spôsobí, že skóre bude aktualizované a prepočítané (v priebehu $1 minút).",
 	"wikitext-scores": "Wikitextová tabuľka skóre",
 	"this-is-wscontest": "Toto je nástroj Wikisource Contest",
 	"gpl-link": "GPL 3.0+",

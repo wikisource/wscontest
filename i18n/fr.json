@@ -47,6 +47,8 @@
 	"date": "Date",
 	"scores": "Scores",
 	"contest-in-progress": "Le concours est actuellement ouvert et les scores ne peuvent être vues que par les administrateurs du concours.",
+	"scores-legend": "Les scores ci-dessous sont calculés {{PLURAL|$1|chaque minute|toutes les $1 minutes}} tant que le concours se poursuit, puis recalculés à nouveau à la fin du concours.",
+	"save-resets-scores": "L’enregistrement des informations sur le concours aura pour effet de recalculer les scores (dans $1 minute{{PLURAL:$1||s}}).",
 	"wikitext-scores": "Obtenir le tableau des scores en wikicode",
 	"this-is-wscontest": "Ceci est l’outil des concours Wikisource",
 	"gpl-link": "GPL 3.0+",
