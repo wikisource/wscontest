@@ -47,6 +47,8 @@
 	"date": "日期",
 	"scores": "得分",
 	"contest-in-progress": "此競賽目前正進行中，得分僅能由競賽管理員觀看。",
+	"scores-legend": "在競賽進行期間，以下得分會每隔 $1 分計算一次，並且會在競賽結束時再計算一次。",
+	"save-resets-scores": "儲存競賽資訊會再次計算得分（間隔 $1 分鐘）。",
 	"wikitext-scores": "取得得分表格的 wikitext",
 	"this-is-wscontest": "關於維基文庫競賽工具",
 	"gpl-link": "GNU 通用公眾授權條款 3.0+",
