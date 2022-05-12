@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Rainbow P",
+			"Strebski",
 			"Thoji"
 		]
 	},
@@ -11,7 +12,7 @@
 	"login": "Zaloguj się",
 	"logged-in-as": "Jesteś zalogowany jako $1.",
 	"logout": "Wyloguj się",
-	"stats-summary": "$1 {{PLURAL:$1|osoba|osoby}} wzięły udział w $2 {{PLURAL:$2|konkursie|konkursach}}.",
+	"stats-summary": "$1 {{PLURAL:$1|osoba|osoby|osób}} wzięły udział w $2 {{PLURAL:$2|konkursie|konkursach}}.",
 	"create-contest": "Utwórz konkurs",
 	"edit-contest": "Edytuj ustawienia konkursu",
 	"name-label": "Nazwa:",
@@ -46,6 +47,8 @@
 	"date": "Data",
 	"scores": "Wyniki",
 	"contest-in-progress": "Konkurs jest obecnie w toku, a wyniki mogą być przeglądane tylko przez administratorów konkursu.",
+	"scores-legend": "Poniższe wyniki są obliczane w trakcie trwania konkursu co $1 minut(ę), a następnie ponownie po jego zakończeniu.",
+	"save-resets-scores": "Zapisanie informacji o konkursie spowoduje ponowne obliczenie wyników (w ciągu $1 minut(y)).",
 	"wikitext-scores": "Wstaw tabelę wyników Wikitext.",
 	"this-is-wscontest": "To jest narzędzie Wikisource Contest",
 	"gpl-link": "GPL 3.0+",
