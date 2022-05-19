@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Serkanland",
 			"Şeyx Şamil"
 		]
 	},
@@ -11,7 +12,7 @@
 	"dates": "Tarix:",
 	"start-date-col-header": "Başlanğıc tarixi",
 	"end-date-col-header": "Bitmə tarixi",
-	"administrators-col-header": "İdarəçilər",
+	"administrators-col-header": "İnzibatçılar",
 	"save": "Saxla",
 	"cancel": "Ləğv et",
 	"details": "Detallar",
