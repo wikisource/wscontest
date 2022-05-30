@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block page_title %}
+    {% if contest.id %}{{ msg('edit-contest') }}{% else %}{{ msg('create-contest') }}{% endif %} —
+{% endblock %}
+
 {% block main %}
 
     <h2>
