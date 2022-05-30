@@ -3,7 +3,7 @@
 {% block main %}
 
 <p class="lead">
-    {{ msg('stats-summary', [ people|number_format, contests|number_format ] ) }}
+    {{ msg('stats-summary', [ people|number_format, people, contests|number_format, contests ] ) }}
 </p>
 
 <p>

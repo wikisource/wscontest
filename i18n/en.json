@@ -12,7 +12,7 @@
   "logged-in-as": "You are logged in as $1",
   "logout": "Log out",
 
-  "stats-summary": "$1 {{PLURAL:$1|person|people}} have taken part in $2 {{PLURAL:$2|contest|contests}}.",
+  "stats-summary": "$1 {{PLURAL:$2|person|people}} have taken part in $3 {{PLURAL:$4|contest|contests}}.",
 
   "all-contests": "All contests",
   "create-contest": "Create contest",
