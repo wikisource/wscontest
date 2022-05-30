@@ -137,7 +137,7 @@ class ScoreCommand extends Command {
 	protected function processPage(
 		array $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
 	) {
-		$cacheKey = 'revisions_' . $pageTitle . $contest['start_date'] . $contest['end_date'];
+		$cacheKey = 'revisions_' . $pageTitle . $contest['end_date'];
 		$cacheItem = $this->cache->getItem( md5( $cacheKey ) );
 		if ( $cacheItem->isHit() ) {
 			$response = $cacheItem->get();
@@ -149,7 +149,6 @@ class ScoreCommand extends Command {
 				->setParam( 'prop', 'revisions' )
 				->setParam( 'titles', $pageTitle )
 				->setParam( 'rvlimit', 5000 )
-				->setParam( 'rvstart', $contest['start_date'] )
 				->setParam( 'rvend', $contest['end_date'] )
 				->setParam( 'rvdir', 'newer' )
 				->setParam( 'rvprop', 'user|timestamp|content|ids' ) );
