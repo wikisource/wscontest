@@ -20,8 +20,8 @@ class HomeController extends AbstractController {
 	 */
 	public function home( ContestRepository $contestRepository, UserRepository $userRepository ): Response {
 		return $this->render( 'home.html.twig', [
-			'contests' => $contestRepository->count(),
-			'people' => $userRepository->count(),
+			'contests' => (string)$contestRepository->count(),
+			'people' => (string)$userRepository->count(),
 		] );
 	}
 }
