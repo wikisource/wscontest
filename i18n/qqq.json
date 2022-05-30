@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
+			"Beta16",
 			"Robby",
 			"Samwilson"
 		]
@@ -12,7 +13,7 @@
 	"login": "Link to log in.",
 	"logged-in-as": "Informative sentence about the currently logged-in user. $1 is the username.",
 	"logout": "Link to log out.",
-	"stats-summary": "Summary sentence about the stats for the whole tool. Parameters:\n\n* $1 — formatted number of people\n* $2 — unformatted number of people (for use with PLURAL)* $3 — formatted number of contests\n* $4 — unformatted number of contests (for use with PLURAL)",
+	"stats-summary": "Summary sentence about the stats for the whole tool. Parameters:\n\n* $1 — formatted number of people\n* $2 — unformatted number of people (for use with PLURAL)\n* $3 — formatted number of contests\n* $4 — unformatted number of contests (for use with PLURAL)",
 	"all-contests": "Page title for the contest-list page.",
 	"create-contest": "Header text displayed above the contest-creation form.",
 	"edit-contest": "Header text displayed above the contest-editing form.",

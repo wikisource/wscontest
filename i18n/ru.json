@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gulka.nik",
 			"Narazeni",
 			"Okras",
 			"Pacha Tchernof",
@@ -13,7 +14,8 @@
 	"login": "Войти",
 	"logged-in-as": "Вы вошли как $1.",
 	"logout": "Выйти",
-	"stats-summary": "$1 {{PLURAL:$1|человек|людей}} приняли участие в $2 {{PLURAL:$2|конкурсе|конкурсах}}.",
+	"stats-summary": "$1 {{PLURAL:$2|человек|людей}} приняли участие в $3 {{PLURAL:$4|конкурсе|конкурсах}}.",
+	"all-contests": "Все пространства имён",
 	"create-contest": "Создать конкурс",
 	"edit-contest": "Изменить конфигурацию конкурса",
 	"name-label": "Имя:",

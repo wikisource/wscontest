@@ -12,7 +12,7 @@
 	"login": "Log in",
 	"logged-in-as": "Sei loggato come $1",
 	"logout": "Log out",
-	"stats-summary": "$1 {{PLURAL:$1|persona|persone}} hanno partecipato a $2 {{PLURAL:$2|contest}}.",
+	"stats-summary": "$1 {{PLURAL:$2|persona|persone}} hanno partecipato a $3 {{PLURAL:$4|contest}}.",
 	"create-contest": "Crea contest",
 	"edit-contest": "Modifica la configurazione del contest",
 	"name-label": "Nome:",
