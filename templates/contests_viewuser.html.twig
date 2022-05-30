@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block page_title %}
+    {{ user.name }} — {{ msg('contest', [contest.name]) }} —
+{% endblock %}
+
 {% block main %}
 
 <ol class="breadcrumb">

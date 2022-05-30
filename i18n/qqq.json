@@ -13,6 +13,7 @@
 	"logged-in-as": "Informative sentence about the currently logged-in user. $1 is the username.",
 	"logout": "Link to log out.",
 	"stats-summary": "Summary sentence about the stats for the whole tool. $1 is the number of people; $2 is the number of contests.",
+	"all-contests": "Page title for the contest-list page.",
 	"create-contest": "Header text displayed above the contest-creation form.",
 	"edit-contest": "Header text displayed above the contest-editing form.",
 	"name-label": "Form label for the 'name' field.\n{{Identical|Name}}",

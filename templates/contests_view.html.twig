@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block page_title %}
+    {{ msg('contest', [contest.name]) }} —
+{% endblock %}
+
 {% block main %}
 
 <h2>{{ msg('contest', [contest.name]) }}</h2>
