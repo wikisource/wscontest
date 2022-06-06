@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Asma",
 			"Meno25",
 			"NEHAOUA"
 		]
@@ -12,6 +13,7 @@
 	"logged-in-as": "أنت مسجل الدخول ك$1",
 	"logout": "تسجيل الخروج",
 	"stats-summary": "شارك {{PLURAL:$1|شخص واحد|شخصين|$1 أشخاص|$1شخص}} في {{PLURAL:$2|مسابقة واحدة|مسابقتين|$1 مسابقات|$1 مسابقة}}.",
+	"all-contests": "كل المسابقات",
 	"create-contest": "إنشاء المسابقة",
 	"edit-contest": "عدل ضبط المسابقة",
 	"name-label": "الاسم:",

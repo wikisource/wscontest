@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diskdance",
 			"Kly",
 			"Tranve",
 			"Winston Sung"
@@ -12,7 +13,8 @@
 	"login": "登入",
 	"logged-in-as": "您以「$1」帳號登入",
 	"logout": "登出",
-	"stats-summary": "$2 項{{PLURAL:$2|競賽}}裡有 $1 個{{PLURAL:$1|人}}參加。",
+	"stats-summary": "$3 項{{PLURAL:$4|競賽}}裡有 $1 個{{PLURAL:$2|人}}參加。",
+	"all-contests": "所有競賽",
 	"create-contest": "建立競賽",
 	"edit-contest": "編輯競賽設置",
 	"name-label": "名稱：",
