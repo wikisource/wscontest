@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dick Bos",
+			"Dnlweijers",
 			"McDutchie",
 			"Optilete"
 		]
@@ -12,7 +13,8 @@
 	"login": "Aanmelden",
 	"logged-in-as": "U bent aangemeld als $1",
 	"logout": "Afmelden",
-	"stats-summary": "$1 {{PLURAL:$1|persoon heeft|personen hebben}} deelgenomen aan $2 {{PLURAL:$2|wedstrijd|wedstrijden}}.",
+	"stats-summary": "$1 {{PLURAL:$2|persoon heeft|personen hebben}} deelgenomen aan $3 {{PLURAL:$4|wedstrijd|wedstrijden}}.",
+	"all-contests": "Volledige inhoud",
 	"create-contest": "Wedstrijd aanmaken",
 	"edit-contest": "Instellingen wedstrijd bewerken",
 	"name-label": "Naam:",
