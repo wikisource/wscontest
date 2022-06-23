@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"F Samaritani"
+		]
+	},
+	"homepage": "Pàgina printzipali",
+	"contests": "Inditu",
+	"login": "Intra",
+	"logout": "Bessi",
+	"name-label": "Nomini:",
+	"dates": "Data:",
+	"administrators": "Aministradoris:",
+	"contest-col-header": "Inditu",
+	"administrators-col-header": "Aministradoris",
+	"save": "Sarva",
+	"cancel": "Annudda",
+	"details": "Minudas",
+	"user": "Impreadori",
+	"contributions": "Contribudus mius",
+	"index-page": "Pàginas indixisadas",
+	"index-pages": "Pàginas indixisadas",
+	"date": "Data"
+}
