@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Duke of Wikipädia",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad"
 		]
@@ -11,7 +12,8 @@
 	"login": "Entrar",
 	"logged-in-as": "Você entrou como $1",
 	"logout": "Sair",
-	"stats-summary": "$1 {{PLURAL:$1|pessoa|pessoas}} participaram de {{PLURAL:$2|concurso|concursos}} $2.",
+	"stats-summary": "$1 {{PLURAL:$2|pessoa|pessoas}} participaram de $3 {{PLURAL:$4|concurso|concursos}}.",
+	"all-contests": "Todos os concursos",
 	"create-contest": "Criar concurso",
 	"edit-contest": "Editar configuração do concurso",
 	"name-label": "Nome:",
@@ -46,6 +48,8 @@
 	"date": "Data",
 	"scores": "Pontuação",
 	"contest-in-progress": "Este concurso está em andamento e as pontuações só podem ser vistas pelos administradores do concurso.",
+	"scores-legend": "As pontuações abaixo são calculadas a cada $1 minuto enquanto o concurso está em andamento e, novamente, quando o concurso termina.",
+	"save-resets-scores": "Salvar as informações do concurso fará com que as pontuações sejam recalculadas (dentro de $1 minutos).",
 	"wikitext-scores": "Obter tabela wikitexto de pontuações",
 	"this-is-wscontest": "Esta é a ferramenta do concurso Wikisource",
 	"gpl-link": "GPL 3.0+",
