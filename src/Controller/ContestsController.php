@@ -71,7 +71,7 @@ class ContestsController extends AbstractController {
 		Intuition $intuition,
 		int $scoreCalculationInterval,
 		string $id,
-		?string $format = null
+		?string $format = 'html'
 	): Response {
 		// Find the contest.
 		$contest = $contestRepository->get( $id );
@@ -91,19 +91,19 @@ class ContestsController extends AbstractController {
 
 		$username = $this->getLoggedInUsername( $session );
 		$canEdit = $username && $contestRepository->hasAdmin( $id, $username );
-		// $viewFormat = $request->getAttribute( 'format', 'html' );
-		// new Response();
-		// if ( $format === 'wikitext' ) {
-		// 	$response = $response->withHeader( 'Content-Type', 'text/plain' );
-		// }
-		$format = 'html';
-		return $this->render( "contests_view.$format.twig", [
+		$response = new Response();
+		if ( $format === 'wikitext' ) {
+			$response->headers->set( 'Content-Type', 'text/plain' );
+		}
+		$content = $this->renderView( "contests_view.$format.twig", [
 			'contest' => $contest,
 			'scores' => $contestRepository->getscores( $id ),
 			'can_edit' => $canEdit,
 			'can_view_scores' => $canEdit || !$contest['in_progress'],
 			'score_calculation_interval' => $scoreCalculationInterval,
 		] );
+		$response->setContent( $content );
+		return $response;
 	}
 
 	/**
