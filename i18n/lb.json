@@ -32,6 +32,7 @@
 	"revision": "Versioun",
 	"date": "Datum",
 	"scores": "Punkten",
+	"url": "URL",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode"
 }

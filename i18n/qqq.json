@@ -52,7 +52,7 @@
 	"scores-legend": "Information text shown above the scores' table.\n\nParameters:\n\n* $1 — Interval in minutes between score re-calculations.",
 	"save-resets-scores": "Warning text below 'save' button in Contest edit form.\n\nParameters:\n\n* $1 — Interval in minutes between score re-calculations.",
 	"wikitext-scores": "Button text to get wikitext format of the contest details and scores.",
-	"url": "Label for wikitext output for a contest's full URL.",
+	"url": "Label for wikitext output for a contest's full URL.\n{{identical|URL}}",
 	"excluded-users-none": "Note text for wikitext output when there are no excluded users.",
 	"this-is-wscontest": "Footer link to the tool homepage.",
 	"gpl-link": "Footer link to the GPL license.",
