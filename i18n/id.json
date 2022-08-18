@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bagas Chrisara",
+			"Daud I.F. Argana",
 			"Mnam23",
 			"Rachmat04",
 			"Veracious"
@@ -13,7 +14,8 @@
 	"login": "Masuk log",
 	"logged-in-as": "Anda masuk log sebagai $1",
 	"logout": "Keluar log",
-	"stats-summary": "$1 {{PLURAL:$1|orang}} telah mengambil bagian dalam $2 {{PLURAL:$2|kontes|kontes-kontes}}.",
+	"stats-summary": "$1 {{PLURAL:$2|orang}} telah mengambil bagian dalam $3 {{PLURAL:$4|kontes}}.",
+	"all-contests": "Semua kontes",
 	"create-contest": "Buat kontes",
 	"edit-contest": "Ubah pengaturan kontes",
 	"name-label": "Nama:",
@@ -51,6 +53,8 @@
 	"scores-legend": "Skor di bawah ini dihitung setiap $1 menit saat kontes sedang berjalan, dan kemudian lagi ketika kontes telah berakhir.",
 	"save-resets-scores": "Menyimpan informasi kontes akan menyebabkan skor dihitung ulang (dalam waktu $1 menit).",
 	"wikitext-scores": "Dapatkan tabel skor dalam teks wiki",
+	"url": "URL",
+	"excluded-users-none": "Tidak ada pengguna yang dikecualikan.",
 	"this-is-wscontest": "Ini adalah perkakas Kontes Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Kode sumber",
