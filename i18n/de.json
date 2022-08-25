@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Brettchenweber",
+			"Metalhead64",
+			"ThisCarthing"
 		]
 	},
 	"app-title": "Wikisource-Wettbewerbe",
@@ -10,7 +12,8 @@
 	"login": "Anmelden",
 	"logged-in-as": "Du bist angemeldet als $1",
 	"logout": "Abmelden",
-	"stats-summary": "{{PLURAL:$1|Eine Person hat|$1 Personen haben}} in {{PLURAL:$2|einem Wettbewerb|$2 Wettbewerben}} teilgenommen.",
+	"stats-summary": "$1 {{PLURAL:$2|Eine Person hat|Personen haben}} an $3 {{PLURAL:$4|einem Wettbewerb|Wettbewerben}} teilgenommen.",
+	"all-contests": "Alle Wettbewerbe",
 	"create-contest": "Wettbewerb erstellen",
 	"edit-contest": "Konfiguration des Wettbewerbs bearbeiten",
 	"name-label": "Name:",
