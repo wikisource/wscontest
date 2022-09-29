@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Jojit fb"
 		]
 	},
 	"app-title": "Wikisource Contests",
@@ -13,7 +14,7 @@
 	"stats-summary": "Nakilahok ang $1 {{PLURAL:$2|tao|(na) tao}} sa $3 {{PLURAL:$4|patimpalak|(na) patimpalak}}.",
 	"all-contests": "Lahat ng patimpalak",
 	"create-contest": "Gumawa ng patimpalak",
-	"edit-contest": "I-edit ang pagsasaayos sa patimpalak",
+	"edit-contest": "Baguhin ang pagsasaayos sa patimpalak",
 	"name-label": "Pangalan:",
 	"dates": "Petsa:",
 	"end-date-label": "Petsa at oras matatapos:",
