@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"Justman10000",
 			"Metalhead64",
 			"ThisCarthing"
 		]
@@ -48,7 +49,11 @@
 	"date": "Datum",
 	"scores": "Punktestände",
 	"contest-in-progress": "Dieser Wettbewerb läuft derzeit noch. Punktestände können deshalb nur von Administratoren des Wettbewerbs angesehen werden.",
+	"scores-legend": "Die folgenden Punkte werden alle $1 Minuten berechnet, während der Wettbewerb läuft, und dann noch einmal, wenn der Wettbewerb beendet ist.",
+	"save-resets-scores": "Wenn du die Wettbewerbsinformationen speicherst, werden die Punkte neu berechnet (innerhalb von $1 Minuten).",
 	"wikitext-scores": "Wikitexttabelle der Punktestände abrufen",
+	"url": "URL",
+	"excluded-users-none": "Keine ausgeschlossenen Nutzer.",
 	"this-is-wscontest": "Dies ist das Werkzeug für Wikisource-Wettbewerbe",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode",
