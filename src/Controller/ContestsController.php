@@ -40,11 +40,12 @@ class ContestsController extends AbstractController {
 	public function index( Session $session, ContestRepository $contestRepository ): Response {
 		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
-			$this->addFlash( 'warning', [ 'not-logged-in', [ 'foo' ] ] );
+			$this->addFlash( 'warning', [ 'not-logged-in', [] ] );
 		}
 		return $this->render( 'contests.html.twig', [
 			'username' => $username,
-			'contests' => $username ? $contestRepository->getContestsForUser( $username ) : null,
+			'user_contests' => $username ? $contestRepository->getContestsForUser( $username ) : null,
+			'recent_contests' => $contestRepository->getRecentlyEndedContests(),
 		] );
 	}
 

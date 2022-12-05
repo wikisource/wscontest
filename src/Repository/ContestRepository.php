@@ -223,6 +223,20 @@ class ContestRepository extends RepositoryBase {
 	}
 
 	/**
+	 * Get most recent 50 contests (by end date).
+	 * @return mixed[][]
+	 */
+	public function getRecentlyEndedContests(): array {
+		$sql = 'SELECT c.* FROM contests c'
+		. '   LEFT JOIN admins a ON a.contest_id=c.id '
+		. '   LEFT JOIN users u ON u.id=a.user_id'
+		. ' WHERE end_date < NOW()'
+		. ' ORDER BY end_date DESC'
+		. ' LIMIT 50';
+		return $this->db->executeQuery( $sql )->fetchAllAssociative();
+	}
+
+	/**
 	 * @param string $contestId
 	 * @return array
 	 */
