@@ -4,8 +4,8 @@
 		"test": "grunt test"
 	},
 	"devDependencies": {
-		"grunt": "1.0.3",
-		"grunt-banana-checker": "0.5.0",
-		"grunt-jsonlint": "1.1.0"
+		"grunt": "1.5.3",
+		"grunt-banana-checker": "0.10.0",
+		"grunt-jsonlint": "2.1.3"
 	}
 }
