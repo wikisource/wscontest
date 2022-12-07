@@ -8,6 +8,12 @@ on:
   pull_request:
     branches:
       - '**'
+
+env:
+  APP_ENV: test
+  # Match Toolforge's MariaDB version.
+  DATABASE_URL: mysql://root:testpwd@127.0.0.1:3306/wscontest_tests?serverVersion=mariadb-10.1.48
+
 jobs:
   build:
 
@@ -38,10 +44,6 @@ jobs:
         extensions: pdo
 
     - name: Install
-      env:
-        APP_ENV: test
-        # Match Toolforge's MariaDB version.
-        DATABASE_URL: mysql://root:testpwd@127.0.0.1:3306/wscontest_tests?serverVersion=mariadb-10.1.48
       run: |
         composer install
         ./bin/console doctrine:migrations:migrate
