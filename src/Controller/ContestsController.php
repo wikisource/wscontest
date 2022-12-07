@@ -76,8 +76,17 @@ class ContestsController extends AbstractController {
 	): Response {
 		// Find the contest.
 		$contest = $contestRepository->get( $id );
+		$response = new Response();
 		if ( !$contest ) {
-			throw $this->createNotFoundException( $intuition->msg( 'contest-not-found' ) );
+			$response->setStatusCode( Response::HTTP_NOT_FOUND );
+			$response->setContent( $intuition->msg( 'contest-not-found', [ 'variables' => [ $id ] ] ) );
+			return $response;
+		}
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$contestRepository->canBeViewedBy( $contest, $username ) ) {
+			$response->setStatusCode( Response::HTTP_FORBIDDEN );
+			$response->setContent( $intuition->msg( 'contest-access-denied' ) );
+			return $response;
 		}
 
 		// If a user ID is requested, show only the scores for that user.
@@ -90,9 +99,7 @@ class ContestsController extends AbstractController {
 			] );
 		}
 
-		$username = $this->getLoggedInUsername( $session );
 		$canEdit = $username && $contestRepository->hasAdmin( $id, $username );
-		$response = new Response();
 		if ( $format === 'wikitext' ) {
 			$response->headers->set( 'Content-Type', 'text/plain' );
 		}
@@ -153,6 +160,7 @@ class ContestsController extends AbstractController {
 			$contest = [
 				'id' => false,
 				'name' => '',
+				'privacy' => ContestRepository::PRIVACY_ADMIN_DURING,
 				'start_date' => $now->format( 'Y-m-d 00:00:01' ),
 				'end_date' => $now->add( $twoWeeks )->format( 'Y-m-d 23:59:59' ),
 			];
@@ -215,6 +223,7 @@ class ContestsController extends AbstractController {
 		$id = $contestRepository->save(
 			$id,
 			$request->request->get( 'name' ),
+			(int)$request->request->get( 'privacy' ),
 			$request->request->get( 'start_date' ),
 			$request->request->get( 'end_date' ),
 			$admins,

@@ -19,15 +19,24 @@
             <input type="text" id="name" name="name" class="form-control" value="{{ contest.name }}" required />
         </p>
         <div class="row">
-            <p class="col-md-6 form-group">
+            <p class="col-md-4 form-group">
                 <label for="start-date">{{ msg('start-date-label') }}</label>
                 <input type="text" id="start-date" name="start_date" class="form-control" value="{{ contest.start_date }}" required />
                 <span class="help-block">{{ msg('times-are-utc') }}</span>
             </p>
-            <p class="col-md-6 form-group">
+            <p class="col-md-4 form-group">
                 <label for="end-date">{{ msg('end-date-label') }}</label>
                 <input type="text" id="end-date" name="end_date" class="form-control" value="{{ contest.end_date }}" required />
                 <span class="help-block">{{ msg('times-are-utc') }}</span>
+            </p>
+            <p class="col-md-4 form-group">
+                <label for="privacy">{{ msg('privacy-label') }}</label>
+                <select name="privacy" id="privacy" class="form-control">
+                    <option value="2" {% if contest.privacy == 2 %}selected{% endif %}>{{ msg('privacy-public') }}</option>
+                    <option value="1" {% if contest.privacy == 1 %}selected{% endif %}>{{ msg('privacy-admin-during') }}</option>
+                    <option value="3" {% if contest.privacy == 3 %}selected{% endif %}>{{ msg('privacy-private') }}</option>
+                </select>
+                <span class="help-block">{{ msg('privacy-help') }}</span>
             </p>
         </div>
         <div class="row">

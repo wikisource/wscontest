@@ -9,6 +9,12 @@
 <h2>{{ msg('contest', [contest.name]) }}</h2>
 
 <dl class="dl-horizontal">
+    <dt>{{ msg('privacy-label') }}</dt>
+    <dd>
+        {% if contest.privacy == 2 %}{{ msg('privacy-public') }}{% endif %}
+        {% if contest.privacy == 1 %}{{ msg('privacy-admin-during') }}{% endif %}
+        {% if contest.privacy == 3 %}{{ msg('privacy-private') }}{% endif %}
+    </dd>
     <dt>{{ msg('dates') }}</dt>
     <dd>{{ msg('start-date-label') }} {{ contest.start_date }}</dd>
     <dd>{{ msg('end-date-label') }} {{ contest.end_date }}</dd>

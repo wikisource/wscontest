@@ -7,7 +7,7 @@
 {% block main %}
 
     {% if logged_in_user() %}
-        <h2>Your contests</h2>
+        <h2>{{ msg('your-contests') }}</h2>
         <p>
             <a href="{{ path('contests_create') }}" class="btn btn-success {% if not username %}disabled{% endif %}" role="button">
             {{ msg('create-contest') }}
@@ -45,14 +45,26 @@
         </table>
     {% endif %}
 
-    <h2>Recently-ended contests</h2>
+    <h2>{{ msg('recently-ended-contests') }}</h2>
     <table class="table">
         <tbody>
             {% for contest in recent_contests %}
-                <tr>
+                <tr class="
+                    {% if contest.pending %}warning{% endif %}
+                    {% if contest.in_progress %}success{% endif %}
+                    ">
                     <td><a href="{{ path('contests_view', {id: contest.id}) }}">{{ contest.name }}</a></td>
                     <td>{{ contest.start_date }}</td>
                     <td>{{ contest.end_date }}</td>
+                    <td>
+                        {% if contest.pending %}
+                            {{ msg('not-started-yet') }}
+                        {% elseif contest.in_progress %}
+                            {{ msg('in-progress') }}
+                        {% else %}
+                            {{ msg('ended') }}
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -4,6 +4,13 @@ namespace App\Repository;
 
 class ContestRepository extends RepositoryBase {
 
+	/** @const int Public always. */
+	public const PRIVACY_PUBLIC = 2;
+	/** @const int Only admins during the contest, then public afterwards. */
+	public const PRIVACY_ADMIN_DURING = 1;
+	/** @const int Private always. */
+	public const PRIVACY_PRIVATE = 3;
+
 	/**
 	 * @return int
 	 */
@@ -73,6 +80,7 @@ class ContestRepository extends RepositoryBase {
 	/**
 	 * @param string $id
 	 * @param string $name
+	 * @param int $privacy
 	 * @param string $startDate
 	 * @param string $endDate
 	 * @param array $admins
@@ -81,13 +89,13 @@ class ContestRepository extends RepositoryBase {
 	 * @return string
 	 */
 	public function save(
-		string $id, string $name, string $startDate, string $endDate,
+		string $id, string $name, int $privacy, string $startDate, string $endDate,
 		array $admins, array $excludedUsers, array $indexPages
 	): string {
 		$this->db->beginTransaction();
 
 		// Save contest.
-		$contestData = [ 'name' => $name, 'start_date' => $startDate, 'end_date' => $endDate ];
+		$contestData = [ 'name' => $name, 'privacy' => $privacy, 'start_date' => $startDate, 'end_date' => $endDate ];
 		if ( is_numeric( $id ) ) {
 			$this->db->update( 'contests', $contestData, [ 'id' => $id ] );
 		} else {
@@ -127,6 +135,8 @@ class ContestRepository extends RepositoryBase {
 		if ( !$result ) {
 			return null;
 		}
+		// @hack to fix for PHP < 8.1
+		$result['privacy'] = (int)$result['privacy'];
 		$result['admins'] = $this->getAdmins( $id );
 		$result['excluded_users'] = $this->getExcludedUsers( $id );
 
@@ -227,10 +237,15 @@ class ContestRepository extends RepositoryBase {
 	 * @return mixed[][]
 	 */
 	public function getRecentlyEndedContests(): array {
-		$sql = 'SELECT c.* FROM contests c'
+		$sql = 'SELECT c.*, '
+		. ' ( c.start_date >= NOW() ) AS pending, '
+		. ' ( c.start_date <= NOW() AND c.end_date >= NOW() ) AS in_progress '
+		. ' FROM contests c'
 		. '   LEFT JOIN admins a ON a.contest_id=c.id '
 		. '   LEFT JOIN users u ON u.id=a.user_id'
-		. ' WHERE end_date < NOW()'
+		. ' WHERE '
+		. '     ( end_date < NOW() AND c.privacy IN (' . self::PRIVACY_PUBLIC . ',' . self::PRIVACY_ADMIN_DURING . ') )'
+		. '     OR ( end_date > NOW() AND c.privacy = ' . self::PRIVACY_PUBLIC . ' )'
 		. ' ORDER BY end_date DESC'
 		. ' LIMIT 50';
 		return $this->db->executeQuery( $sql )->fetchAllAssociative();
@@ -245,6 +260,24 @@ class ContestRepository extends RepositoryBase {
 		$admins = $this->db->prepare( $sql2 );
 		$result2 = $admins->executeQuery( [ 'cid' => $contestId ] );
 		return $result2->fetchAllAssociative();
+	}
+
+	/**
+	 * @param array $contest
+	 * @param ?string $username
+	 * @return bool
+	 */
+	public function canBeViewedBy( array $contest, ?string $username ): bool {
+		$isAdmin = false;
+		foreach ( $contest['admins'] as $admin ) {
+			$isAdmin = $isAdmin || $admin['name'] === $username;
+		}
+		if ( $isAdmin ) {
+			return true;
+		}
+		return ( $contest['privacy'] === self::PRIVACY_PUBLIC )
+			|| ( $contest['privacy'] === self::PRIVACY_ADMIN_DURING && $contest['in_progress'] && $isAdmin )
+			|| ( $contest['privacy'] === self::PRIVACY_PRIVATE && $isAdmin );
 	}
 
 	/**
