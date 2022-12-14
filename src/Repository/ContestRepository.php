@@ -277,6 +277,7 @@ class ContestRepository extends RepositoryBase {
 		}
 		return ( $contest['privacy'] === self::PRIVACY_PUBLIC )
 			|| ( $contest['privacy'] === self::PRIVACY_ADMIN_DURING && $contest['in_progress'] && $isAdmin )
+			|| ( $contest['privacy'] === self::PRIVACY_ADMIN_DURING && !$contest['in_progress'] )
 			|| ( $contest['privacy'] === self::PRIVACY_PRIVATE && $isAdmin );
 	}
 
