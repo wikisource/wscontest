@@ -237,7 +237,7 @@ class ContestRepository extends RepositoryBase {
 	 * @return mixed[][]
 	 */
 	public function getRecentlyEndedContests(): array {
-		$sql = 'SELECT c.*, '
+		$sql = 'SELECT DISTINCT c.*, '
 		. ' ( c.start_date >= NOW() ) AS pending, '
 		. ' ( c.start_date <= NOW() AND c.end_date >= NOW() ) AS in_progress '
 		. ' FROM contests c'
