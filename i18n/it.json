@@ -29,6 +29,8 @@
 	"administrators-col-header": "Amministratori",
 	"save": "Salva",
 	"cancel": "Annulla",
+	"not-started-yet": "Non ancora iniziato",
+	"ended": "Concluso",
 	"error-loading-wikisource": "Impossibile caricare le informazioni da Wikisource dall'url '$1'",
 	"error-loading-indexpage": "Impossibile caricare la pagina Indice dall'url '$1'",
 	"not-logged-in": "Non sei loggato e non puoi creare nuovi contest.",

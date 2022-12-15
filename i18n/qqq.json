@@ -46,7 +46,7 @@
 	"not-logged-in": "Message shown on the contest-list page when a user is not logged in.",
 	"no-contests": "Message shown when a user does not have any contests.",
 	"contest-not-found": "Error message displayed when a contest ID does not exist. $1 is the contest ID.",
-	"contest-access-denied": "Error message displayed when the user is not allowed to view the requested contest.",  
+	"contest-access-denied": "Error message displayed when the user is not allowed to view the requested contest.",
 	"contest": "Contest header. $1 is the contest name.",
 	"details": "Link to view score details of a single user.",
 	"unable-to-save": "Error message displayed when unable to save a contest. $1 is the reason.",

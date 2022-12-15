@@ -4,7 +4,8 @@
 			"Asma",
 			"Dr-Taher",
 			"Meno25",
-			"NEHAOUA"
+			"NEHAOUA",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"app-title": "مسابقات ويكي مصدر",
@@ -31,6 +32,7 @@
 	"administrators-col-header": "الإداريون",
 	"save": "حفظ",
 	"cancel": "إلغاء",
+	"ended": "انتهت",
 	"error-loading-wikisource": "غير قادر على تحميل معلومات ويكي مصدر من '$1'",
 	"error-loading-indexpage": "غير قادر على تحميل صفحة الفهرس من '$1'",
 	"not-logged-in": "أنت لست مسجل الدخول ولا يمكنك إنشاء مسابقات جديدة.",
