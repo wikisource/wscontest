@@ -83,11 +83,6 @@ class ContestsController extends AbstractController {
 			return $response;
 		}
 		$username = $this->getLoggedInUsername( $session );
-		if ( !$contestRepository->canBeViewedBy( $contest, $username ) ) {
-			$response->setStatusCode( Response::HTTP_FORBIDDEN );
-			$response->setContent( $intuition->msg( 'contest-access-denied' ) );
-			return $response;
-		}
 
 		// If a user ID is requested, show only the scores for that user.
 		$userId = $request->get( 'u' );
@@ -107,7 +102,7 @@ class ContestsController extends AbstractController {
 			'contest' => $contest,
 			'scores' => $contestRepository->getscores( $id ),
 			'can_edit' => $canEdit,
-			'can_view_scores' => $canEdit || !$contest['in_progress'],
+			'can_view_scores' => $contestRepository->canBeViewedBy( $contest, $username ),
 			'score_calculation_interval' => $scoreCalculationInterval,
 		] );
 		$response->setContent( $content );
