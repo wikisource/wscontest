@@ -48,7 +48,6 @@
   "not-logged-in": "You are not logged in and cannot create new contests.",
   "no-contests": "You are not an administrator of any contests.",
   "contest-not-found": "Contest $1 does not exist.",
-  "contest-access-denied": "You do not have access to view or edit this contest.",
 
   "contest": "Contest: $1",
   "details": "Details",
