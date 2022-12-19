@@ -43,7 +43,6 @@
 	"not-logged-in": "Niste prijavljeni in ne morete ustvarjati novih natečajev.",
 	"no-contests": "Niste administrator nobenega natečaja.",
 	"contest-not-found": "Natečaj $1 ne obstaja.",
-	"contest-access-denied": "Nimate dostopa za ogled ali urejanje tega natečaja.",
 	"contest": "Natečaj: $1",
 	"details": "Podrobnosti",
 	"unable-to-save": "Ni mogoče shraniti: $1",

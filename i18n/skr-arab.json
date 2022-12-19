@@ -9,10 +9,13 @@
 	"logout": "لاگ آؤٹ",
 	"name-label": "ناں:",
 	"dates": "تریخ:",
+	"privacy-label": "رازداری:",
+	"privacy-public": "عوام",
 	"start-date-col-header": "شروع کرݨ دی تریخ",
 	"end-date-col-header": "ختم کرݨ دی تریخ",
 	"administrators-col-header": "منتظمین",
 	"cancel": "منسوخ",
+	"in-progress": "تھیندا پئے",
 	"user": "ورتݨ آلا",
 	"date": "تریخ",
 	"scores": "سکور"

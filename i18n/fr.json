@@ -45,7 +45,6 @@
 	"not-logged-in": "Vous n’êtes pas connectés et ne pouvez pas créer de nouveaux concours.",
 	"no-contests": "Vous n’êtes administrateur d’aucun concours.",
 	"contest-not-found": "Le concours $1 n’existe pas.",
-	"contest-access-denied": "Vous n’avez pas le droit de voir ou modifier ce concours.",
 	"contest": "Concours : $1",
 	"details": "Détails",
 	"unable-to-save": "Impossible d’enregistrer : $1",
