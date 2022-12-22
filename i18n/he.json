@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Xnet1234",
 			"YaronSh"
 		]
 	},
@@ -17,6 +18,8 @@
 	"edit-contest": "עריכת הגדרות תחרות",
 	"name-label": "שם:",
 	"dates": "תאריך:",
+	"privacy-label": "פרטיות:",
+	"privacy-public": "ציבורי",
 	"end-date-label": "תאריך הסיום ושעתו:",
 	"start-date-label": "תאריך ההתחלה ושעתה:",
 	"times-are-utc": "הזמנים הם בזמן אוניברסלי מתואם.",
@@ -29,6 +32,8 @@
 	"administrators-col-header": "מנהלים",
 	"save": "שמירה",
 	"cancel": "ביטול",
+	"not-started-yet": "עדיין לא התחיל",
+	"ended": "הסתיים",
 	"error-loading-wikisource": "לא ניתן לטעון פרטי ויקיטקסט מהכתובת $1",
 	"error-loading-indexpage": "לא ניתן לטעון דף מפתח מתוך $1",
 	"not-logged-in": "לא נכנסת לחשבון ואין לך אפשרות ליצור תחרויות חדשות.",

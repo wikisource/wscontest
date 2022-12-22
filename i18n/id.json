@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Agam Riyandana",
 			"Bagas Chrisara",
 			"Daud I.F. Argana",
 			"Mnam23",
@@ -16,10 +17,15 @@
 	"logout": "Keluar log",
 	"stats-summary": "$1 {{PLURAL:$2|orang}} telah mengambil bagian dalam $3 {{PLURAL:$4|kontes}}.",
 	"all-contests": "Semua kontes",
+	"your-contests": "Kontes Anda",
+	"recently-ended-contests": "Kontes yang baru saja berakhir",
 	"create-contest": "Buat kontes",
 	"edit-contest": "Ubah pengaturan kontes",
 	"name-label": "Nama:",
 	"dates": "Tanggal:",
+	"privacy-label": "Privasi",
+	"privacy-public": "Publik",
+	"privacy-admin-during": "Admin saja (hingga akhir kontes)",
 	"end-date-label": "Tangga dan waktu berakhir:",
 	"start-date-label": "Tanggal dan waktu mulai:",
 	"times-are-utc": "Waktu dalam zona waktu UTC.",
@@ -32,6 +38,8 @@
 	"administrators-col-header": "Pengurus",
 	"save": "Simpan",
 	"cancel": "Batalkan",
+	"not-started-yet": "Belum dimulai",
+	"ended": "Berakhir",
 	"error-loading-wikisource": "Tidak dapat memuat data Wikisource dari '$1'",
 	"error-loading-indexpage": "Tidak dapat memuat halaman Indeks dari '$1'",
 	"not-logged-in": "Anda belum masuk log dan tidak dapat membuat kontes baru.",
