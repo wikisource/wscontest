@@ -2,7 +2,7 @@ Wikisource Contest Tool
 =======================
 
 * Source code: https://github.com/wikisource/wscontest
-* Production tool: https://tools.wmflabs.org/wscontest/
+* Production tool: [https://wscontest.toolforge.org/](https://wscontest.toolforge.org/)
 * [![Build Status](https://travis-ci.org/wikisource/wscontest.svg?branch=master)](https://travis-ci.org/wikisource/wscontest)
 * Issue tracker: https://phabricator.wikimedia.org/tag/tool-wscontest/
 * Discussion: [https://meta.wikimedia.org/wiki/Talk:Wikisource_proofreading_contests](https://meta.wikimedia.org/wiki/Talk:Wikisource_proofreading_contests)
