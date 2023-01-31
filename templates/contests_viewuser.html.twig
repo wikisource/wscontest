@@ -29,8 +29,9 @@
         <tr>
             <td><a href="{{ score.index_page_url }}">{{ score.index_page_url }}</a></td>
             <td>
-                {# @TODO revisionUrl = 'https://' . $this->indexPage->getDomainName() . '/w/index.php?oldid=' . $this->revision_id . '&diff=prev'; #}
-                {{ score.revision_id }}
+                <a href="{{ score.index_page_url }}?oldid={{ score.revision_id }}&diff=prev">
+                    {{ score.revision_id }}
+                </a>
             </td>
             <td>{{ score.revision_datetime }}</td>
             <td>{{ score.points }}</td>
