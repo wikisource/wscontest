@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"app-title": "Wikisource-Concoursen",
@@ -12,6 +13,7 @@
 	"logout": "Ausloggen",
 	"name-label": "Numm:",
 	"dates": "Datum:",
+	"privacy-public": "Ëffentlech",
 	"excluded-users": "Ausgeschlosse Benotzer:",
 	"administrators": "Administrateuren:",
 	"one-username-per-line": "Ee Benotzernumm pro Linn.",
@@ -29,6 +31,7 @@
 	"points": "Punkten",
 	"contributions": "Kontributiounen",
 	"validations": "Validatiounen",
+	"user-results": "Resultater vum Benotzer",
 	"revision": "Versioun",
 	"date": "Datum",
 	"scores": "Punkten",
