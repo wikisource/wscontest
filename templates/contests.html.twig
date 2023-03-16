@@ -14,7 +14,7 @@
             </a>
         </p>
 
-        <table class="table" data-sortable>
+        <table class="table" id="sortable">
             <thead>
             <tr>
                 <th>{{ msg('contest-col-header') }}</th>
@@ -46,7 +46,7 @@
     {% endif %}
 
     <h2>{{ msg('recently-ended-contests') }}</h2>
-    <table class="table" data-sortable>
+    <table class="table" id="sortable">
         <tbody>
             {% for contest in recent_contests %}
                 <tr class="
