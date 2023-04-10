@@ -209,7 +209,7 @@ class ContestsController extends AbstractController {
 			$admins[] = $username;
 		}
 
-		$indexPageUrls = Str::explode( $request->request->get( 'index_pages' ) );
+		$indexPageUrls = array_map( 'urldecode', Str::explode( $request->request->get( 'index_pages' ) ) );
 		$indexPageResult = $indexPageRepository->saveUrls( $indexPageUrls );
 		foreach ( $indexPageResult['warnings'] as $warning ) {
 			$this->addFlash( 'warning', $warning );
