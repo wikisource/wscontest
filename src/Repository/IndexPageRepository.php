@@ -28,9 +28,7 @@ class IndexPageRepository extends RepositoryBase {
 		$query = $this->db->prepare( 'SELECT * FROM index_pages WHERE url = :url' );
 		$indexPageIds = [];
 		$warnings = [];
-		foreach ( $indexPageUrls as $indexPageUrlString ) {
-			$indexPageUrl = urldecode( $indexPageUrlString );
-
+		foreach ( $indexPageUrls as $indexPageUrl ) {
 			// Do we already know about it?
 			$query->bindValue( 'url', $indexPageUrl );
 			$result = $query->executeQuery();
