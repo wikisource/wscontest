@@ -44,7 +44,9 @@
 <h3 id="index_pages">{{ msg('index-pages') }}</h3>
 <ol>
     {% for ip in contest.index_pages %}
-        <li><a href="{{ ip.url }}">{{ ip.url }}</a></li>
+    {# Usually, https://mul.wikisource.org/some_page redirects to https://wikisource.org/ #}
+    {# The replace filter ensures that the link contains the correct destination, as intended, while keeping the visible URL the same #}
+        <li><a href="{{ ip.url|replace({'https://mul.': 'https://'}) }}">{{ ip.url }}</a></li>
     {% endfor %}
 </ol>
 

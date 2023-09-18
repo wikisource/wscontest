@@ -5790,16 +5790,16 @@
         },
         {
             "name": "wikisource/api",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikisource/api.git",
-                "reference": "e3a60b8251ef12538cf9aef4696fcf7c77d6ece1"
+                "reference": "c52f26051104e5289260c61a5c46c5d262719fa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikisource/api/zipball/e3a60b8251ef12538cf9aef4696fcf7c77d6ece1",
-                "reference": "e3a60b8251ef12538cf9aef4696fcf7c77d6ece1",
+                "url": "https://api.github.com/repos/wikisource/api/zipball/c52f26051104e5289260c61a5c46c5d262719fa7",
+                "reference": "c52f26051104e5289260c61a5c46c5d262719fa7",
                 "shasum": ""
             },
             "require": {
@@ -5835,7 +5835,7 @@
                 "issues": "https://phabricator.wikimedia.org/tag/wikisource-api/",
                 "source": "https://github.com/wikisource/api.git"
             },
-            "time": "2023-01-31T02:46:54+00:00"
+            "time": "2023-09-18T05:06:15+00:00"
         }
     ],
     "packages-dev": [
