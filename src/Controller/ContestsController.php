@@ -211,9 +211,9 @@ class ContestsController extends AbstractController {
 
 		$indexPageUrls = array_map( 'urldecode', Str::explode( $request->request->get( 'index_pages' ) ) );
 		// normalise mulwikisource URLs before saving to database
-		$normalisedIndexPageUrls = array_map(function ($url) {
-			return str_replace("https://mul.", "https://", $url);
-		}, $indexPageUrls);
+		$normalisedIndexPageUrls = array_map( static function ( $url ) {
+			return str_replace( "https://mul.", "https://", $url );
+		}, $indexPageUrls );
 		$indexPageResult = $indexPageRepository->saveUrls( $normalisedIndexPageUrls );
 		foreach ( $indexPageResult['warnings'] as $warning ) {
 			$this->addFlash( 'warning', $warning );
