@@ -9,11 +9,11 @@
 		{{ msg('app-title') }}
 	</title>
 	{% block stylesheets %}
-		<link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
 	{% endblock %}
 	{% block scripts %}
 		<script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.min.js"></script>
 	{% endblock %}
 </head>
 <body>
@@ -21,15 +21,15 @@
 <div class="{{ logged_in_user() ? 'logged-in' : 'logged-out' }} container">
 
 <header class="page-header">
-	<h1>{{ msg('app-title') }}</h1>
+	<h1 class="pt-5">{{ msg('app-title') }}</h1>
 	<ul class="list-inline">
-		<li><a href="{{path('home')}}">{{ msg('homepage') }}</a></li>
-		<li><a href="{{path('contests')}}">{{ msg('contests') }}</a></li>
+		<li class="list-inline-item"><a href="{{path('home')}}">{{ msg('homepage') }}</a></li>
+		<li class="list-inline-item"><a href="{{path('contests')}}">{{ msg('contests') }}</a></li>
 		{% if logged_in_user() %}
-			<li>{{ msg( 'toolforge-logged-in-as', [ logged_in_user().username ] ) }}</li>
-			<li><a href="{{ path('toolforge_logout') }}">{{ msg('toolforge-logout') }}</a></li>
+			<li class="list-inline-item">{{ msg( 'toolforge-logged-in-as', [ logged_in_user().username ] ) }}</li>
+			<li class="list-inline-item"><a href="{{ path('toolforge_logout') }}">{{ msg('toolforge-logout') }}</a></li>
 		{% else %}
-			<li><a href="{{ path('toolforge_login') }}">{{ msg('toolforge-login') }}</a></li>
+			<li class="list-inline-item"><a href="{{ path('toolforge_login') }}">{{ msg('toolforge-login') }}</a></li>
 		{% endif %}
 	</ul>
 </header>
@@ -37,8 +37,8 @@
 {% for type, messages in app.flashes %}
 	<div class="flashes">
 		{% for message in messages %}
-			<div class="alert alert-{{ type }} alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<div class="alert alert-warning alert-dismissible fade show">
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				{{ msg(message.0, message.1) | raw }}
 			</div>
 		{% endfor %}
@@ -50,13 +50,13 @@
 	{% endblock %}
 </main>
 
-<footer class="text-right">
+<footer class="text-end">
 	<hr />
 	<ul class="list-inline">
-		<li><a class="text-muted" href="https://meta.wikimedia.org/wiki/Wikisource_proofreading_contests">{{ msg('this-is-wscontest') }}</a></li>
-		<li><a class="text-muted" href="https://phabricator.wikimedia.org/tag/tool-wscontest">{{ msg('issue-tracker') }}</a></li>
-		<li><a class="text-muted" href="https://github.com/wikisource/contests">{{ msg('source-code') }}</a></li>
-		<li><a class="text-muted" href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">{{ msg('gpl-link') }}</a></li>
+		<li class="list-inline-item"><a class="text-muted" href="https://meta.wikimedia.org/wiki/Wikisource_proofreading_contests">{{ msg('this-is-wscontest') }}</a></li>
+		<li class="list-inline-item"><a class="text-muted" href="https://phabricator.wikimedia.org/tag/tool-wscontest">{{ msg('issue-tracker') }}</a></li>
+		<li class="list-inline-item"><a class="text-muted" href="https://github.com/wikisource/contests">{{ msg('source-code') }}</a></li>
+		<li class="list-inline-item"><a class="text-muted" href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">{{ msg('gpl-link') }}</a></li>
 	</ul>
 </footer>
 

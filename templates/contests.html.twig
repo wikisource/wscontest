@@ -32,7 +32,7 @@
                     <td>
                         <ul class="list-inline">
                         {% for admin in contest.admins %}
-                            <li><a href="https://meta.wikimedia.org/wiki/User:{{ admin.name }}">{{ admin.name }}</a></li>
+                            <li class="list-inline-item"><a href="https://meta.wikimedia.org/wiki/User:{{ admin.name }}">{{ admin.name }}</a></li>
                         {% endfor %}
                         </ul>
                     </td>
@@ -50,8 +50,8 @@
         <tbody>
             {% for contest in recent_contests %}
                 <tr class="
-                    {% if contest.pending %}warning{% endif %}
-                    {% if contest.in_progress %}success{% endif %}
+                    {% if contest.pending %}bg-warning bg-opacity-10{% endif %}
+                    {% if contest.in_progress %}bg-success bg-opacity-10{% endif %}
                     ">
                     <td><a href="{{ path('contests_view', {id: contest.id}) }}">{{ contest.name }}</a></td>
                     <td>{{ contest.start_date }}</td>
