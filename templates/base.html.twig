@@ -37,7 +37,7 @@
 {% for type, messages in app.flashes %}
 	<div class="flashes">
 		{% for message in messages %}
-			<div class="alert alert-warning alert-dismissible fade show">
+			<div class="alert alert-{{type}} alert-dismissible fade show">
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				{{ msg(message.0, message.1) | raw }}
 			</div>

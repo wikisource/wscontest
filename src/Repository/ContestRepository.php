@@ -302,4 +302,55 @@ class ContestRepository extends RepositoryBase {
 	public function deleteScores( $contestId ): void {
 		$this->db->executeStatement( 'DELETE FROM scores WHERE contest_id = :id', [ 'id' => $contestId ] );
 	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteAdmins( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM admins WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteContestIndexPages( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM contest_index_pages WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteExcludedUsers( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM excluded_users WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteContest( $contestId ): void {
+		$this->db->beginTransaction();
+
+		/**
+		 * NOTE: Data in `users` table and `index_pages` table
+		 * is PRESERVED even if all other data about the contest
+		 * is deleted.
+		 */
+
+		// delete tables containing foreign keys
+		$this->deleteAdmins( $contestId );
+		$this->deleteExcludedUsers( $contestId );
+		$this->deleteContestIndexPages( $contestId );
+		$this->deleteScores( $contestId );
+
+		// delete the contest
+		$sql2 = 'DELETE FROM contests WHERE id = :id';
+		$this->db->executeStatement( $sql2, [ 'id' => $contestId ] );
+
+		// perform a COMMIT on the database
+		$this->db->commit();
+	}
 }

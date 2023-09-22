@@ -66,6 +66,35 @@
             {% endif %}
             <span class="d-block text-muted">{{ msg('save-resets-scores', [(score_calculation_interval * 2)~'']) }}</span>
         </p>
+        {% if contest.id %}
+            <div class="border border-danger p-3">
+                <h5 class="text-danger">{{ msg('proceed-caution') }}</h5>
+                <p class="text-muted">{{ msg('irreversible-action') }}</p>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">{{ msg('delete-contest') }}</button>
+            </div>
+        {% endif %}
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="deleteModalLabel">{{ msg('delete') }} {{contest.name}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% if scoresExist == true %}
+                            <p><span class='border border-2 border-dark fw-bold rounded px-1'>{{ msg('tip') }}</span>
+                            <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}">{{ msg('click-here-link') }}</a>
+                            {{ msg('save-scores-before-delete') }}</p>
+                        {% endif %}
+                        <p class="text-danger">{{ msg('confirm-delete-text') }} <span class="fw-bold">{{contest.name}}</span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">{{ msg('do-not-delete') }}</button>
+                        <a type="button" class="btn btn-danger" href="{{ path('contest_delete', {deletedId: contest.id}) }}">{{ msg('confirm-delete') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 
 {% endblock %}
