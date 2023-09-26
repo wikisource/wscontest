@@ -133,6 +133,7 @@ class ContestsController extends AbstractController {
 		$indexPages = '';
 		$excludedUsers = '';
 		$admins = '';
+		$scoresExist = false;
 		if ( $id ) {
 			$contest = $contestRepository->get( $id );
 			$isAdmin = false;
@@ -149,6 +150,9 @@ class ContestsController extends AbstractController {
 			foreach ( $contest['index_pages'] as $indexPage ) {
 				$indexPages .= $indexPage['url'] . "\n";
 			}
+			if ( count( $contestRepository->getscores( $id ) ) > 0 ) {
+				$scoresExist = true;
+			}
 		} else {
 			$now = new DateTime( 'now', new DateTimeZone( 'UTC' ) );
 			$twoWeeks = new DateInterval( 'P14D' );
@@ -164,11 +168,48 @@ class ContestsController extends AbstractController {
 
 		return $this->render( 'contests_edit.html.twig', [
 			'contest' => $contest,
+			'scoresExist' => $scoresExist,
 			'admins' => $admins,
 			'index_pages' => $indexPages,
 			'excluded_users' => $excludedUsers,
 			'score_calculation_interval' => $scoreCalculationInterval,
 		] );
+	}
+
+	/**
+	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
+	 * @Route("/c/delete", name="contests_delete", methods={"POST"})
+	 * @param Session $session
+	 * @param ContestRepository $contestRepository
+	 * @param Request $request
+	 * @return Response
+	 */
+	public function delete( Session $session, ContestRepository $contestRepository, Request $request ): Response {
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$username ) {
+			$this->addFlash( 'warning', [ 'not-logged-in', [] ] );
+		} elseif ( !$this->isCsrfTokenValid( 'contest-delete', $request->request->get( 'csrf_token' ) ) ) {
+			throw new AccessDeniedHttpException();
+		} else {
+			$contest = $contestRepository->get( $request->query->get( 'deletedId' ) );
+
+			// check if the user is an admin
+			$isAdmin = false;
+			foreach ( $contest['admins'] as $admin ) {
+				$isAdmin = $isAdmin || $admin['name'] === $username;
+			}
+			if ( !$isAdmin ) {
+				throw $this->createAccessDeniedException();
+			}
+
+			if ( $request->query->get( 'deletedId' ) ) {
+				// execute delete query
+				$contestRepository->deleteContest( $request->query->get( 'deletedId' ) );
+				$this->addFlash( 'success', [ 'deleted-successfully', [ $contest['name'] ] ] );
+			}
+		}
+
+		return $this->redirectToRoute( 'contests' );
 	}
 
 	/**

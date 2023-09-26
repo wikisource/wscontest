@@ -72,5 +72,19 @@
   "this-is-wscontest": "This is the Wikisource Contest tool",
   "gpl-link": "GPL 3.0+",
   "source-code": "Source code",
-  "issue-tracker": "Issue tracker"
+  "issue-tracker": "Issue tracker",
+
+  "deleted-successfully": "Contest $1 deleted successfully",
+  "proceed-caution": "Proceed with caution", 
+  "irreversible-action": "This action is irreversible and all data related to the contest will be lost forever",
+  "delete-contest": "Delete contest",
+
+  "delete": "Delete",
+  "tip": "TIP",
+  "click-here-link": "Click here",
+  "save-scores-before-delete": "to save your scores as wikitext before deleting your contest",
+  "confirm-delete-text": "Please confirm that you want to delete",
+  "do-not-delete": "Don't delete",
+  "confirm-delete": "Yes, I confirm"
+
 }
