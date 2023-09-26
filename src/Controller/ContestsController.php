@@ -188,7 +188,7 @@ class ContestsController extends AbstractController {
 		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
 			$this->addFlash( 'warning', [ 'not-logged-in', [] ] );
-		} else if ( !$this->isCsrfTokenValid( 'contest-delete', $request->request->get( 'csrf_token' ) ) ) {
+		} elseif ( !$this->isCsrfTokenValid( 'contest-delete', $request->request->get( 'csrf_token' ) ) ) {
 			throw new AccessDeniedHttpException();
 		} else {
 			$contest = $contestRepository->get( $request->query->get( 'deletedId' ) );
