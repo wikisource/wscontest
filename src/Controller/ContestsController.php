@@ -178,7 +178,7 @@ class ContestsController extends AbstractController {
 
 	/**
 	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/delete", name="contest_delete")
+	 * @Route("/c/delete", name="contests_delete", methods={"POST"})
 	 * @param Session $session
 	 * @param ContestRepository $contestRepository
 	 * @param Request $request
@@ -188,14 +188,14 @@ class ContestsController extends AbstractController {
 		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
 			$this->addFlash( 'warning', [ 'not-logged-in', [] ] );
+		} else if ( !$this->isCsrfTokenValid( 'contest-delete', $request->request->get( 'csrf_token' ) ) ) {
+			throw new AccessDeniedHttpException();
 		} else {
 			$contest = $contestRepository->get( $request->query->get( 'deletedId' ) );
 
 			// check if the user is an admin
-			$admins = '';
 			$isAdmin = false;
 			foreach ( $contest['admins'] as $admin ) {
-				$admins = $admin['name'] . "\n";
 				$isAdmin = $isAdmin || $admin['name'] === $username;
 			}
 			if ( !$isAdmin ) {
