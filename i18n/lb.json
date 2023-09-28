@@ -66,5 +66,9 @@
 	"this-is-wscontest": "Dëst ass d'Geschier fir Wikisource-Concoursen",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode",
-	"issue-tracker": "Issue Tracker"
+	"issue-tracker": "Issue Tracker",
+	"delete": "Läschen",
+	"click-here-link": "Klickt hei",
+	"do-not-delete": "Net läschen",
+	"confirm-delete": "Jo, ech bestätegen"
 }

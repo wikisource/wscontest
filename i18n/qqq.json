@@ -70,10 +70,9 @@
 	"source-code": "Footer link to the tool's source code.",
 	"issue-tracker": "Footer link to the tool's issue tracker.",
 	"deleted-successfully": "Contest $1 deleted successfully",
-	"proceed-caution": "Text that warns the user to proceed with caution", 
+	"proceed-caution": "Text that warns the user to proceed with caution",
 	"irreversible-action": "Text that warns the user about an irreversible action",
 	"delete-contest": "Button text to delete a contest",
-
 	"delete": "Label for the modal title",
 	"tip": "Label for the tip",
 	"click-here-link": "Text displayed on the URL to retrieve scores as wikitext before deletion",

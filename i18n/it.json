@@ -53,5 +53,10 @@
 	"this-is-wscontest": "Questo è lo strumento dei contest di Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Codice sorgente",
-	"issue-tracker": "Segnala un problema"
+	"issue-tracker": "Segnala un problema",
+	"delete": "Cancella",
+	"click-here-link": "Clicca qui",
+	"confirm-delete-text": "Conferma che vuoi cancellare",
+	"do-not-delete": "Non cancellare",
+	"confirm-delete": "Sì, confermo"
 }

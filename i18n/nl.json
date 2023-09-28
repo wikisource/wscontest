@@ -68,5 +68,16 @@
 	"this-is-wscontest": "Dit is de tool voor Wikisource-wedstrijden",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Broncode",
-	"issue-tracker": "Probleemtracker"
+	"issue-tracker": "Probleemtracker",
+	"deleted-successfully": "Wedstrijd $1 is verwijderd",
+	"proceed-caution": "Wees voorzichtig",
+	"irreversible-action": "Deze actie is onomkeerbaar en alle gegevens met betrekking tot de wedstrijd gaan voor altijd verloren",
+	"delete-contest": "Wedstrijd verwijderen",
+	"delete": "Verwijderen",
+	"tip": "TIP",
+	"click-here-link": "Klik hier",
+	"save-scores-before-delete": "om uw scores als wikitekst op te slaan voordat u uw wedstrijd verwijdert",
+	"confirm-delete-text": "Bevestig dat u wilt verwijderen",
+	"do-not-delete": "Niet verwijderen",
+	"confirm-delete": "Ja, ik bevestig dat"
 }
