@@ -67,8 +67,12 @@
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode",
 	"issue-tracker": "Issue Tracker",
+	"deleted-successfully": "Concours $1 erfollegräich geläscht",
+	"irreversible-action": "Dës Aktioun kann net réckgängeg gemaach ginn an d'Donnéeën am Zesummenhang mam Concours si fir ëmmer verluer",
+	"delete-contest": "Concours läschen",
 	"delete": "Läschen",
 	"click-here-link": "Klickt hei",
+	"confirm-delete-text": "Confirméiert wgl., datt Dir läsche wëllt",
 	"do-not-delete": "Net läschen",
 	"confirm-delete": "Jo, ech bestätegen"
 }

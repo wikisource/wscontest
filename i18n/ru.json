@@ -69,5 +69,11 @@
 	"this-is-wscontest": "Этот конкурсный инструмент Викитеки",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Исходный код",
-	"issue-tracker": "Отслеживатель проблем"
+	"issue-tracker": "Отслеживатель проблем",
+	"delete-contest": "Удалить конкурс",
+	"delete": "Удалить",
+	"click-here-link": "Нажмите здесь",
+	"confirm-delete-text": "Пожалуйста, подтвердите, что вы хотите удалить",
+	"do-not-delete": "Не удалять",
+	"confirm-delete": "Да, подтверждаю"
 }
