@@ -39,7 +39,7 @@ class UserRepository extends RepositoryBase {
 	}
 
 	public function count(): int {
-		$sql = 'SELECT COUNT(*) AS tot FROM users';
+		$sql = 'SELECT COUNT(DISTINCT user_id) AS tot FROM scores';
 		$stmt = $this->db->prepare( $sql );
 		$result = $stmt->executeQuery();
 		return (int)$result->fetchAssociative()['tot'];
