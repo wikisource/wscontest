@@ -67,5 +67,16 @@
 	"this-is-wscontest": "זה הוא כלי תחרויות של ויקיטקסט",
 	"gpl-link": "GPL 3.0+‎",
 	"source-code": "קוד מקור",
-	"issue-tracker": "כלי מעקב תקלות"
+	"issue-tracker": "כלי מעקב תקלות",
+	"deleted-successfully": "התחרות $1 נמחקה בהצלחה",
+	"proceed-caution": "להמשיך בזהירות",
+	"irreversible-action": "הפעולה הזאת בלתי־הפיכה וכל הנתונים שקשורים לתחרות יאבדו לעד",
+	"delete-contest": "מחיקת התחרות",
+	"delete": "מחיקה",
+	"tip": "עצה",
+	"click-here-link": "נא ללחוץ כאן",
+	"save-scores-before-delete": "לשמור את הנקודות שלך כקוד ויקי בטרם מחיקת התחרות שלך",
+	"confirm-delete-text": "נא לאשר שברצונך למחוק",
+	"do-not-delete": "לא למחוק",
+	"confirm-delete": "כן, מקובל עליי"
 }

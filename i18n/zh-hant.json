@@ -70,5 +70,16 @@
 	"this-is-wscontest": "關於維基文庫競賽工具",
 	"gpl-link": "GNU 通用公眾授權條款 3.0+",
 	"source-code": "程式原始碼",
-	"issue-tracker": "問題追蹤"
+	"issue-tracker": "問題追蹤",
+	"deleted-successfully": "成功刪除競賽$1",
+	"proceed-caution": "謹慎行事",
+	"irreversible-action": "此操作不可還原，所有與競賽相關的資料將會永遠消失",
+	"delete-contest": "刪除競賽",
+	"delete": "刪除",
+	"tip": "提示",
+	"click-here-link": "在此點擊",
+	"save-scores-before-delete": "在刪除競賽之前將您的得分儲存為 wikitext",
+	"confirm-delete-text": "請確認您要刪除",
+	"do-not-delete": "不要刪除",
+	"confirm-delete": "是的，我確認"
 }
