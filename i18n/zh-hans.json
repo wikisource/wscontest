@@ -16,7 +16,7 @@
 	"login": "登录",
 	"logged-in-as": "您已作为$1登录。",
 	"logout": "退出",
-	"stats-summary": "$3 项{{PLURAL:$4|竞赛}}里有 $1 {{PLURAL:$2|人}}参加。",
+	"stats-summary": "$3 项{{PLURAL:$4|竞赛}}中{{PLURAL:$2|已有}} $1 {{PLURAL:$2|人}}参加。",
 	"create-contest": "创建内容",
 	"edit-contest": "编辑比赛配置",
 	"name-label": "名称:",

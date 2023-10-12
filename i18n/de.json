@@ -68,5 +68,16 @@
 	"this-is-wscontest": "Dies ist das Werkzeug für Wikisource-Wettbewerbe",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode",
-	"issue-tracker": "Issue Tracker"
+	"issue-tracker": "Issue Tracker",
+	"deleted-successfully": "Wettbewerb $1 erfolgreich gelöscht",
+	"proceed-caution": "Mit Vorsicht fortfahren",
+	"irreversible-action": "Diese Aktion ist unwiderruflich und alle mit dem Wettbewerb verbundenen Daten gehen für immer verloren",
+	"delete-contest": "Wettbewerb löschen",
+	"delete": "Löschen",
+	"tip": "TIPP",
+	"click-here-link": "klicke hier",
+	"save-scores-before-delete": "um deine Ergebnisse als Wikitext zu speichern, bevor du deinen Wettbewerb löschst",
+	"confirm-delete-text": "Bitte bestätige, dass du löschen möchtest",
+	"do-not-delete": "Nicht löschen",
+	"confirm-delete": "Ja, ich bestätige"
 }

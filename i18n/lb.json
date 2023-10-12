@@ -11,7 +11,7 @@
 	"login": "Aloggen",
 	"logged-in-as": "Dir sidd als $1 ageloggt",
 	"logout": "Ausloggen",
-	"stats-summary": "$1 {{PLURAL:$2|Persoun huet|Persounen hu}} bei $3 {{PLURAL:$4|Concours|Concourse}} matgemaach.",
+	"stats-summary": "$1 {{PLURAL:$2|Persoun|Persounen}} {{PLURAL:$2|huet|hu}} bei $3 {{PLURAL:$4|Concours|Concourse}} matgemaach.",
 	"all-contests": "All Concoursen",
 	"your-contests": "Är Concoursen",
 	"recently-ended-contests": "Concoursen, déi zanter Kuerzem eriwwer sinn",
