@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Balajijagadesh",
+			"Fahimrazick",
 			"Siddhan"
 		]
 	},
@@ -14,7 +15,7 @@
 	"stats-summary": "$3 {{PLURAL:$4|போட்டியில்|போட்டிகளில்}} $1 {{PLURAL:$2|நபர்|நபர்கள்}} பங்கு {{PLURAL:$2|பெற்றுள்ளார்|பெற்றுள்ளனர்}}.",
 	"all-contests": "அனைத்து போட்டிகளும்",
 	"create-contest": "போட்டியை உருவாக்கு",
-	"edit-contest": "போட்டி அமைப்புகளைத் தொகுக்கவும்",
+	"edit-contest": "போட்டி உள்ளமைவைத் தொகு",
 	"name-label": "பெயர்:",
 	"dates": "தேதி:",
 	"end-date-label": "முடிவு தேதி மற்றும் நேரம்:",
