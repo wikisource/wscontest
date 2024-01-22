@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"An13sa"
+			"An13sa",
+			"Atzerritik"
 		]
 	},
+	"app-title": "Wikisource Lehiaketak",
 	"homepage": "Hasiera",
 	"contests": "Lehiaketak",
 	"login": "Saioa hasi",
