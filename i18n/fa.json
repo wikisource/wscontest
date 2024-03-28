@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amirsara",
+			"Ebraminio",
 			"Meysamzare23"
 		]
 	},
@@ -21,7 +22,7 @@
 	"save": "ذخیره",
 	"cancel": "لغو",
 	"not-logged-in": "شما وارد نشدید و امکان ایجاد پروژه جدید را ندارید.",
-	"no-contests": "شما مدیر هیچ پروژه ای نیستید.",
+	"no-contests": "شما مدیر هیچ پروژه‌ای نیستید.",
 	"contest": "پروژه:$1",
 	"details": "جزئیات",
 	"unable-to-save": "مشکل در ذخیره سازی : $1",
