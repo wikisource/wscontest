@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"Jagseer S Sidhu"
 		]
 	},
 	"app-title": "ਵਿਕੀਸੋਰਸ ਮੁਕਾਬਲੇ",
-	"homepage": "ਮੁੱਖ ਸਫ਼ਾ",
+	"homepage": "ਮੁੱਢਲਾ ਸਫ਼ਾ",
 	"contests": "ਮੁਕਾਬਲੇ",
 	"login": "ਦਾਖ਼ਲ ਹੋਵੋ",
 	"logged-in-as": "ਤੁਸੀਂ $1 ਵਜੋਂ ਦਾਖ਼ਲ ਹੋਏ ਹੋ",
@@ -20,14 +21,14 @@
 	"dates": "ਮਿਤੀ:",
 	"privacy-label": "ਪਰਦਾਨੀਤੀ:",
 	"privacy-public": "ਜਨਤਕ",
-	"privacy-admin-during": "ਸਿਰਫ਼ ਪ੍ਰਸ਼ਾਸਕ (ਮੁਕਾਬਲੇ ਦੇ ਅੰਤ ਤੱਕ)",
-	"privacy-private": "ਨਿੱਜੀ (ਸਿਰਫ਼ ਪ੍ਰਸ਼ਾਸਕ, ਹਮੇਸ਼ਾ ਲਈ)",
+	"privacy-admin-during": "ਸਿਰਫ਼ ਪ੍ਰਬੰਧਕ (ਮੁਕਾਬਲੇ ਦੇ ਅੰਤ ਤੱਕ)",
+	"privacy-private": "ਨਿੱਜੀ (ਸਿਰਫ਼ ਪ੍ਰਬੰਧਕ, ਹਮੇਸ਼ਾ ਲਈ)",
 	"privacy-help": "ਮੁਕਾਬਲੇ ਦੇ ਸਕੋਰ ਕੌਣ ਦੇਖ ਸਕਦਾ ਹੈ (ਪ੍ਰਬੰਧਕ ਹਮੇਸ਼ਾ ਆਪਣੇ ਸਾਰੇ ਮੁਕਾਬਲੇ ਦੇਖ ਸਕਦੇ ਹਨ)।",
 	"end-date-label": "ਸਮਾਪਤੀ ਮਿਤੀ ਅਤੇ ਸਮਾਂ:",
 	"start-date-label": "ਸ਼ੁਰੂਆਤੀ ਮਿਤੀ ਅਤੇ ਸਮਾਂ:",
 	"times-are-utc": "ਸਮਾਂ UTC ਟਾਈਮਜ਼ੋਨ ਵਿੱਚ ਹੈ।",
 	"excluded-users": "ਬਾਹਰ ਕੀਤੇ ਵਰਤੋਂਕਾਰ:",
-	"administrators": "ਪ੍ਰਸ਼ਾਸਕ:",
+	"administrators": "ਪ੍ਰਬੰਧਕ:",
 	"one-username-per-line": "ਇੱਕ ਲਾਈਨ ਵਿਚ ਇੱਕ ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਮ।",
 	"start-date-col-header": "ਸ਼ੁਰੂ ਹੋਣ ਦੀ ਮਿਤੀ",
 	"end-date-col-header": "ਸਮਾਪਤੀ ਮਿਤੀ",
