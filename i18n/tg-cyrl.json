@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"ToJack"
+			"ToJack",
+			"ZulfiqorF"
 		]
 	},
 	"app-title": "Мӯҳтавои Викитека",
-	"homepage": "Хона",
+	"homepage": "Оғоза",
 	"contests": "Муҳтаво",
 	"login": "Вуруд",
 	"logged-in-as": "Шумо чун $1 ворид шудаед",
