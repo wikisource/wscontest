@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Cabal",
-			"Jagseer S Sidhu"
+			"Jagseer S Sidhu",
+			"Kuldeepburjbhalaike"
 		]
 	},
 	"app-title": "ਵਿਕੀਸੋਰਸ ਮੁਕਾਬਲੇ",
-	"homepage": "ਮੁੱਢਲਾ ਸਫ਼ਾ",
+	"homepage": "ਘਰ",
 	"contests": "ਮੁਕਾਬਲੇ",
 	"login": "ਦਾਖ਼ਲ ਹੋਵੋ",
 	"logged-in-as": "ਤੁਸੀਂ $1 ਵਜੋਂ ਦਾਖ਼ਲ ਹੋਏ ਹੋ",
