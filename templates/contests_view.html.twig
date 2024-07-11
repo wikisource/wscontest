@@ -55,6 +55,7 @@
             <caption style="caption-side: top">{{ msg('scores-legend', [score_calculation_interval~'']) }}</caption>
             <thead>
                 <tr>
+                    <th>{{ msg('rank') }}</th>
                     <th>{{ msg('user') }}</th>
                     <th>{{ msg('points') }}</th>
                     <th>{{ msg('contributions') }}</th>
@@ -63,8 +64,9 @@
                 </tr>
             </thead>
             <tbody>
-            {% for score in scores %}
+            {% for index,score in scores %}
                 <tr>
+                    <td>{{ index + 1}}</td>
                     <td><a href="https://meta.wikimedia.org/wiki/User:{{ score.username }}">{{ score.username }}</a></td>
                     <td>{{ score.points }}</td>
                     <td>{{ score.contributions }}</td>
