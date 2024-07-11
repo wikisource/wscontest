@@ -54,8 +54,8 @@
                     {% if contest.in_progress %}bg-success bg-opacity-10{% endif %}
                     ">
                     <td><a href="{{ path('contests_view', {id: contest.id}) }}">{{ contest.name }}</a></td>
-                    <td>{{ contest.start_date }}</td>
-                    <td>{{ contest.end_date }}</td>
+                    <td>{{ contest.start_date }} UTC</td>
+                    <td>{{ contest.end_date }} UTC</td>
                     <td>
                         {% if contest.pending %}
                             {{ msg('not-started-yet') }}
