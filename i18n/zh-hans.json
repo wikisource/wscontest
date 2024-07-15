@@ -6,6 +6,7 @@
 			"A Retired User",
 			"Anterdc99",
 			"GuoPC",
+			"Huajing",
 			"予弦",
 			"沈澄心",
 			"神樂坂秀吉"
@@ -53,6 +54,7 @@
 	"contest": "竞赛：$1",
 	"details": "详情",
 	"unable-to-save": "保存失败：$1",
+	"rank": "排名",
 	"user": "用户",
 	"points": "点数",
 	"contributions": "贡献",

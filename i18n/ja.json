@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hideki Yoshida",
 			"Likibp",
 			"MathXplore",
 			"Omotecho",
@@ -41,6 +42,7 @@
 	"contest": "コンテスト: $1",
 	"details": "詳細",
 	"unable-to-save": "保存できません: $1",
+	"rank": "順位",
 	"user": "利用者",
 	"points": "ポイント数",
 	"contributions": "投稿記録",

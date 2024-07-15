@@ -3,6 +3,7 @@
 		"authors": [
 			"Dick Bos",
 			"Dnlweijers",
+			"Ignatgg",
 			"McDutchie",
 			"Optilete"
 		]
@@ -49,6 +50,7 @@
 	"contest": "Wedstrijd: $1",
 	"details": "Details",
 	"unable-to-save": "Onmogelijk om op te slaan: $1",
+	"rank": "Rang",
 	"user": "Gebruiker",
 	"points": "Punten",
 	"contributions": "Bijdragen",

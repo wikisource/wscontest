@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ignatgg",
 			"McDutchie"
 		]
 	},
@@ -46,6 +47,7 @@
 	"contest": "Concurso: $1",
 	"details": "Detalios",
 	"unable-to-save": "Non pote salveguardar: $1",
+	"rank": "Rango",
 	"user": "Usator",
 	"points": "Punctos",
 	"contributions": "Contributiones",
