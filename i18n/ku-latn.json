@@ -12,10 +12,16 @@
 	"logout": "Derkeve",
 	"stats-summary": "$1 {{PLURAL:$2|kes cih girt|kes cih girtin}} di $3 {{PLURAL:$4|pêşbaziyê|pêşbaziyan}} de.",
 	"all-contests": "Hemû pêşbazî",
+	"your-contests": "Pêşbirkên te",
+	"recently-ended-contests": "Pêşbirkên vê dawîyê xilasbûyî",
 	"create-contest": "Pêşbazî çêke",
 	"edit-contest": "Konfîgusayona pêşbaziyê biguherîne",
 	"name-label": "Nav:",
 	"dates": "Dîrok:",
+	"privacy-label": "Veşarîtî:",
+	"privacy-public": "Giştî",
+	"privacy-admin-during": "Tenê ji admînan re (heya dawîya pêşbirkê)",
+	"privacy-private": "Xisûsî (tenê ji admînan re, heta hetayê)",
 	"end-date-label": "Dîrok û wextê bidawîbûnê:",
 	"start-date-label": "Dîrok û wextê destpêkirinê:",
 	"times-are-utc": "Wext bi qada zemanê ya UTCê ne.",
@@ -54,5 +60,8 @@
 	"this-is-wscontest": "Ev amûra Pêşbaziyê ya Wîkîçavkaniyê ye",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Koda çavkaniyê",
-	"issue-tracker": "Şopînera pirsgirêkan"
+	"issue-tracker": "Şopînera pirsgirêkan",
+	"confirm-delete-text": "Ji kerema xwe tesdîq bike ku tu dixwazî jê bibî",
+	"do-not-delete": "Jê nebe",
+	"confirm-delete": "Erê, ez tesdîq dikim"
 }
