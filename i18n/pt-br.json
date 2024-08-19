@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Duke of Wikipädia",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
@@ -14,7 +15,7 @@
 	"login": "Entrar",
 	"logged-in-as": "Você entrou como $1",
 	"logout": "Sair",
-	"stats-summary": "$1 {{PLURAL:$2|pessoa|pessoas}} {{PLURAL:$2|tem|ter}} participou de $3 {{PLURAL:$4|concurso|concursos}}.",
+	"stats-summary": "$1 {{PLURAL:$2|pessoa|pessoas}} participaram de $3 {{PLURAL:$4|concurso|concursos}}.",
 	"all-contests": "Todos os concursos",
 	"your-contests": "Seu concursos",
 	"recently-ended-contests": "Concursos encerrados recentemente",
@@ -50,7 +51,6 @@
 	"contest": "Concurso: $1",
 	"details": "Detalhes",
 	"unable-to-save": "Incapaz de salvar: $1",
-	"rank": "Classificação",
 	"user": "Usuário",
 	"points": "Pontos",
 	"contributions": "Contribuições",
@@ -70,16 +70,5 @@
 	"this-is-wscontest": "Esta é a ferramenta do concurso Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Código-fonte",
-	"issue-tracker": "Rastreador de problemas",
-	"deleted-successfully": "Concurso $1 excluído com sucesso",
-	"proceed-caution": "Prossiga com cuidado",
-	"irreversible-action": "Esta ação é irreversível e todos os dados relacionados ao concurso serão perdidos para sempre",
-	"delete-contest": "Excluir concurso",
-	"delete": "Excluir",
-	"tip": "DICA",
-	"click-here-link": "Clique aqui",
-	"save-scores-before-delete": "para salvar suas pontuações como wikitexto antes de excluir seu concurso",
-	"confirm-delete-text": "Por favor, confirme que você deseja excluir",
-	"do-not-delete": "Não exclua",
-	"confirm-delete": "Sim, eu confirmo"
+	"issue-tracker": "Rastreador de problemas"
 }
