@@ -1,22 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
+			"Suleiman the Magnificent Television",
 			"Ykhwong",
 			"YuzaTea",
 			"그냥기여자"
 		]
 	},
 	"app-title": "위키문헌 대회",
-	"homepage": "대문",
+	"homepage": "홈",
 	"contests": "대회",
 	"login": "로그인",
 	"logged-in-as": "$1님으로 로그인하고 있습니다",
 	"logout": "로그아웃",
 	"stats-summary": "$1명이 대회 $2개에 참가하고 있습니다.",
+	"recently-ended-contests": "최근 종료된 대회",
 	"create-contest": "대회 만들기",
 	"edit-contest": "대회 구성 수정",
 	"name-label": "이름:",
 	"dates": "날짜:",
+	"privacy-label": "개인 정보 보호:",
+	"privacy-public": "공개",
 	"end-date-label": "종료 시간 및 날짜:",
 	"start-date-label": "시작 시간 및 날짜:",
 	"times-are-utc": "시간은 UTC 시간대에 속합니다.",

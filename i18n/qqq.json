@@ -49,6 +49,7 @@
 	"contest": "Contest header. $1 is the contest name.",
 	"details": "Link to view score details of a single user.",
 	"unable-to-save": "Error message displayed when unable to save a contest. $1 is the reason.",
+	"rank": "Table header of the user details' table.",
 	"user": "Table header of the user details' table.",
 	"points": "Table header of the user details' table.",
 	"contributions": "Table header of the user details' table.\n\n{{Identical|Contribution}}",
