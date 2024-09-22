@@ -70,7 +70,7 @@ class ContestRepository extends RepositoryBase {
 		$sql = "INSERT IGNORE INTO $joinTable ($mainJoinCol, $joinCol)
 			SELECT :id, $subTable.id FROM $subTable WHERE $subTable.$nameCol IN ( " . implode( ',', $params ) . ' )';
 		$stmt = $this->db->prepare( $sql );
-		$stmt->bindParam( 'id', $mainId );
+		$stmt->bindValue( 'id', $mainId );
 		foreach ( $values as $k => $val ) {
 			$stmt->bindValue( "val_$k", $val );
 		}

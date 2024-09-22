@@ -40,10 +40,7 @@
         },
         "sort-packages": true,
         "platform": {
-            "php": "7.2.31"
-        },
-        "allow-plugins": {
-            "symfony/flex": false
+            "php": "8.2"
         }
     },
     "autoload": {
@@ -84,7 +81,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.4.*"
+            "require": "7.*"
         }
     }
 }
