@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
+			"Mahabarata",
 			"Verdy p",
 			"Wladek92"
 		]
@@ -48,6 +49,7 @@
 	"contest": "Concours : $1",
 	"details": "Détails",
 	"unable-to-save": "Impossible d’enregistrer : $1",
+	"rank": "Rang",
 	"user": "Utilisateur",
 	"points": "Points",
 	"contributions": "Contributions",
