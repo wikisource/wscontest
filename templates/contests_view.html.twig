@@ -16,8 +16,8 @@
         {% if contest.privacy == 3 %}{{ msg('privacy-private') }}{% endif %}
     </dd>
     <dt>{{ msg('dates') }}</dt>
-    <dd>{{ msg('start-date-label') }} {{ contest.start_date }}</dd>
-    <dd>{{ msg('end-date-label') }} {{ contest.end_date }}</dd>
+    <dd>{{ msg('start-date-label') }} {{ contest.start_date }} UTC</dd>
+    <dd>{{ msg('end-date-label') }} {{ contest.end_date }} UTC</dd>
     <dt>{{ msg('administrators') }}</dt>
     <dd>
         <ul class="list-inline">
