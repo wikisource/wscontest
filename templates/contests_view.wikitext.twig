@@ -1,8 +1,8 @@
 == {{ msg('contest', [contest.name]) }} ==
 
 ; {{ msg('dates') }}
-: {{ msg('start-date-label') }} {{ contest.start_date }} UTC
-: {{ msg('end-date-label') }} {{ contest.end_date }} UTC
+: {{ msg('start-date-formatted', [contest.start_date]) }}
+: {{ msg('end-date-formatted', [contest.end_date]) }}
 ; {{ msg('url') }}
 : {{ url('contests_view', {id: contest.id}) }}
 ; {{ msg('administrators') }}
