@@ -24,6 +24,8 @@
   "privacy-admin-during": "Admins only (until end of contest)",
   "privacy-private": "Private (admins only, forever)",
   "privacy-help": "Who is able to view contest scores (admins can always view all their contests).",
+  "end-date-label": "End date and time:",
+  "start-date-label": "Start date and time:",
   "end-date-formatted": "End date and time: $1 UTC",
   "start-date-formatted": "Start date and time: $1 UTC",
   "times-are-utc": "Times are in UTC timezone.",

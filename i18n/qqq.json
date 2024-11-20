@@ -26,6 +26,8 @@
 	"privacy-admin-during": "Privacy form field option.",
 	"privacy-private": "Privacy form field option.",
 	"privacy-help": "Help text for privacy form field.",
+	"end-date-label": "Form label for the 'end date and time' field.",
+	"start-date-label": "Form label for the 'start date and time' field.",
 	"start-date-formatted": "Message displayed to show the start date and time of a contest. Parameters:\n\n* $1 - start date and time (e.g., '2024-11-30 18:00:42')",
   	"end-date-formatted": "Message displayed to show the end date and time of a contest. Parameters:\n\n* $1 - end date and time (e.g., '2024-11-30 18:00:42')",
 	"times-are-utc": "Help text for all time fields.",
