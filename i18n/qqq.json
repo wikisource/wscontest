@@ -22,6 +22,8 @@
 	"home-table-row-validated": "Table Row text of 'From Proofread to Validated:' on scoring system table",
 	"home-table-row-validated-demoted": "Table Row text of 'If a Validated page is demoted:' on scoring system table",
 	"home-table-row-proofread-demoted": "Table Row text of 'If a Proofread page is demoted:' on scoring system table",
+	"full-url-to-index-pages": "Text Label stating 'Full URLs to Index pages, one per line.'",
+	"admins": "Text Label for Admins",
 	"edit": "Text Label for Edit",
 	"login": "Link to log in.",
 	"logged-in-as": "Informative sentence about the currently logged-in user. $1 is the username.",

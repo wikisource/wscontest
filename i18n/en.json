@@ -27,7 +27,9 @@
   "home-table-row-validated-demoted": "If a Validated page is demoted:",
   "home-table-row-proofread-demoted": "If a Proofread page is demoted:",
 
+  "full-url-to-index-pages": "Full URLs to Index pages, one per line.",
   "edit": "Edit",
+  "admins": "Admins",
   "all-contests": "All contests",
   "your-contests": "Your contests",
   "recently-ended-contests": "Recently ended contests",
