@@ -30,6 +30,8 @@
   "full-url-to-index-pages": "Full URLs to Index pages, one per line.",
   "edit": "Edit",
   "admins": "Admins",
+  "404-not-found": "404 Not Found",
+  "requested-page-does-not-exist": "The requested page does not exist.",
   "all-contests": "All contests",
   "your-contests": "Your contests",
   "recently-ended-contests": "Recently ended contests",
