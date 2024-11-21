@@ -22,6 +22,7 @@
 	"home-table-row-validated": "Table Row text of 'From Proofread to Validated:' on scoring system table",
 	"home-table-row-validated-demoted": "Table Row text of 'If a Validated page is demoted:' on scoring system table",
 	"home-table-row-proofread-demoted": "Table Row text of 'If a Proofread page is demoted:' on scoring system table",
+	"edit": "Text Label for Edit",
 	"login": "Link to log in.",
 	"logged-in-as": "Informative sentence about the currently logged-in user. $1 is the username.",
 	"logout": "Link to log out.",

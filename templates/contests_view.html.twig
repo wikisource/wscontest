@@ -38,7 +38,7 @@
 
 <p>
     <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}" class="btn btn-light border">{{ msg('wikitext-scores') }}</a>
-    <a class="btn btn-light border {% if not can_edit %}disabled{% endif %}" href="{{ path('contests_edit', {id: contest.id}) }}">Edit</a>
+    <a class="btn btn-light border {% if not can_edit %}disabled{% endif %}" href="{{ path('contests_edit', {id: contest.id}) }}">{{ msg('edit') }}</a>
 </p>
 
 <h3 id="index_pages">{{ msg('index-pages') }}</h3>
