@@ -6,36 +6,19 @@
     {{ msg('stats-summary', [ people|number_format, people, contests|number_format, contests ] ) }}
 </p>
 
-<p>
-    This is a tool for running Wikisouce proofreading contests
-    (especially the annual <em>Wikisource Anniversary Proofreading Contest</em>, WAPC).
-</p>
+<p>{{ msg('home-description') }}</p>
 
-<p>
-    During a contest people can help <a href="https://en.wikisource.org/wiki/Help:Proofread">proofread</a>
-    and <a href="https://en.wikisource.org/wiki/Help:Beginner%27s_guide_to_validation">validate</a> book pages on Wikisouces.
-    For each page either proofread or validated the participant gain points.
-    At the end of the contest, a prize is awarded to the Wikisourceror with the most points.
-    Second and third-place prize are awarded with a random drawing from all the remaining contestants:
-    each point that you gained during the contest is like a lottery ticket,
-    so the more points you have gained during the contest (that is, the more pages you have proofread or validated),
-    the more chances you have to win.
-</p>
+<p>{{ msg('home-instructions') }}</p>
 
-<p>
-    There are three components to the score:
-    1) the total <em>Points</em>;
-    2) the total number of <em>Validations</em> performed; and
-    3) the total number of constructive <em>Contributions</em> of all sorts.
-</p>
+<p>{{ msg('home-score-components') }}</p>
 
 <table class="table" role="table">
-    <caption style="caption-side: top">Scoring system</caption>
-    <tr><th>Action taken</th><th>Points</th><th>Validations</th><th>Contributions</th></tr>
-    <tr><td>From any status to Proofread:</td><td>&nbsp;3</td><td>&nbsp;0</td><td>&nbsp;1</td></tr>
-    <tr><td>From Proofread to Validated:</td><td>&nbsp;1</td><td>&nbsp;1</td><td>&nbsp;1</td></tr>
-    <tr><td>If a Validated page is demoted:</td><td>-1</td><td>-1</td><td>-1</td></tr>
-    <tr><td>If a Proofread page is demoted:</td><td>-3</td><td>&nbsp;0</td><td>-1</td></tr>
+    <caption style="caption-side: top">{{ msg('scoring-system') }}</caption>
+    <tr><th>{{ msg('home-table-header-action-taken') }}</th><th>{{ msg('home-table-header-points') }}</th><th>{{ msg('home-table-header-validations') }}</th><th>{{ msg('home-table-header-contributions') }}</th></tr>
+    <tr><td>{{ msg('home-table-row-proofread') }}</td><td>&nbsp;3</td><td>&nbsp;0</td><td>&nbsp;1</td></tr>
+    <tr><td>{{ msg('home-table-row-validated') }}</td><td>&nbsp;1</td><td>&nbsp;1</td><td>&nbsp;1</td></tr>
+    <tr><td>{{ msg('home-table-row-validated-demoted') }}</td><td>-1</td><td>-1</td><td>-1</td></tr>
+    <tr><td>{{ msg('home-table-row-proofread-demoted') }}</td><td>-3</td><td>&nbsp;0</td><td>-1</td></tr>
 </table>
 
 {% endblock %}
