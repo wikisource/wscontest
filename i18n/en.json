@@ -1,8 +1,6 @@
 {
   "@metadata": {
-    "authors": [
-      "Samwilson"
-    ]
+    "authors": ["Samwilson"]
   },
 
   "app-title": "Wikisource Contests",
@@ -28,6 +26,8 @@
   "privacy-help": "Who is able to view contest scores (admins can always view all their contests).",
   "end-date-label": "End date and time:",
   "start-date-label": "Start date and time:",
+  "end-date-formatted": "End date and time: $1 UTC",
+  "start-date-formatted": "Start date and time: $1 UTC",
   "times-are-utc": "Times are in UTC timezone.",
   "excluded-users": "Excluded users:",
   "administrators": "Administrators:",
@@ -76,7 +76,7 @@
   "issue-tracker": "Issue tracker",
 
   "deleted-successfully": "Contest $1 deleted successfully",
-  "proceed-caution": "Proceed with caution", 
+  "proceed-caution": "Proceed with caution",
   "irreversible-action": "This action is irreversible and all data related to the contest will be lost forever",
   "delete-contest": "Delete contest",
 
@@ -87,5 +87,4 @@
   "confirm-delete-text": "Please confirm that you want to delete",
   "do-not-delete": "Don't delete",
   "confirm-delete": "Yes, I confirm"
-
 }
