@@ -70,6 +70,7 @@
 	"validations": "Table header of the user details' table.",
 	"index-page": "Table header of the user details' table.",
 	"index-pages": "Section header for the list of index pages.",
+	"index-pages-label": "Label for the list of index pages.",
 	"user-results": "Breadcrumb text for the user results page.",
 	"revision": "Table header of the user details' table.",
 	"date": "Table header of the user details' table.\n{{Identical|Date}}",
