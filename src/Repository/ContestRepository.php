@@ -146,7 +146,8 @@ class ContestRepository extends RepositoryBase {
 			WHERE contest_index_pages.contest_id = :cid
 			ORDER BY index_pages.url';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $id ] );
+		$admins->bindValue( 'cid', $id );
+		$result2 = $admins->executeQuery();
 		$result['index_pages'] = $result2->fetchAllAssociative();
 
 		return $result;
@@ -210,7 +211,9 @@ class ContestRepository extends RepositoryBase {
 			WHERE contest_id = :cid AND user_id = :uid
 			ORDER BY revision_datetime';
 		$stmt = $this->db->prepare( $sql );
-		return $stmt->executeQuery( [ 'cid' => $contestId, 'uid' => $userId ] )
+		$stmt->bindValue( 'cid', $contestId );
+		$stmt->bindValue( 'uid', $userId );
+		return $stmt->executeQuery()
 			->fetchAllAssociative();
 	}
 
@@ -224,7 +227,8 @@ class ContestRepository extends RepositoryBase {
 		. '   LEFT JOIN users u ON u.id=a.user_id'
 		. ' WHERE (u.name IS NULL OR u.name = :username )';
 		$contests = $this->db->prepare( $sql );
-		$result = $contests->executeQuery( [ 'username' => $username ] );
+		$contests->bindValue( 'username', $username );
+		$result = $contests->executeQuery();
 		$contests = $result->fetchAllAssociative();
 		foreach ( $contests as &$contest ) {
 			$contest['admins'] = $this->getAdmins( $contest['id'] );
@@ -258,7 +262,8 @@ class ContestRepository extends RepositoryBase {
 	private function getAdmins( $contestId ): array {
 		$sql2 = 'SELECT u.* FROM users u JOIN admins a ON a.user_id=u.id WHERE a.contest_id = :cid ORDER BY u.name';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $contestId ] );
+		$admins->bindValue( 'cid', $contestId );
+		$result2 = $admins->executeQuery();
 		return $result2->fetchAllAssociative();
 	}
 
@@ -291,7 +296,8 @@ class ContestRepository extends RepositoryBase {
 			WHERE excluded_users.contest_id = :cid
 			ORDER BY u.name';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $contestId ] );
+		$admins->bindValue( 'cid', $contestId );
+		$result2 = $admins->executeQuery();
 		return $result2->fetchAllAssociative();
 	}
 

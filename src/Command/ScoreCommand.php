@@ -68,7 +68,7 @@ class ScoreCommand extends Command {
 	 * @param OutputInterface $output
 	 * @return null|int Null or 0 if everything went fine, or an error code.
 	 */
-	protected function execute( InputInterface $input, OutputInterface $output ) {
+	protected function execute( InputInterface $input, OutputInterface $output ): int {
 		$this->io = new SymfonyStyle( $input, $output );
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
