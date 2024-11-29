@@ -13,15 +13,15 @@ abstract class TestBase extends KernelTestCase {
 
 		// Empty all existing tables.
 		$db = $container->get( Connection::class );
-		$db->query( 'SET foreign_key_checks = 0' );
-		$db->query( 'TRUNCATE admins' );
-		$db->query( 'TRUNCATE excluded_users' );
-		$db->query( 'TRUNCATE users' );
-		$db->query( 'TRUNCATE index_pages' );
-		$db->query( 'TRUNCATE contest_index_pages' );
-		$db->query( 'TRUNCATE contests' );
-		$db->query( 'TRUNCATE scores' );
-		$db->query( 'SET foreign_key_checks = 1' );
+		$db->executeQuery( 'SET foreign_key_checks = 0' );
+		$db->executeQuery( 'TRUNCATE admins' );
+		$db->executeQuery( 'TRUNCATE excluded_users' );
+		$db->executeQuery( 'TRUNCATE users' );
+		$db->executeQuery( 'TRUNCATE index_pages' );
+		$db->executeQuery( 'TRUNCATE contest_index_pages' );
+		$db->executeQuery( 'TRUNCATE contests' );
+		$db->executeQuery( 'TRUNCATE scores' );
+		$db->executeQuery( 'SET foreign_key_checks = 1' );
 	}
 
 }

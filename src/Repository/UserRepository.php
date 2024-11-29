@@ -27,7 +27,7 @@ class UserRepository extends RepositoryBase {
 			return $this->userIds[$username];
 		}
 		$find = $this->db->prepare( 'SELECT * FROM users WHERE name = :name' );
-		$find->bindParam( 'name', $username );
+		$find->bindValue( 'name', $username );
 		$existing = $find->executeQuery();
 		if ( $existing->rowCount() === 0 ) {
 			$this->db->insert( 'users', [ 'name' => $username ] );
