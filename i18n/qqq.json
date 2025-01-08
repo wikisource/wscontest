@@ -21,7 +21,7 @@
 	"home-table-row-proofread-demoted": "Table Row text of 'If a Proofread page is demoted:' on scoring system table",
 	"404-not-found": "Heading Text displaying the page was not found",
 	"requested-page-does-not-exist": "Text stating that the requested page does not exist.",
-	"full-url-to-index-pages": "Text Label stating 'Full URLs to Index pages, one per line.'",
+	"full-url-index-pages": "Text Label stating 'Full URLs to Index pages, one per line.'",
 	"admins": "Text Label for Admins",
 	"edit": "Text Label for Edit",
 	"login": "Link to log in.",
