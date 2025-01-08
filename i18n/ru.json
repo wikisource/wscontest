@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gulka.nik",
+			"Kareyac",
 			"Narazeni",
 			"Okras",
 			"Pacha Tchernof",
@@ -29,6 +30,8 @@
 	"privacy-help": "Кто может просматривать результаты конкурсов (администраторы всегда могут просматривать все свои конкурсы).",
 	"end-date-label": "Время и дата окончания:",
 	"start-date-label": "Время и дата начала:",
+	"end-date-formatted": "Дата и время окончания: $1 UTC",
+	"start-date-formatted": "Дата и время начала: $1 UTC",
 	"times-are-utc": "Время указано в часовом поясе UTC.",
 	"excluded-users": "Исключённые участники:",
 	"administrators": "Администраторы:",
