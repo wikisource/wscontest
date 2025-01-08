@@ -14,7 +14,8 @@ class UserRepository extends RepositoryBase {
 	public function get( $userId ): array {
 		$sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
 		$stmt = $this->db->prepare( $sql );
-		$result = $stmt->executeQuery( [ 'id' => $userId ] );
+		$stmt->bindValue( 'id', $userId );
+		$result = $stmt->executeQuery();
 		return $result->fetchAssociative();
 	}
 

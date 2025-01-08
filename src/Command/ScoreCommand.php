@@ -2,11 +2,11 @@
 
 namespace App\Command;
 
+use Addwiki\Mediawiki\Api\Client\Action\ActionApi;
+use Addwiki\Mediawiki\Api\Client\Action\Request\ActionRequest;
 use App\Repository\IndexPageRepository;
 use App\Repository\UserRepository;
 use DateInterval;
-use Mediawiki\Api\FluentRequest;
-use Mediawiki\Api\MediawikiApi;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -66,7 +66,7 @@ class ScoreCommand extends Command {
 	 * @see setCode()
 	 * @param InputInterface $input
 	 * @param OutputInterface $output
-	 * @return null|int Null or 0 if everything went fine, or an error code.
+	 * @return int Null or 0 if everything went fine, or an error code.
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ): int {
 		$this->io = new SymfonyStyle( $input, $output );
@@ -130,12 +130,12 @@ class ScoreCommand extends Command {
 
 	/**
 	 * @param array $contest
-	 * @param MediawikiApi $api
+	 * @param ActionApi $api
 	 * @param string $pageTitle
 	 * @param int $indexPageId
 	 */
 	protected function processPage(
-		array $contest, MediawikiApi $api, string $pageTitle, int $indexPageId
+		array $contest, ActionApi $api, string $pageTitle, int $indexPageId
 	) {
 		$cacheKey = 'revisions_' . $pageTitle . $contest['end_date'];
 		$cacheItem = $this->cache->getItem( md5( $cacheKey ) );
@@ -144,8 +144,7 @@ class ScoreCommand extends Command {
 		} else {
 			$this->io->writeln( "Fetching revisions of $pageTitle", SymfonyStyle::VERBOSITY_VERBOSE );
 			$cacheItem->expiresAfter( new DateInterval( 'P1D' ) );
-			$response = $api->getRequest( FluentRequest::factory()
-				->setAction( 'query' )
+			$response = $api->request( ActionRequest::simpleGet( 'query' )
 				->setParam( 'prop', 'revisions' )
 				->setParam( 'titles', $pageTitle )
 				->setParam( 'rvlimit', 5000 )
