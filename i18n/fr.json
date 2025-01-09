@@ -23,7 +23,7 @@
 	"home-table-row-validated": "De Relu à Validé :",
 	"home-table-row-validated-demoted": "Si une page validée est rétrogradée :",
 	"home-table-row-proofread-demoted": "Si une page Relue est rétrogradée :",
-	"full-url-to-index-pages": "URL complètes vers les pages d'index, une par ligne.",
+	"full-url-index-pages": "URL complètes vers les pages d'index, une par ligne.",
 	"edit": "Modifier",
 	"admins": "Administrateurs",
 	"404-not-found": "404 Non trouvée",
