@@ -22,7 +22,7 @@
   "home-table-row-validated-demoted": "If a Validated page is demoted:",
   "home-table-row-proofread-demoted": "If a Proofread page is demoted:",
 
-  "full-url-to-index-pages": "Full URLs to Index pages, one per line.",
+  "full-url-index-pages": "Full URLs to Index pages, one per line.",
   "edit": "Edit",
   "admins": "Admins",
   "404-not-found": "404 Not Found",

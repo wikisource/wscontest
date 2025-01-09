@@ -23,7 +23,7 @@
 	"home-table-row-validated": "Table Row text of 'From Proofread to Validated:' on scoring system table",
 	"home-table-row-validated-demoted": "Table Row text of 'If a Validated page is demoted:' on scoring system table",
 	"home-table-row-proofread-demoted": "Table Row text of 'If a Proofread page is demoted:' on scoring system table",
-	"full-url-to-index-pages": "Text Label stating 'Full URLs to Index pages, one per line.'",
+	"full-url-index-pages": "Text Label stating 'Full URLs to Index pages, one per line.'",
 	"edit": "Text Label for Edit",
 	"admins": "Text Label for Admins",
 	"404-not-found": "Heading Text displaying the page was not found",

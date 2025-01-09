@@ -14,7 +14,8 @@ class UserRepository extends RepositoryBase {
 	public function get( $userId ): array {
 		$sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
 		$stmt = $this->db->prepare( $sql );
-		$result = $stmt->executeQuery( [ 'id' => $userId ] );
+		$stmt->bindValue( 'id', $userId );
+		$result = $stmt->executeQuery();
 		return $result->fetchAssociative();
 	}
 
@@ -27,7 +28,7 @@ class UserRepository extends RepositoryBase {
 			return $this->userIds[$username];
 		}
 		$find = $this->db->prepare( 'SELECT * FROM users WHERE name = :name' );
-		$find->bindParam( 'name', $username );
+		$find->bindValue( 'name', $username );
 		$existing = $find->executeQuery();
 		if ( $existing->rowCount() === 0 ) {
 			$this->db->insert( 'users', [ 'name' => $username ] );
