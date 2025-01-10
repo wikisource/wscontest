@@ -1,0 +1,7 @@
+---
+- name: score
+  command: ./tool/bin/console score --continuous
+  image: tf-php82
+  emails: onfailure
+  continuous: true
+  health-check-script: "test -e /tmp/wscontest-alive && rm /tmp/wscontest-alive"
