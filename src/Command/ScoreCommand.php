@@ -10,6 +10,7 @@ use DateInterval;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Wikisource\Api\IndexPage as WikisourceIndexPage;
@@ -33,6 +34,12 @@ class ScoreCommand extends Command {
 	/** @var SymfonyStyle */
 	private $io;
 
+	/** @var int */
+	private $healthCheckLastTouched;
+
+	/** @var string */
+	private $healthCheckFilename;
+
 	/**
 	 * @param IndexPageRepository $indexPageRepository
 	 * @param UserRepository $userRepository
@@ -50,30 +57,58 @@ class ScoreCommand extends Command {
 		$this->userRepository = $userRepository;
 		$this->cache = $cache;
 		$this->scoreCalculationInterval = $scoreCalculationInterval;
+		// Note that this filename is also referenced in `toolforge/job-score.yaml`.
+		$this->healthCheckFilename = '/tmp/wscontest-alive';
+		$this->healthCheckLastTouched = time();
 	}
 
 	/**
-	 * Configures the current command.
+	 * @inheritDoc
 	 */
 	protected function configure() {
 		parent::configure();
 		$this->setName( 'score' );
 		$this->setDescription( 'Retrieve scores from Wikisources.' );
+		$this->addOption( 'continuous', null, InputOption::VALUE_NONE, 'Keep the score command running contiuously.' );
 	}
 
 	/**
-	 * Executes the current command.
-	 * @see setCode()
-	 * @param InputInterface $input
-	 * @param OutputInterface $output
-	 * @return int Null or 0 if everything went fine, or an error code.
+	 * @inheritDoc
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ): int {
 		$this->io = new SymfonyStyle( $input, $output );
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
+		if ( $input->getOption( 'continuous' ) ) {
+			while ( true ) {
+				$this->healthCheck();
+				$this->scoreIndexPages( $wikisourceApi );
+				sleep( 5 );
+			}
+		} else {
+			$this->scoreIndexPages( $wikisourceApi );
+		}
+		return Command::SUCCESS;
+	}
+
+	private function healthCheck(): void {
+		// Only touch the control file max once every five seconds.
+		if ( $this->healthCheckLastTouched > time() - 5 ) {
+			return;
+		}
+		$this->io->writeln( 'Marking wscontest as alive', SymfonyStyle::VERBOSITY_VERY_VERBOSE );
+		touch( $this->healthCheckFilename );
+		$this->healthCheckLastTouched = time();
+	}
+
+	/**
+	 * Score all index pages that need scoring.
+	 * @param WikisourceApi $wikisourceApi
+	 */
+	protected function scoreIndexPages( WikisourceApi $wikisourceApi ): void {
 		$indexPages = $this->indexPageRepository->needsScoring( $this->scoreCalculationInterval );
 		foreach ( $indexPages as $indexPage ) {
+			$this->healthCheck();
 			// Set up the Wikisource bits.
 			$wikisource = $wikisourceApi->newWikisourceFromUrl( $indexPage['url'] );
 			if ( !$wikisource ) {
@@ -96,6 +131,7 @@ class ScoreCommand extends Command {
 			// Go through each contest that uses this Index Page and save the score.
 			$contests = $this->indexPageRepository->getContests( $indexPage['id'] );
 			foreach ( $contests as $contest ) {
+				$this->healthCheck();
 				$this->io->writeln( 'For contest: ' . $contest['name'], SymfonyStyle::VERBOSITY_VERBOSE );
 				// Save new scores.
 				$this->calculateScore(
@@ -106,8 +142,6 @@ class ScoreCommand extends Command {
 				);
 			}
 		}
-
-		return 0;
 	}
 
 	/**
@@ -124,6 +158,7 @@ class ScoreCommand extends Command {
 		$api = $wikisource->getMediawikiApi();
 		$indexPages = $wsIndexPage->getPageList( true );
 		foreach ( $indexPages as $page ) {
+			$this->healthCheck();
 			$this->processPage( $contest, $api, $page['title'], $indexPageId );
 		}
 	}
@@ -166,6 +201,7 @@ class ScoreCommand extends Command {
 		$oldUser = false;
 		$pattern = '|<pagequality level="(\d)" user="(.+?)" />|';
 		foreach ( $pageInfo['revisions'] as $rev ) {
+			$this->healthCheck();
 			$content = $rev['*'];
 			$matched = preg_match( $pattern, $content, $qualityMatches );
 			if ( $matched !== 1 ) {
@@ -252,6 +288,7 @@ class ScoreCommand extends Command {
 			if ( !$scores['points'] && !$scores['validations'] && !$scores['contributions'] ) {
 				continue;
 			}
+			$this->healthCheck();
 			$this->indexPageRepository->saveScore( [
 				'contest_id' => $contest['id'],
 				'index_page_id' => $indexPageId,
