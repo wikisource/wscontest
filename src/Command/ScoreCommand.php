@@ -37,6 +37,9 @@ class ScoreCommand extends Command {
 	/** @var int */
 	private $healthCheckLastTouched;
 
+	/** @var string */
+	private $healthCheckFilename;
+
 	/**
 	 * @param IndexPageRepository $indexPageRepository
 	 * @param UserRepository $userRepository
@@ -54,6 +57,9 @@ class ScoreCommand extends Command {
 		$this->userRepository = $userRepository;
 		$this->cache = $cache;
 		$this->scoreCalculationInterval = $scoreCalculationInterval;
+		// Note that this filename is also referenced in `toolforge/job-score.yaml`.
+		$this->healthCheckFilename = '/tmp/wscontest-alive';
+		$this->healthCheckLastTouched = time();
 	}
 
 	/**
@@ -73,7 +79,6 @@ class ScoreCommand extends Command {
 		$this->io = new SymfonyStyle( $input, $output );
 		$wikisourceApi = new WikisourceApi();
 		$wikisourceApi->setCache( $this->cache );
-		$this->healthCheckLastTouched = time();
 		if ( $input->getOption( 'continuous' ) ) {
 			while ( true ) {
 				$this->healthCheck();
@@ -91,9 +96,8 @@ class ScoreCommand extends Command {
 		if ( $this->healthCheckLastTouched > time() - 5 ) {
 			return;
 		}
-		$this->io->writeln( 'wscontest is alive', SymfonyStyle::VERBOSITY_VERY_VERBOSE );
-		// Note that this filename is referenced in `toolforge/job-score.yaml`.
-		touch( '/tmp/wscontest-alive' );
+		$this->io->writeln( 'Marking wscontest as alive', SymfonyStyle::VERBOSITY_VERY_VERBOSE );
+		touch( $this->healthCheckFilename );
 		$this->healthCheckLastTouched = time();
 	}
 
@@ -127,6 +131,7 @@ class ScoreCommand extends Command {
 			// Go through each contest that uses this Index Page and save the score.
 			$contests = $this->indexPageRepository->getContests( $indexPage['id'] );
 			foreach ( $contests as $contest ) {
+				$this->healthCheck();
 				$this->io->writeln( 'For contest: ' . $contest['name'], SymfonyStyle::VERBOSITY_VERBOSE );
 				// Save new scores.
 				$this->calculateScore(
@@ -196,6 +201,7 @@ class ScoreCommand extends Command {
 		$oldUser = false;
 		$pattern = '|<pagequality level="(\d)" user="(.+?)" />|';
 		foreach ( $pageInfo['revisions'] as $rev ) {
+			$this->healthCheck();
 			$content = $rev['*'];
 			$matched = preg_match( $pattern, $content, $qualityMatches );
 			if ( $matched !== 1 ) {
