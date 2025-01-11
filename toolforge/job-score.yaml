@@ -1,6 +1,6 @@
 ---
 - name: score
-  command: ./tool/bin/console score --continuous
+  command: webapp/bin/console score --continuous
   image: php8.2
   emails: onfailure
   continuous: true
