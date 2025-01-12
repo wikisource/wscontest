@@ -6,9 +6,9 @@
 
 {% block main %}
 
-<ol class="breadcrumb">
-    <li><a href="{{ path('contests_view', {id: contest.id}) }}">{{ msg('contest', [contest.name]) }}</a></li>
-    <li class="active">{{ msg('user-results') }}</li>
+<ol class="breadcrumb bg-secondary bg-opacity-10 p-2 rounded">
+    <li class="breadcrumb-item"><a href="{{ path('contests_view', {id: contest.id}) }}">{{ msg('contest', [contest.name]) }}</a></li>
+    <li class="active breadcrumb-item">{{ msg('user-results') }}</li>
 </ol>
 
 <h2>{{ user.name }}</h2>

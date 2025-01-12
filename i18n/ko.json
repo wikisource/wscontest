@@ -1,24 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
+			"Suleiman the Magnificent Television",
 			"Ykhwong",
 			"YuzaTea",
 			"그냥기여자"
 		]
 	},
 	"app-title": "위키문헌 대회",
-	"homepage": "대문",
+	"homepage": "홈",
 	"contests": "대회",
 	"login": "로그인",
 	"logged-in-as": "$1님으로 로그인하고 있습니다",
 	"logout": "로그아웃",
 	"stats-summary": "$1명이 대회 $2개에 참가하고 있습니다.",
+	"edit": "편집",
+	"404-not-found": "404 찾을 수 없습니다",
+	"requested-page-does-not-exist": "요청하신 페이지가 존재하지 않습니다.",
+	"recently-ended-contests": "최근 종료된 대회",
 	"create-contest": "대회 만들기",
 	"edit-contest": "대회 구성 수정",
 	"name-label": "이름:",
 	"dates": "날짜:",
+	"privacy-label": "개인 정보 보호:",
+	"privacy-public": "공개",
 	"end-date-label": "종료 시간 및 날짜:",
 	"start-date-label": "시작 시간 및 날짜:",
+	"end-date-formatted": "종료 날짜 및 시간: $1 UTC",
+	"start-date-formatted": "시작 날짜 및 시간: $1 UTC",
 	"times-are-utc": "시간은 UTC 시간대에 속합니다.",
 	"excluded-users": "제외된 사용자:",
 	"administrators": "관리자:",
@@ -53,5 +62,6 @@
 	"this-is-wscontest": "위키문헌 대회 도구 정보",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "소스 코드",
-	"issue-tracker": "이슈 트래커"
+	"issue-tracker": "이슈 트래커",
+	"delete": "삭제"
 }

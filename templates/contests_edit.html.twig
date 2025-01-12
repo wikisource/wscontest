@@ -15,57 +15,95 @@
             <input type="hidden" name="id" value="{{ contest.id }}" />
         {% endif %}
         <p>
-            <label for="name">{{ msg('name-label') }}</label>
+            <label for="name" class="fw-bold">{{ msg('name-label') }}</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ contest.name }}" required />
         </p>
         <div class="row">
             <p class="col-md-4 form-group">
-                <label for="start-date">{{ msg('start-date-label') }}</label>
+                <label for="start-date" class="fw-bold">{{ msg('start-date-label') }}</label>
                 <input type="text" id="start-date" name="start_date" class="form-control" value="{{ contest.start_date }}" required />
-                <span class="help-block">{{ msg('times-are-utc') }}</span>
+                <span class="text-muted">{{ msg('times-are-utc') }}</span>
             </p>
             <p class="col-md-4 form-group">
-                <label for="end-date">{{ msg('end-date-label') }}</label>
+                <label for="end-date" class="fw-bold">{{ msg('end-date-label') }}</label>
                 <input type="text" id="end-date" name="end_date" class="form-control" value="{{ contest.end_date }}" required />
-                <span class="help-block">{{ msg('times-are-utc') }}</span>
+                <span class="text-muted">{{ msg('times-are-utc') }}</span>
             </p>
             <p class="col-md-4 form-group">
-                <label for="privacy">{{ msg('privacy-label') }}</label>
+                <label for="privacy" class="fw-bold">{{ msg('privacy-label') }}</label>
                 <select name="privacy" id="privacy" class="form-control">
                     <option value="2" {% if contest.privacy == 2 %}selected{% endif %}>{{ msg('privacy-public') }}</option>
                     <option value="1" {% if contest.privacy == 1 %}selected{% endif %}>{{ msg('privacy-admin-during') }}</option>
                     <option value="3" {% if contest.privacy == 3 %}selected{% endif %}>{{ msg('privacy-private') }}</option>
                 </select>
-                <span class="help-block">{{ msg('privacy-help') }}</span>
+                <span class="text-muted">{{ msg('privacy-help') }}</span>
             </p>
         </div>
         <div class="row">
             <p class="col-md-6 form-group">
-                <label for="index_pages">Index pages:</label>
+                <label for="index_pages" class="fw-bold">{{ msg('index-pages-label') }}</label>
                 <textarea id="index_pages" name="index_pages" class="form-control" rows="12">{{ index_pages }}</textarea>
-                <span class="help-block">Full URLs to Index pages, one per line.</span>
+                <span class="text-muted">{{ msg('full-url-index-pages') }}</span>
             </p>
             <p class="col-md-3 form-group">
-                <label for="admins">Admins:</label>
+                <label for="admins" class="fw-bold">{{ msg('admins') }}:</label>
                 <textarea id="admins" name="admins" class="form-control" rows="12" required>{{ admins }}</textarea>
-                <span class="help-block">{{ msg('one-username-per-line') }}</span>
+                <span class="text-muted">{{ msg('one-username-per-line') }}</span>
             </p>
             <p class="col-md-3 form-group">
-                <label for="excluded_users">{{ msg('excluded-users') }}</label>
+                <label for="excluded_users" class="fw-bold">{{ msg('excluded-users') }}</label>
                 <textarea id="excluded_users" name="excluded_users" class="form-control" rows="12">{{ excluded_users }}</textarea>
-                <span class="help-block">{{ msg('one-username-per-line') }}</span>
+                <span class="text-muted">{{ msg('one-username-per-line') }}</span>
             </p>
         </div>
         <p>
             <input type="hidden" name="csrf_token" value="{{ csrf_token( 'contest-edit' ) }}"/>
             <input type="submit" value="{{ msg('save') }}" class="btn btn-success" />
             {% if contest.id %}
-                <a href="{{ path('contests_view', {id: contest.id}) }}" class="btn btn-default">{{ msg('cancel') }}</a>
+                <a href="{{ path('contests_view', {id: contest.id}) }}" class="btn btn-light border">{{ msg('cancel') }}</a>
             {% else %}
-                <a href="{{ path('contests') }}" class="btn btn-default">{{ msg('cancel') }}</a>
+                <a href="{{ path('contests') }}" class="btn btn-light border">{{ msg('cancel') }}</a>
             {% endif %}
-            <span class="help-block">{{ msg('save-resets-scores', [(score_calculation_interval * 2)~'']) }}</span>
+            <span class="d-block text-muted">{{ msg('save-resets-scores', [(score_calculation_interval * 2)~'']) }}</span>
         </p>
+        {% if contest.id %}
+            <div class="border border-danger p-3">
+                <h5 class="text-danger">{{ msg('proceed-caution') }}</h5>
+                <p class="text-muted">{{ msg('irreversible-action') }}</p>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">{{ msg('delete-contest') }}</button>
+            </div>
+        {% endif %}
     </form>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ msg('delete') }} {{contest.name}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% if scoresExist == true %}
+                        <p>
+                            <span class='border border-2 border-dark fw-bold rounded px-1'>{{ msg('tip') }}</span>
+                            {% set save_scores_link %}
+                                <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}" title="{{ msg('save-scores-tooltip') }}" target="_blank">
+                                    {{ msg('save-scores-link') }}
+                                </a>
+                            {% endset %}
+                            {{ msg('save-scores', [save_scores_link])|raw }}
+                        </p>
+                    {% endif %}
+                    <p class="text-danger">{{ msg('confirm-delete-text') }} <span class="fw-bold">{{contest.name}}</span></p>
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ path('contests_delete', {deletedId: contest.id}) }}" method="post">
+                        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">{{ msg('do-not-delete') }}</button>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token( 'contest-delete' ) }}"/>
+                        <input type="submit" class="btn btn-danger" value="{{ msg('confirm-delete') }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

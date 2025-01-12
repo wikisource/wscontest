@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"Ignatgg",
 			"Justman10000",
+			"Magiczocker",
 			"Metalhead64",
 			"ThisCarthing"
 		]
@@ -13,7 +15,7 @@
 	"login": "Anmelden",
 	"logged-in-as": "Du bist angemeldet als $1",
 	"logout": "Abmelden",
-	"stats-summary": "$1 {{PLURAL:$2|Eine Person hat|Personen haben}} an $3 {{PLURAL:$4|einem Wettbewerb|Wettbewerben}} teilgenommen.",
+	"stats-summary": "$1 {{PLURAL:$2|Person hat|Personen haben}} an $3 {{PLURAL:$4|Wettbewerb|Wettbewerben}} teilgenommen.",
 	"all-contests": "Alle Wettbewerbe",
 	"your-contests": "Deine Wettbewerbe",
 	"recently-ended-contests": "Kürzlich beendete Wettbewerbe",
@@ -21,7 +23,7 @@
 	"edit-contest": "Konfiguration des Wettbewerbs bearbeiten",
 	"name-label": "Name:",
 	"dates": "Datum:",
-	"privacy-label": "Datenschutz",
+	"privacy-label": "Datenschutz:",
 	"privacy-public": "Öffentlich",
 	"privacy-admin-during": "Nur Admins (bis zum Ende des Wettbewerbs)",
 	"privacy-private": "Privat (nur Admins, für immer)",
@@ -68,5 +70,16 @@
 	"this-is-wscontest": "Dies ist das Werkzeug für Wikisource-Wettbewerbe",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Quellcode",
-	"issue-tracker": "Issue Tracker"
+	"issue-tracker": "Issue Tracker",
+	"deleted-successfully": "Wettbewerb $1 erfolgreich gelöscht",
+	"proceed-caution": "Mit Vorsicht fortfahren",
+	"irreversible-action": "Diese Aktion ist unwiderruflich und alle mit dem Wettbewerb verbundenen Daten gehen für immer verloren",
+	"delete-contest": "Wettbewerb löschen",
+	"delete": "Löschen",
+	"tip": "TIPP",
+	"click-here-link": "Klicke hier",
+	"save-scores-before-delete": "um deine Ergebnisse als Wikitext zu speichern, bevor du deinen Wettbewerb löschst",
+	"confirm-delete-text": "Bitte bestätige, dass du löschen möchtest",
+	"do-not-delete": "Nicht löschen",
+	"confirm-delete": "Ja, ich bestätige"
 }

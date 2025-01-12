@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Ignatgg"
 		]
 	},
 	"app-title": "Natečaji Wikivira",
@@ -10,7 +11,7 @@
 	"login": "Prijava",
 	"logged-in-as": "Prijavljeni ste kot $1",
 	"logout": "Odjava",
-	"stats-summary": "V $3 {{PLURAL:$4|natečaju|natečajih}} je {{PLURAL:$2|one=je sodelovala $1 oseba|two=sta sodelovali $1 osebi|few=so sodelovale $1 osebe|je sodelovalo $1 oseb}}.",
+	"stats-summary": "V $3 {{PLURAL:$4|natečaju|natečajih}} {{PLURAL:$2|one=je|two=sta|few=so|so}} {{PLURAL:$2|one=sodelovala $1 oseba|two=sodelovali $1 osebi|few=sodelovale $1 osebe|sodelovalo $1 oseb}}.",
 	"all-contests": "Vsi natečaji",
 	"your-contests": "Vaši natečaji",
 	"recently-ended-contests": "Pred kratkim končani natečaji",
@@ -65,5 +66,16 @@
 	"this-is-wscontest": "To je orodje Wikisource Contest",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Izvorna koda",
-	"issue-tracker": "Sledilnik napak"
+	"issue-tracker": "Sledilnik napak",
+	"deleted-successfully": "Tekmovanje $1 je uspešno izbrisano",
+	"proceed-caution": "Nadaljujte previdno",
+	"irreversible-action": "To dejanje je nepovratno in vsi podatki v zvezi s tekmovanjem bodo za vedno izgubljeni",
+	"delete-contest": "Izbriši tekmovanje",
+	"delete": "Izbriši",
+	"tip": "NASVET",
+	"click-here-link": "Kliknite tukaj,",
+	"save-scores-before-delete": "da pred izbrisom tekmovanja shranite svoje rezultate v obliki vikibesedila",
+	"confirm-delete-text": "Potrdite, da želite izbrisati",
+	"do-not-delete": "Ne izbriši",
+	"confirm-delete": "Da, potrjujem"
 }

@@ -15,8 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-// phpcs:ignore MediaWiki.Classes.UnusedUseStatement.UnusedUse
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class ContestsController extends AbstractController {
 
@@ -31,12 +30,11 @@ class ContestsController extends AbstractController {
 	}
 
 	/**
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c", name="contests")
 	 * @param Session $session
 	 * @param ContestRepository $contestRepository
 	 * @return Response
 	 */
+	#[Route( "/c", name:"contests" )]
 	public function index( Session $session, ContestRepository $contestRepository ): Response {
 		$username = $this->getLoggedInUsername( $session );
 		if ( !$username ) {
@@ -50,10 +48,6 @@ class ContestsController extends AbstractController {
 	}
 
 	/**
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/{id}", name="contests_view", requirements={"id"="\d+"})
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/{id}.{format}", name="contests_view", requirements={"id"="\d+"})
 	 * @param ContestRepository $contestRepository
 	 * @param UserRepository $userRepository
 	 * @param Request $request
@@ -64,6 +58,8 @@ class ContestsController extends AbstractController {
 	 * @param ?string $format
 	 * @return Response
 	 */
+	#[Route( "/c/{id}", name:"contests_view", requirements:[ "id" => "\d+" ] )]
+	#[Route( "/c/{id}.{format}", name:"contests_view", requirements:[ "id" => "\d+" ] )]
 	public function view(
 		ContestRepository $contestRepository,
 		UserRepository $userRepository,
@@ -110,16 +106,14 @@ class ContestsController extends AbstractController {
 	}
 
 	/**
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/new", name="contests_create")
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route("/c/{id}/edit", name="contests_edit", requirements={"id"="\d+"})
 	 * @param Session $session
 	 * @param ContestRepository $contestRepository
 	 * @param int $scoreCalculationInterval
 	 * @param ?string $id
 	 * @return Response
 	 */
+	#[Route( "/c/new", name:"contests_create" )]
+	#[Route( "/c/{id}/edit", name:"contests_edit", requirements:[ "id" => "\d+" ] )]
 	public function edit(
 		Session $session, ContestRepository $contestRepository,
 		int $scoreCalculationInterval,
@@ -133,6 +127,7 @@ class ContestsController extends AbstractController {
 		$indexPages = '';
 		$excludedUsers = '';
 		$admins = '';
+		$scoresExist = false;
 		if ( $id ) {
 			$contest = $contestRepository->get( $id );
 			$isAdmin = false;
@@ -149,6 +144,9 @@ class ContestsController extends AbstractController {
 			foreach ( $contest['index_pages'] as $indexPage ) {
 				$indexPages .= $indexPage['url'] . "\n";
 			}
+			if ( count( $contestRepository->getscores( $id ) ) > 0 ) {
+				$scoresExist = true;
+			}
 		} else {
 			$now = new DateTime( 'now', new DateTimeZone( 'UTC' ) );
 			$twoWeeks = new DateInterval( 'P14D' );
@@ -164,6 +162,7 @@ class ContestsController extends AbstractController {
 
 		return $this->render( 'contests_edit.html.twig', [
 			'contest' => $contest,
+			'scoresExist' => $scoresExist,
 			'admins' => $admins,
 			'index_pages' => $indexPages,
 			'excluded_users' => $excludedUsers,
@@ -172,14 +171,48 @@ class ContestsController extends AbstractController {
 	}
 
 	/**
-	 * phpcs:ignore MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation
-	 * @Route( "/c/save", name="contests_save" )
+	 * @param Session $session
+	 * @param ContestRepository $contestRepository
+	 * @param Request $request
+	 * @return Response
+	 */
+	#[Route( "/c/delete", name:"contests_delete", methods:[ "POST" ] )]
+	public function delete( Session $session, ContestRepository $contestRepository, Request $request ): Response {
+		$username = $this->getLoggedInUsername( $session );
+		if ( !$username ) {
+			$this->addFlash( 'warning', [ 'not-logged-in', [] ] );
+		} elseif ( !$this->isCsrfTokenValid( 'contest-delete', $request->request->get( 'csrf_token' ) ) ) {
+			throw new AccessDeniedHttpException();
+		} else {
+			$contest = $contestRepository->get( $request->query->get( 'deletedId' ) );
+
+			// check if the user is an admin
+			$isAdmin = false;
+			foreach ( $contest['admins'] as $admin ) {
+				$isAdmin = $isAdmin || $admin['name'] === $username;
+			}
+			if ( !$isAdmin ) {
+				throw $this->createAccessDeniedException();
+			}
+
+			if ( $request->query->get( 'deletedId' ) ) {
+				// execute delete query
+				$contestRepository->deleteContest( $request->query->get( 'deletedId' ) );
+				$this->addFlash( 'success', [ 'deleted-successfully', [ $contest['name'] ] ] );
+			}
+		}
+
+		return $this->redirectToRoute( 'contests' );
+	}
+
+	/**
 	 * @param Session $session
 	 * @param Request $request
 	 * @param ContestRepository $contestRepository
 	 * @param IndexPageRepository $indexPageRepository
 	 * @return Response
 	 */
+	#[Route( "/c/save", name:"contests_save" )]
 	public function save(
 		Session $session,
 		Request $request,
@@ -210,7 +243,11 @@ class ContestsController extends AbstractController {
 		}
 
 		$indexPageUrls = array_map( 'urldecode', Str::explode( $request->request->get( 'index_pages' ) ) );
-		$indexPageResult = $indexPageRepository->saveUrls( $indexPageUrls );
+		// normalise mulwikisource URLs before saving to database
+		$normalisedIndexPageUrls = array_map( static function ( $url ) {
+			return str_replace( "https://mul.", "https://", $url );
+		}, $indexPageUrls );
+		$indexPageResult = $indexPageRepository->saveUrls( $normalisedIndexPageUrls );
 		foreach ( $indexPageResult['warnings'] as $warning ) {
 			$this->addFlash( 'warning', $warning );
 		}
@@ -223,7 +260,7 @@ class ContestsController extends AbstractController {
 			$request->request->get( 'end_date' ),
 			$admins,
 			Str::explode( $request->request->get( 'excluded_users' ) ),
-			$indexPageUrls
+			$normalisedIndexPageUrls
 		);
 
 		// Reset scores, to ensure they'll be re-calculated.

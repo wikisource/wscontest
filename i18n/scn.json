@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Gmelfi"
 		]
 	},
 	"login": "Trasi",
@@ -9,6 +10,8 @@
 	"logout": "Nesci",
 	"name-label": "Nomu:",
 	"dates": "Data:",
+	"end-date-formatted": "Data e ura di fini: $1 UTC",
+	"start-date-formatted": "Data e ura di partenza: $1 UTC",
 	"administrators": "Amministratura:",
 	"administrators-col-header": "Amministratura",
 	"save": "Sarva",

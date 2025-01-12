@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"B3rnas",
 			"Hamilton Abreu"
 		]
 	},
@@ -10,12 +11,16 @@
 	"login": "Entrar",
 	"logged-in-as": "Tem sessão iniciada como $1.",
 	"logout": "Sair",
-	"stats-summary": "{{PLURAL:$2|Uma pessoa participou|$1 pessoas participaram}} {{PLURAL:$4|num concurso|em $3 concursos}}.",
+	"stats-summary": "$1 {{PLURAL:$2| pessoa|pessoas}} {{PLURAL:$2|participou |participaram}} em $3 {{PLURAL:$4|concurso|concursos}}.",
 	"all-contests": "Todos os concursos",
+	"your-contests": "Os teus concursos",
+	"recently-ended-contests": "Concursos encerrados recentemente",
 	"create-contest": "Criar concurso",
 	"edit-contest": "Editar configuração do concurso",
 	"name-label": "Nome:",
 	"dates": "Data:",
+	"privacy-label": "Privacidade:",
+	"privacy-public": "Público",
 	"end-date-label": "Data e hora de fim:",
 	"start-date-label": "Data e hora de início:",
 	"times-are-utc": "As horas são no fuso horário UTC.",

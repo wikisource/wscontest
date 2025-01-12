@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Agam Riyandana",
+			"Akmaie Ajam",
 			"Bagas Chrisara",
 			"Daud I.F. Argana",
+			"Leapofod",
 			"Mnam23",
 			"Rachmat04",
 			"Veracious"
@@ -15,7 +17,7 @@
 	"login": "Masuk log",
 	"logged-in-as": "Anda masuk log sebagai $1",
 	"logout": "Keluar log",
-	"stats-summary": "$1 {{PLURAL:$2|orang}} telah mengambil bagian dalam $3 {{PLURAL:$4|kontes}}.",
+	"stats-summary": "$1 {{PLURAL:$2|orang}} {{PLURAL:$2|telah}} mengambil bagian dalam $3 {{PLURAL:$4|kontes}}.{{PLURAL:$4|}}",
 	"all-contests": "Semua kontes",
 	"your-contests": "Kontes Anda",
 	"recently-ended-contests": "Kontes yang baru saja berakhir",
@@ -51,6 +53,7 @@
 	"contest": "Kontes: $1",
 	"details": "Detail",
 	"unable-to-save": "Tidak dapat menyimpan: $1",
+	"rank": "Peringkat",
 	"user": "Pengguna",
 	"points": "Poin",
 	"contributions": "Kontribusi",
@@ -70,5 +73,16 @@
 	"this-is-wscontest": "Ini adalah perkakas Kontes Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Kode sumber",
-	"issue-tracker": "Pelacak galat"
+	"issue-tracker": "Pelacak galat",
+	"deleted-successfully": "Kontes $1 berhasil dihapus",
+	"proceed-caution": "Lanjutkan dengan hati-hati",
+	"irreversible-action": "Tindakan ini tidak dapat dibatalkan dan semua data yang terkait dengan kontes akan hilang selamanya",
+	"delete-contest": "Hapus kontes",
+	"delete": "Hapus",
+	"tip": "TIP",
+	"click-here-link": "Klik di sini",
+	"save-scores-before-delete": "untuk menyimpan skor Anda sebagai wikitext sebelum menghapus kontes Anda",
+	"confirm-delete-text": "Harap konfirmasi bahwa Anda ingin menghapus",
+	"do-not-delete": "Jangan hapus",
+	"confirm-delete": "Ya, saya konfirmasi"
 }

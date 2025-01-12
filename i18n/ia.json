@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ignatgg",
 			"McDutchie"
 		]
 	},
@@ -65,5 +66,16 @@
 	"this-is-wscontest": "Isto es le utensile de concursos Wikisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Codice fonte",
-	"issue-tracker": "Traciator de problemas"
+	"issue-tracker": "Traciator de problemas",
+	"deleted-successfully": "Concurso $1 delite con successo",
+	"proceed-caution": "Sia caute",
+	"irreversible-action": "Iste action es irreversibile e tote le datos associate al concurso essera perdite pro sempre",
+	"delete-contest": "Deler concurso",
+	"delete": "Deler",
+	"tip": "CONSILIO",
+	"click-here-link": "Clicca hic",
+	"save-scores-before-delete": "pro salveguardar tu scores como wikitexto ante de deler tu concurso",
+	"confirm-delete-text": "Per favor confirma que tu vole deler",
+	"do-not-delete": "Non deler",
+	"confirm-delete": "Si, io confirma"
 }

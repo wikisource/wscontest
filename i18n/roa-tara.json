@@ -10,11 +10,16 @@
 	"login": "Tràse",
 	"logged-in-as": "Tu è trasute cumme a $1",
 	"logout": "Isse",
-	"stats-summary": "$1 crestiàne {{PLURAL:$1|ave|onne}} pigghiate parte jndr'à $2 {{PLURAL:$2|congorse}}.",
+	"stats-summary": "$1 crestiàne {{PLURAL:$2|ave|onne}} pigghiate parte jndr'à $3 {{PLURAL:$4|congorse}}.",
+	"all-contests": "Tutte le congorse",
+	"your-contests": "Le congorse tune",
+	"recently-ended-contests": "Congorse spicciate urtemamende",
 	"create-contest": "Ccreje 'u congorse",
 	"edit-contest": "Cange 'a congifurazione d'u congorse",
 	"name-label": "Nome:",
 	"dates": "Date:",
+	"privacy-label": "Privacy:",
+	"privacy-public": "Pubbleche",
 	"end-date-label": "Date e ore de fine:",
 	"start-date-label": "Date e ore de inizie:",
 	"times-are-utc": "Le orarie sò in UTC.",
@@ -49,5 +54,7 @@
 	"this-is-wscontest": "Quiste jè 'u strumende de le congorse de Uicchisource",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Codece sorgende",
-	"issue-tracker": "Tracciatore de probbleme"
+	"issue-tracker": "Tracciatore de probbleme",
+	"tip": "TIP",
+	"click-here-link": "Cazze aqquà"
 }

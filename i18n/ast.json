@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"app-title": "Concursos de Wikisource",
@@ -26,9 +27,9 @@
 	"contest-col-header": "Concursu",
 	"administrators-col-header": "Alministradores",
 	"save": "Guardar",
-	"cancel": "Encaboxar",
-	"error-loading-wikisource": "Nun pué cargase la información de Wikisource de '$1'",
-	"error-loading-indexpage": "Nun pué cargase la páxina d'índiz de '$1'",
+	"cancel": "Zarrar",
+	"error-loading-wikisource": "Nun pue cargase la información de Wikisource de '$1'",
+	"error-loading-indexpage": "Nun pue cargase la páxina d'índiz de '$1'",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Códigu fonte",
 	"issue-tracker": "Siguimientu de fallos"

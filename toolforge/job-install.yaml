@@ -1,0 +1,4 @@
+---
+- name: install
+  command: rm -r webapp/var/cache && composer -d webapp --no-dev -o install
+  image: php8.2

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ignatgg",
 			"Sabelöga",
 			"WikiPhoenix"
 		]
@@ -11,12 +12,19 @@
 	"login": "Logga in",
 	"logged-in-as": "Du är inloggad som $1",
 	"logout": "Logga ut",
-	"stats-summary": "$1 {{PLURAL:$2|person|personer}} har deltagit i $3 {{PLURAL:$4|tävling|tävlingar}}.",
+	"stats-summary": "$1 {{PLURAL:$2|person|personer}} {{PLURAL:$2|har deltagit}} i $3 {{PLURAL:$4|tävling|tävlingar}}.",
 	"all-contests": "Alla tävlingar",
+	"your-contests": "Dina tävlingar",
+	"recently-ended-contests": "Nyligen avslutade tvlingar",
 	"create-contest": "Skapa tävling",
 	"edit-contest": "Redigera tävlingskonfiguration",
 	"name-label": "Namn:",
 	"dates": "Datum:",
+	"privacy-label": "Integritet:",
+	"privacy-public": "Offentlig",
+	"privacy-admin-during": "Endast administratörer (till tävlingens slut)",
+	"privacy-private": "Privat (endast administratörer, tills vidare)",
+	"privacy-help": "Vem som kan se tävlingspoäng (administratörer kan alltid se alla sina tävlingar).",
 	"end-date-label": "Slutdatum och -tid:",
 	"start-date-label": "Startdatum och -tid:",
 	"times-are-utc": "Tidpunkter är i tidszonen UTC.",
@@ -29,10 +37,14 @@
 	"administrators-col-header": "Administratörer",
 	"save": "Spara",
 	"cancel": "Avbryt",
+	"in-progress": "Pågående",
+	"not-started-yet": "Ännu inte startad",
+	"ended": "Avslutad",
 	"error-loading-wikisource": "Kunde inte läsa in information om Wikisource från \"$1\"",
 	"error-loading-indexpage": "Kunde inte läsa in indexsidan från \"$1\"",
 	"not-logged-in": "Du är inte inloggad och kan inte skapa nya tävlingar.",
 	"no-contests": "Du är inte en administratör för någon tävling.",
+	"contest-not-found": "Tävlingen $1 finns inte.",
 	"contest": "Tävling: $1",
 	"details": "Detaljer",
 	"unable-to-save": "Kunde inte spara: $1",
@@ -55,5 +67,16 @@
 	"this-is-wscontest": "Detta är Wikisources tävlingsverktyg",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Källkod",
-	"issue-tracker": "Ärendehanterare"
+	"issue-tracker": "Ärendehanterare",
+	"deleted-successfully": "Tävlingen $1 har raderats",
+	"proceed-caution": "Fortsätt försiktigt",
+	"irreversible-action": "Åtgärden är oåterkallelig och all data som rör tävlingen kommer gå förlorad för alltid",
+	"delete-contest": "Radera tävling",
+	"delete": "Radera",
+	"tip": "TIPS",
+	"click-here-link": "Klicka här",
+	"save-scores-before-delete": "för att spara dina poäng som wikitext innan du raderar din tävling",
+	"confirm-delete-text": "Bekräfta att du verkligen vill radera",
+	"do-not-delete": "Radera inte",
+	"confirm-delete": "Ja, jag bekräftar"
 }

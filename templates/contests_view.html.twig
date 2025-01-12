@@ -16,8 +16,8 @@
         {% if contest.privacy == 3 %}{{ msg('privacy-private') }}{% endif %}
     </dd>
     <dt>{{ msg('dates') }}</dt>
-    <dd>{{ msg('start-date-label') }} {{ contest.start_date }}</dd>
-    <dd>{{ msg('end-date-label') }} {{ contest.end_date }}</dd>
+    <dd>{{ msg('start-date-formatted', [contest.start_date]) }}</dd>
+    <dd>{{ msg('end-date-formatted', [contest.end_date]) }}</dd>
     <dt>{{ msg('administrators') }}</dt>
     <dd>
         <ul class="list-inline">
@@ -30,15 +30,15 @@
     <dd>
         <ul class="list-inline">
             {% for excluded_user in contest.excluded_users %}
-                <li><a href="https://meta.wikimedia.org/wiki/User:{{ excluded_user.name }}">{{ excluded_user.name }}</a></li>
+                <li class="list-inline-item"><a href="https://meta.wikimedia.org/wiki/User:{{ excluded_user.name }}">{{ excluded_user.name }}</a></li>
             {% endfor %}
         </ul>
     </dd>
 </dl>
 
 <p>
-    <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}" class="btn btn-default">{{ msg('wikitext-scores') }}</a>
-    <a class="btn btn-default {% if not can_edit %}disabled{% endif %}" href="{{ path('contests_edit', {id: contest.id}) }}">Edit</a>
+    <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}" class="btn btn-light border">{{ msg('wikitext-scores') }}</a>
+    <a class="btn btn-light border {% if not can_edit %}disabled{% endif %}" href="{{ path('contests_edit', {id: contest.id}) }}">{{ msg('edit') }}</a>
 </p>
 
 <h3 id="index_pages">{{ msg('index-pages') }}</h3>
@@ -52,9 +52,10 @@
     <h3>{{ msg('scores') }}</h3>
     {% if can_view_scores %}
         <table class="table"  id="sortable">
-            <caption>{{ msg('scores-legend', [score_calculation_interval~'']) }}</caption>
+            <caption style="caption-side: top">{{ msg('scores-legend', [score_calculation_interval~'']) }}</caption>
             <thead>
                 <tr>
+                    <th>{{ msg('rank') }}</th>
                     <th>{{ msg('user') }}</th>
                     <th>{{ msg('points') }}</th>
                     <th>{{ msg('contributions') }}</th>
@@ -63,8 +64,9 @@
                 </tr>
             </thead>
             <tbody>
-            {% for score in scores %}
+            {% for index, score in scores %}
                 <tr>
+                    <td>{{ index + 1 }}</td>
                     <td><a href="https://meta.wikimedia.org/wiki/User:{{ score.username }}">{{ score.username }}</a></td>
                     <td>{{ score.points }}</td>
                     <td>{{ score.contributions }}</td>

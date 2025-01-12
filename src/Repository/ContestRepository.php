@@ -70,7 +70,7 @@ class ContestRepository extends RepositoryBase {
 		$sql = "INSERT IGNORE INTO $joinTable ($mainJoinCol, $joinCol)
 			SELECT :id, $subTable.id FROM $subTable WHERE $subTable.$nameCol IN ( " . implode( ',', $params ) . ' )';
 		$stmt = $this->db->prepare( $sql );
-		$stmt->bindParam( 'id', $mainId );
+		$stmt->bindValue( 'id', $mainId );
 		foreach ( $values as $k => $val ) {
 			$stmt->bindValue( "val_$k", $val );
 		}
@@ -146,7 +146,8 @@ class ContestRepository extends RepositoryBase {
 			WHERE contest_index_pages.contest_id = :cid
 			ORDER BY index_pages.url';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $id ] );
+		$admins->bindValue( 'cid', $id );
+		$result2 = $admins->executeQuery();
 		$result['index_pages'] = $result2->fetchAllAssociative();
 
 		return $result;
@@ -210,7 +211,9 @@ class ContestRepository extends RepositoryBase {
 			WHERE contest_id = :cid AND user_id = :uid
 			ORDER BY revision_datetime';
 		$stmt = $this->db->prepare( $sql );
-		return $stmt->executeQuery( [ 'cid' => $contestId, 'uid' => $userId ] )
+		$stmt->bindValue( 'cid', $contestId );
+		$stmt->bindValue( 'uid', $userId );
+		return $stmt->executeQuery()
 			->fetchAllAssociative();
 	}
 
@@ -224,7 +227,8 @@ class ContestRepository extends RepositoryBase {
 		. '   LEFT JOIN users u ON u.id=a.user_id'
 		. ' WHERE (u.name IS NULL OR u.name = :username )';
 		$contests = $this->db->prepare( $sql );
-		$result = $contests->executeQuery( [ 'username' => $username ] );
+		$contests->bindValue( 'username', $username );
+		$result = $contests->executeQuery();
 		$contests = $result->fetchAllAssociative();
 		foreach ( $contests as &$contest ) {
 			$contest['admins'] = $this->getAdmins( $contest['id'] );
@@ -258,7 +262,8 @@ class ContestRepository extends RepositoryBase {
 	private function getAdmins( $contestId ): array {
 		$sql2 = 'SELECT u.* FROM users u JOIN admins a ON a.user_id=u.id WHERE a.contest_id = :cid ORDER BY u.name';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $contestId ] );
+		$admins->bindValue( 'cid', $contestId );
+		$result2 = $admins->executeQuery();
 		return $result2->fetchAllAssociative();
 	}
 
@@ -291,7 +296,8 @@ class ContestRepository extends RepositoryBase {
 			WHERE excluded_users.contest_id = :cid
 			ORDER BY u.name';
 		$admins = $this->db->prepare( $sql2 );
-		$result2 = $admins->executeQuery( [ 'cid' => $contestId ] );
+		$admins->bindValue( 'cid', $contestId );
+		$result2 = $admins->executeQuery();
 		return $result2->fetchAllAssociative();
 	}
 
@@ -301,5 +307,56 @@ class ContestRepository extends RepositoryBase {
 	 */
 	public function deleteScores( $contestId ): void {
 		$this->db->executeStatement( 'DELETE FROM scores WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteAdmins( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM admins WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteContestIndexPages( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM contest_index_pages WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteExcludedUsers( $contestId ): void {
+		$this->db->executeStatement( 'DELETE FROM excluded_users WHERE contest_id = :id', [ 'id' => $contestId ] );
+	}
+
+	/**
+	 * @param string $contestId
+	 * @return void
+	 */
+	public function deleteContest( $contestId ): void {
+		$this->db->beginTransaction();
+
+		/**
+		 * NOTE: Data in `users` table and `index_pages` table
+		 * is PRESERVED even if all other data about the contest
+		 * is deleted.
+		 */
+
+		// delete tables containing foreign keys
+		$this->deleteAdmins( $contestId );
+		$this->deleteExcludedUsers( $contestId );
+		$this->deleteContestIndexPages( $contestId );
+		$this->deleteScores( $contestId );
+
+		// delete the contest
+		$sql2 = 'DELETE FROM contests WHERE id = :id';
+		$this->db->executeStatement( $sql2, [ 'id' => $contestId ] );
+
+		// perform a COMMIT on the database
+		$this->db->commit();
 	}
 }
