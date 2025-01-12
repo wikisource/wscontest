@@ -98,8 +98,9 @@
 
   "delete": "Delete",
   "tip": "TIP",
-  "click-here-link": "Click here",
-  "save-scores-before-delete": "to save your scores as wikitext before deleting your contest",
+  "save-scores": "You may wish to $1 before deleting your contest.",
+  "save-scores-link": "save your scores as wikitext",
+  "save-scores-tooltip": "Link opens in a new tab",
   "confirm-delete-text": "Please confirm that you want to delete",
   "do-not-delete": "Don't delete",
   "confirm-delete": "Yes, I confirm"

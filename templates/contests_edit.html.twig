@@ -83,9 +83,15 @@
                 </div>
                 <div class="modal-body">
                     {% if scoresExist == true %}
-                        <p><span class='border border-2 border-dark fw-bold rounded px-1'>{{ msg('tip') }}</span>
-                        <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}">{{ msg('click-here-link') }}</a>
-                        {{ msg('save-scores-before-delete') }}</p>
+                        <p>
+                            <span class='border border-2 border-dark fw-bold rounded px-1'>{{ msg('tip') }}</span>
+                            {% set save_scores_link %}
+                                <a href="{{ path('contests_view', {id: contest.id, format: 'wikitext'}) }}" title="{{ msg('save-scores-tooltip') }}" target="_blank">
+                                    {{ msg('save-scores-link') }}
+                                </a>
+                            {% endset %}
+                            {{ msg('save-scores', [save_scores_link])|raw }}
+                        </p>
                     {% endif %}
                     <p class="text-danger">{{ msg('confirm-delete-text') }} <span class="fw-bold">{{contest.name}}</span></p>
                 </div>
