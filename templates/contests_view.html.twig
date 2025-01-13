@@ -51,7 +51,7 @@
 <div id="scores">
     <h3>{{ msg('scores') }}</h3>
     {% if can_view_scores %}
-        <table class="table">
+        <table class="table sortable-theme-bootstrap" data-sortable>
             <caption style="caption-side: top">{{ msg('scores-legend', [score_calculation_interval~'']) }}</caption>
             <thead>
                 <tr>
