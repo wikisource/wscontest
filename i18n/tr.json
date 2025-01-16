@@ -15,6 +15,7 @@
 	"logged-in-as": "$1 olarak oturum açtınız.",
 	"logout": "Oturumu kapat",
 	"stats-summary": "$1 {{PLURAL:$2|kişi}}, $3 {{PLURAL:$4|yarışmaya}} katıldı.",
+	"home-description": "Bu, Vikikaynak elden geçirme yarışmalarını (özellikle yıllık <em>Wikisource Anniversary Proofreading Contest</em>, WAPC) yürütmek için kullanılan bir araçtır.",
 	"all-contests": "Tüm içerikler",
 	"your-contests": "Yarışmalarınız",
 	"recently-ended-contests": "Yakın zamanda sona eren yarışmalar",

@@ -77,8 +77,6 @@
 	"delete-contest": "Wettbewerb löschen",
 	"delete": "Löschen",
 	"tip": "TIPP",
-	"click-here-link": "Klicke hier",
-	"save-scores-before-delete": "um deine Ergebnisse als Wikitext zu speichern, bevor du deinen Wettbewerb löschst",
 	"confirm-delete-text": "Bitte bestätige, dass du löschen möchtest",
 	"do-not-delete": "Nicht löschen",
 	"confirm-delete": "Ja, ich bestätige"

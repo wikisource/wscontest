@@ -63,5 +63,6 @@
 	"gpl-link": "GPL 3.0+",
 	"source-code": "소스 코드",
 	"issue-tracker": "이슈 트래커",
-	"delete": "삭제"
+	"delete": "삭제",
+	"save-scores-tooltip": "링크는 새 탭에서 열립니다"
 }

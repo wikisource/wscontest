@@ -94,8 +94,9 @@
 	"delete-contest": "حذف المسابقة",
 	"delete": "حذف",
 	"tip": "نصيحة",
-	"click-here-link": "انقر هنا",
-	"save-scores-before-delete": "لحفظ نتائجك كنص ويكي قبل حذف المسابقة الخاصة بك",
+	"save-scores": "قد ترغب في دفع $1 قبل حذف المسابقة الخاصة بك.",
+	"save-scores-link": "احفظ نتائجك على هيئة نص ويكي",
+	"save-scores-tooltip": "يفتح الرابط في علامة تبويب جديدة",
 	"confirm-delete-text": "يرجى التأكيد على أنك تريد الحذف",
 	"do-not-delete": "لا تحذف",
 	"confirm-delete": "نعم أؤكد"

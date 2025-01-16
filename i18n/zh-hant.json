@@ -78,8 +78,6 @@
 	"delete-contest": "刪除競賽",
 	"delete": "刪除",
 	"tip": "提示",
-	"click-here-link": "在此點擊",
-	"save-scores-before-delete": "在刪除競賽之前將您的得分儲存為 wikitext",
 	"confirm-delete-text": "請確認您要刪除",
 	"do-not-delete": "不要刪除",
 	"confirm-delete": "是的，我確認"
