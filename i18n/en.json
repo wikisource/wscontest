@@ -12,7 +12,7 @@
 
   "stats-summary": "$1 {{PLURAL:$2|person|people}} {{PLURAL:$2|has|have}} taken part in $3 {{PLURAL:$4|contest|contests}}.",
 
-  "home-description": "This is a tool for running Wikisouce proofreading contests (especially the annual <em>Wikisource Anniversary Proofreading Contest</em>, WAPC).",
+  "home-description": "This is a tool for running Wikisource proofreading contests (especially the annual <em>Wikisource Anniversary Proofreading Contest</em>, WAPC).",
   "home-instructions": "During a contest people can help <a href=\"https://en.wikisource.org/wiki/Help:Proofread\">proofread</a> and <a href=\"https://en.wikisource.org/wiki/Help:Beginner%27s_guide_to_validation\">validate</a> book pages on Wikisouces. For each page either proofread or validated the participant gain points. At the end of the contest, a prize is awarded to the Wikisourceror with the most points. Second and third-place prize are awarded with a random drawing from all the remaining contestants: each point that you gained during the contest is like a lottery ticket, so the more points you have gained during the contest (that is, the more pages you have proofread or validated), the more chances you have to win.",
   "home-score-components": "There are three components to the score: 1) the total <em>Points</em>; 2) the total number of <em>Validations</em> performed; and 3) the total number of constructive <em>Contributions</em> of all sorts.",
   "scoring-system": "Scoring system",
