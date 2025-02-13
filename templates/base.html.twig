@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="{{ lang() }}" dir="{% if is_rtl() %}rtl{% else %}ltr{% endif %}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,6 +55,22 @@
 <footer class="text-end">
 	<hr />
 	<ul class="list-inline">
+		<li class="list-inline-item">
+			<form action="{{path('home')}}" method="get">
+				<select name="uselang">
+					{% for code,lang in all_langs() %}
+						<option value="{{code}}" {% if code == lang() %}selected{% endif %}>
+							{% if lang %}
+								{{lang}}
+							{% else %}
+								({{code}})
+							{% endif %}
+						</option>
+					{% endfor %}
+				</select>
+				<input type="submit" value="{{msg('change-lang')}}">
+			</form>
+		</li>
 		<li class="list-inline-item"><a class="text-muted" href="https://meta.wikimedia.org/wiki/Wikisource_proofreading_contests">{{ msg('this-is-wscontest') }}</a></li>
 		<li class="list-inline-item"><a class="text-muted" href="https://phabricator.wikimedia.org/tag/tool-wscontest">{{ msg('issue-tracker') }}</a></li>
 		<li class="list-inline-item"><a class="text-muted" href="https://github.com/wikisource/contests">{{ msg('source-code') }}</a></li>
