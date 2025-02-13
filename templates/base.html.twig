@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="{{ lang() }}" dir="{% if is_rtl() %}rtl{% else %}ltr{% endif %}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +60,24 @@
 		<li class="list-inline-item"><a class="text-muted" href="https://github.com/wikisource/contests">{{ msg('source-code') }}</a></li>
 		<li class="list-inline-item"><a class="text-muted" href="https://translatewiki.net/wiki/Special:MessageGroupStats?group=&messages=Wikimedia%3AWscontest-this-is-wscontest&suppressempty=1&language=fi&x=D">{{ msg('translate') }}</a></li>
 		<li class="list-inline-item"><a class="text-muted" href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">{{ msg('gpl-link') }}</a></li>
+		<li class="list-inline-item">
+			<form action="{{path('home')}}" method="get">
+				<div class="input-group mb-3">
+					<select name="uselang" class="form-select form-select-sm">
+						{% for code,lang in all_langs() %}
+							<option value="{{code}}" {% if code == lang() %}selected{% endif %}>
+								{% if lang %}
+									{{lang}}
+								{% else %}
+									({{code}})
+								{% endif %}
+							</option>
+						{% endfor %}
+					</select>
+					<input type="submit" value="{{msg('change-lang')}}" class="form-control form-control-sm input-group-text">
+				</div>
+			</form>
+		</li>
 	</ul>
 </footer>
 

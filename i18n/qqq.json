@@ -84,6 +84,7 @@
 	"wikitext-scores": "Button text to get wikitext format of the contest details and scores.",
 	"url": "Label for wikitext output for a contest's full URL.\n{{identical|URL}}",
 	"excluded-users-none": "Note text for wikitext output when there are no excluded users.",
+	"change-lang": "Button label for the UI language selector.",
 	"this-is-wscontest": "Footer link to the tool homepage.",
 	"gpl-link": "Footer link to the GPL license.",
 	"source-code": "Footer link to the tool's source code.",
