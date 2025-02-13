@@ -11,6 +11,7 @@
 	"logged-in-as": "Anda telah log masuk sebagai $1",
 	"logout": "Log keluar",
 	"stats-summary": "$1 {{PLURAL:$2|orang}} {{PLURAL:$2|telah}} mengambil bahagian dalam $3 {{PLURAL:$4|peraduan}}.",
+	"home-description": "Alat ini merupakan sebuah alat untuk menjalankan pertandingan membaca pruf Wikisumber (terutamanya <em>Peraduan Baca Pruf Ulang Tahun Wikisumber</em> tahunan, WAPC).",
 	"all-contests": "Semua peraduan",
 	"your-contests": "Peraduan anda",
 	"recently-ended-contests": "Peraduan yang tamat baru-baru ini",
