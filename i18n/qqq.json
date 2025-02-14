@@ -89,7 +89,7 @@
 	"gpl-link": "Footer link to the GPL license.",
 	"source-code": "Footer link to the tool's source code.",
 	"issue-tracker": "Footer link to the tool's issue tracker.",
-	"translate-link": "translatewiki link for translations",
+	"translate-link": "Footer link to the Translatewiki.net page for translations.",
 	"deleted-successfully": "Contest $1 deleted successfully",
 	"proceed-caution": "Text that warns the user to proceed with caution",
 	"irreversible-action": "Text that warns the user about an irreversible action",
