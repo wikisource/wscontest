@@ -61,7 +61,7 @@
 		<li class="list-inline-item"><a class="text-muted" href="https://translatewiki.net/wiki/Translating:Wikisource_Contest_Tool">{{ msg('translate-link') }}</a></li>
 		<li class="list-inline-item"><a class="text-muted" href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">{{ msg('gpl-link') }}</a></li>
 		<li class="list-inline-item">
-			<form action="{{path('home')}}" method="get">
+			<form method="get">
 				<div class="input-group mb-3">
 					<select name="uselang" class="form-select form-select-sm">
 						{% for code,lang in all_langs() %}
