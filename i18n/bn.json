@@ -15,6 +15,7 @@
 	"logged-in-as": "আপনি $1 হিসেবে প্রবেশ করেছেন",
 	"logout": "প্রস্থান",
 	"stats-summary": "$1 জন {{PLURAL:$2|ব্যক্তি}} $3টি {{PLURAL:$4|প্রতিযোগিতায়}} অংশগ্রহণ করেছেন।",
+	"recently-ended-contests": "সাম্প্রতিক প্রতিযোগিতা",
 	"create-contest": "প্রতিযোগিতা তৈরি করুন",
 	"edit-contest": "প্রতিযোগিতার সেটিং সম্পাদনা করুন",
 	"name-label": "নাম:",
@@ -52,8 +53,10 @@
 	"wikitext-scores": "হিসেবের উইকিটেক্সট সারণী পান",
 	"url": "ইউআরএল",
 	"excluded-users-none": "বাদ দেওয়া ব্যবহারকারী নেই।",
+	"change-lang": "ভাষা পরিবর্তন করুন",
 	"this-is-wscontest": "এটি উইকিসংকলন প্রতিযোগিতার সরঞ্জাম",
 	"gpl-link": "জিপিএল ৩.০+",
 	"source-code": "উৎস কোড",
-	"issue-tracker": "সমস্যা জানান"
+	"issue-tracker": "সমস্যা জানান",
+	"translate-link": "অনুবাদ"
 }

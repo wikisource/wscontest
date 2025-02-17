@@ -17,7 +17,7 @@
 	"edit": "편집",
 	"404-not-found": "404 찾을 수 없습니다",
 	"requested-page-does-not-exist": "요청하신 페이지가 존재하지 않습니다.",
-	"recently-ended-contests": "최근 종료된 대회",
+	"recently-ended-contests": "최근 대회",
 	"create-contest": "대회 만들기",
 	"edit-contest": "대회 구성 수정",
 	"name-label": "이름:",
@@ -59,10 +59,12 @@
 	"wikitext-scores": "점수를 위키 마크업 표로 가져오기",
 	"url": "URL",
 	"excluded-users-none": "제외된 사용자가 없습니다.",
+	"change-lang": "언어 변경",
 	"this-is-wscontest": "위키문헌 대회 도구 정보",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "소스 코드",
 	"issue-tracker": "이슈 트래커",
+	"translate-link": "번역",
 	"delete": "삭제",
 	"save-scores-tooltip": "링크는 새 탭에서 열립니다"
 }
