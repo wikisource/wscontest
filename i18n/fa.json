@@ -4,6 +4,7 @@
 			"Amirsara",
 			"Ebrahim",
 			"Ebraminio",
+			"Jeeputer",
 			"Meysamzare23"
 		]
 	},
@@ -12,6 +13,7 @@
 	"login": "ورود",
 	"logged-in-as": "شما به عنوان  $1 وارد شدید.",
 	"logout": "خروج از سامانه",
+	"recently-ended-contests": "رقابت‌های اخیر",
 	"create-contest": "محتوایی ایجاد کنید",
 	"name-label": "نام",
 	"dates": "تاریخ:",
@@ -32,5 +34,7 @@
 	"contributions": "مشارکت‌ها",
 	"index-page": "صفحه اصلی",
 	"index-pages": "صفحه‌های نمایه‌شده",
-	"scores": "امتیازها"
+	"scores": "امتیازها",
+	"change-lang": "تغییر زبان",
+	"translate-link": "ترجمه‌ها"
 }
