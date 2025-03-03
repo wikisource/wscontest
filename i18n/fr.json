@@ -3,6 +3,7 @@
 		"authors": [
 			"Gomoko",
 			"Mahabarata",
+			"McDutchie",
 			"Verdy p",
 			"Wladek92"
 		]
@@ -96,7 +97,7 @@
 	"delete": "Supprimer",
 	"tip": "CONSEIL",
 	"save-scores": "Vous souhaitez peut être $1 avant de supprimer votre concours,",
-	"save-scores-link": "enregistrez vos scores sous forme de wikicode",
+	"save-scores-link": "enregistrer vos scores sous forme de wikicode",
 	"save-scores-tooltip": "Le lien s'ouvre dans un nouvel onglet",
 	"confirm-delete-text": "Veuillez confirmer que vous voulez supprimer",
 	"do-not-delete": "Ne pas supprimer",
