@@ -3,6 +3,7 @@
 		"authors": [
 			"Namoroka",
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"Ykhwong",
 			"YuzaTea",
 			"그냥기여자"
@@ -14,7 +15,7 @@
 	"login": "로그인",
 	"logged-in-as": "$1님으로 로그인하고 있습니다",
 	"logout": "로그아웃",
-	"stats-summary": "$1명이 대회 $3개에 참가하고 있습니다.",
+	"stats-summary": "$1{{PLURAL:$2|명}}이 {{PLURAL:$4|대회}} $3개에 {{PLURAL:$2|참가하고}} 있습니다.",
 	"home-description": "이것은 위키문헌 교정 대회(주로 매년 열리는 <em>위키문헌 기념 교정 대회</em>, WAPC)를 운영하기 위한 도구입니다.",
 	"home-instructions": "대회 기간 동안 사용자들은 위키문헌에서 책 페이지를 <a href=\"https://ko.wikisource.org/wiki/%EC%9C%84%ED%82%A4%EB%AC%B8%ED%97%8C:%EA%B5%90%EC%A0%95\">교정</a> 하고 <a href=\"https://ko.wikisource.org/wiki/%EC%9C%84%ED%82%A4%EB%AC%B8%ED%97%8C:%EA%B2%80%EC%A6%9D_%EA%B8%B8%EB%9D%BC%EC%9E%A1%EC%9D%B4\">검증하는 데</a> 도움을 줄 수 있습니다. 교정하거나 검증한 각 페이지에 대해 참가자는 포인트를 얻습니다. 대회가 끝나면 가장 많은 포인트를 얻은 위키문헌 사용자에게 상이 수여됩니다. 2위와 3위 상은 남은 모든 참가자 중에서 무작위 추첨을 통해 수여됩니다. 대회 기간 동안 얻은 각 포인트는 추첨 티켓과 같으므로 대회 기간 동안 얻은 포인트가 많을수록(즉, 교정하거나 검증한 페이지가 많을수록) 당첨될 가능성이 높아집니다.",
 	"home-score-components": "점수는 세 가지 요소로 구성됩니다. 1) 총 <em>점수</em> , 2) <em>검증한 항목</em>의 총 개수, 3) 모든 종류의 건설적인 <em>기여</em>의 총 개수입니다.",

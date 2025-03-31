@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AguzulH",
 			"Hakim1bal"
 		]
 	},
@@ -13,7 +14,7 @@
 	"save": "ⵃⴹⵓ",
 	"cancel": "ⵙⵔ",
 	"details": "ⵉⴼⵔⵓⵔⵉⵜⵏ",
-	"user": "ⴰⵏⵙⵙⵎⵔⵙ",
+	"user": "ⴰⵏⵙⵎⵔⴰⵙ",
 	"contributions": "ⵜⵓⵎⵓⵜⵉⵏ",
 	"date": "ⴰⵙⴰⴽⵓⴷ",
 	"gpl-link": "GPL 3.0+",

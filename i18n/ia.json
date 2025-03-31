@@ -14,7 +14,7 @@
 	"stats-summary": "$1 persona{{PLURAL:$2||s}} ha participate a $3 concurso{{PLURAL:$4||s}}.",
 	"all-contests": "Tote le concursos",
 	"your-contests": "Tu concursos",
-	"recently-ended-contests": "Concursos recentemente terminate",
+	"recently-ended-contests": "Concursos recente",
 	"create-contest": "Crear concurso",
 	"edit-contest": "Modificar le configuration del concurso",
 	"name-label": "Nomine:",
