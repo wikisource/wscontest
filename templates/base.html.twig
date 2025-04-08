@@ -28,10 +28,10 @@
 		<li class="list-inline-item"><a href="{{path('home')}}">{{ msg('homepage') }}</a></li>
 		<li class="list-inline-item"><a href="{{path('contests')}}">{{ msg('contests') }}</a></li>
 		{% if logged_in_user() %}
-			<li class="list-inline-item">{{ msg( 'toolforge-logged-in-as', [ logged_in_user().username ] ) }}</li>
-			<li class="list-inline-item"><a href="{{ path('toolforge_logout') }}">{{ msg('toolforge-logout') }}</a></li>
+			<li class="list-inline-item">{{ msg( 'logged-in-as', [ logged_in_user().username ] ) }}</li>
+			<li class="list-inline-item"><a href="{{ path('toolforge_logout') }}">{{ msg('logout') }}</a></li>
 		{% else %}
-			<li class="list-inline-item"><a href="{{ path('toolforge_login') }}">{{ msg('toolforge-login') }}</a></li>
+			<li class="list-inline-item"><a href="{{ path('toolforge_login') }}">{{ msg('login') }}</a></li>
 		{% endif %}
 	</ul>
 </header>
