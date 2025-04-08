@@ -46,7 +46,7 @@ class IndexPageRepository extends RepositoryBase {
 			try {
 				$wsIndexPage = $wikisource->getIndexPageFromUrl( $indexPageUrl );
 			} catch ( WikisourceApiException $e ) {
-				$warnings[] = $e->getMessage();
+				$warnings[] = [ 'unable-to-save', [ $e->getMessage() ] ];
 				continue;
 			}
 			if ( !$wsIndexPage->loaded() ) {
