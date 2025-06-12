@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Balyozxane",
 			"Bikarhêner"
 		]
 	},
@@ -17,13 +18,13 @@
 	"create-contest": "Pêşbazî çêke",
 	"edit-contest": "Konfîgusayona pêşbaziyê biguherîne",
 	"name-label": "Nav:",
-	"dates": "Dîrok:",
+	"dates": "Tarîx:",
 	"privacy-label": "Veşarîtî:",
 	"privacy-public": "Giştî",
 	"privacy-admin-during": "Tenê ji admînan re (heya dawîya pêşbirkê)",
 	"privacy-private": "Xisûsî (tenê ji admînan re, heta hetayê)",
-	"end-date-label": "Dîrok û wextê bidawîbûnê:",
-	"start-date-label": "Dîrok û wextê destpêkirinê:",
+	"end-date-label": "Tarîx û wextê bidawîbûnê:",
+	"start-date-label": "Tarîx û wextê destpêkirinê:",
 	"times-are-utc": "Wext bi qada zemanê ya UTCê ne.",
 	"excluded-users": "Bikarhênerên xaricgirtî:",
 	"administrators": "Rêveber:",
@@ -49,7 +50,7 @@
 	"index-pages": "Rûpelên îndeksê",
 	"user-results": "Encamên bikarhênerê",
 	"revision": "Revîzyon",
-	"date": "Dîrok",
+	"date": "Tarîx",
 	"scores": "Skor",
 	"contest-in-progress": "Ev pêşbazî vê gavê di pêvajoya amadehiyê de ye, û skor tenê ji aliyê rêvebirên pêşbaziyê ve dikarin werin dîtin.",
 	"scores-legend": "Skora li jêr her $1 deqeyê carekê tê hesabkirin gava pêşbirk dewam dike, û piştre gava ku pêşbirk xilas bû jî cardin hesab dike.",
