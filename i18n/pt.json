@@ -2,19 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"B3rnas",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"O andras"
 		]
 	},
 	"app-title": "Concursos Wikisource",
 	"homepage": "Página principal",
 	"contests": "Concursos",
 	"login": "Entrar",
-	"logged-in-as": "Tem sessão iniciada como $1.",
+	"logged-in-as": "Tem sessão iniciada como $1",
 	"logout": "Sair",
-	"stats-summary": "$1 {{PLURAL:$2| pessoa|pessoas}} {{PLURAL:$2|participou |participaram}} em $3 {{PLURAL:$4|concurso|concursos}}.",
+	"stats-summary": "$1 {{PLURAL:$2|pessoa|pessoas}} {{PLURAL:$2|participou|participaram}} em $3 {{PLURAL:$4|concurso|concursos}}.",
 	"all-contests": "Todos os concursos",
 	"your-contests": "Os teus concursos",
-	"recently-ended-contests": "Concursos encerrados recentemente",
+	"recently-ended-contests": "Concursos recentes",
 	"create-contest": "Criar concurso",
 	"edit-contest": "Editar configuração do concurso",
 	"name-label": "Nome:",
@@ -23,7 +24,7 @@
 	"privacy-public": "Público",
 	"end-date-label": "Data e hora de fim:",
 	"start-date-label": "Data e hora de início:",
-	"times-are-utc": "As horas são no fuso horário UTC.",
+	"times-are-utc": "As horas estão no fuso horário UTC.",
 	"excluded-users": "Utilizadores excluídos:",
 	"administrators": "Administradores:",
 	"one-username-per-line": "Um nome de utilizador por linha.",
