@@ -65,7 +65,7 @@
 	"no-contests": "您不是任何競賽的管理員。",
 	"contest-not-found": "沒有比賽$1",
 	"contest": "競賽：$1",
-	"details": "詳情",
+	"details": "詳細資訊",
 	"unable-to-save": "無法儲存：$1",
 	"rank": "排名",
 	"user": "使用者",
