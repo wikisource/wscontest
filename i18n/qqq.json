@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Beta16",
+			"McDutchie",
 			"Robby",
 			"Samwilson",
 			"Stjn"
@@ -96,7 +97,7 @@
 	"delete-contest": "Button text to delete a contest",
 	"delete": "Label for the modal title",
 	"tip": "Label for the tip",
-	"save-scores": "Text that prompts the user to save scores of the contest before deletion.\n\nParameter:\n* $1 — HTML link with {{msg-wikimedia|Wscontest-save-scores-link}} as its label.",
+	"save-scores": "Text that prompts the user to save scores of the contest before deletion. Parameter:\n* $1 — HTML link with {{msg-wikimedia|Wscontest-save-scores-link}} as its label.",
 	"save-scores-link": "Link text that's inserted into {{msg-wikimedia|Wscontest-save-scores}}.",
 	"save-scores-tooltip": "Link title text for the link inserted into {{msg-wikimedia|Wscontest-save-scores}}.",
 	"confirm-delete-text": "Text that asks confirmation from the user for contest deletion",
