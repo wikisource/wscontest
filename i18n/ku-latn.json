@@ -14,7 +14,7 @@
 	"stats-summary": "$1 {{PLURAL:$2|kes cih girt|kes cih girtin}} di $3 {{PLURAL:$4|pêşbaziyê|pêşbaziyan}} de.",
 	"all-contests": "Hemû pêşbazî",
 	"your-contests": "Pêşbirkên te",
-	"recently-ended-contests": "Pêşbirkên vê dawîyê xilasbûyî",
+	"recently-ended-contests": "Pêşbirkên vê dawîyê",
 	"create-contest": "Pêşbazî çêke",
 	"edit-contest": "Konfîgusayona pêşbaziyê biguherîne",
 	"name-label": "Nav:",
