@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"JeffreyKim",
+			"Ktchankt",
 			"Winston Sung",
 			"Z423x5c6"
 		]
@@ -95,7 +96,7 @@
 	"delete": "刪除",
 	"tip": "TIP",
 	"save-scores": "你可以喺刪除你嘅比賽之前畀$1。",
-	"save-scores-link": "將你嘅分數些乎為維基文字",
+	"save-scores-link": "將你嘅分數儲存做wikitext",
 	"save-scores-tooltip": "條拎會喺新標籤入面打開",
 	"confirm-delete-text": "請確認你想刪除",
 	"do-not-delete": "唔好刪除",
