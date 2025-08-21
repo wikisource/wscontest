@@ -30,7 +30,7 @@
 	"end-date-label": "Schlussdatum an -zäit:",
 	"start-date-label": "Ufanksdatum an -zäit:",
 	"end-date-formatted": "Schlussdatum an -Zäit: $1 UTC",
-	"start-date-formatted": "Startdatum an -Zäit: $1 UTC",
+	"start-date-formatted": "Ufanksdatum an -zäit: $1 UTC",
 	"times-are-utc": "Auerzäite bezéie sech op d'UTC-Zäitzon.",
 	"excluded-users": "Ausgeschlosse Benotzer:",
 	"administrators": "Administrateuren:",
