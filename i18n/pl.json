@@ -3,7 +3,8 @@
 		"authors": [
 			"Rainbow P",
 			"Strebski",
-			"Thoji"
+			"Thoji",
+			"Woytecr"
 		]
 	},
 	"app-title": "Wikisource Contests",
@@ -12,7 +13,7 @@
 	"login": "Zaloguj się",
 	"logged-in-as": "Jesteś zalogowany jako $1.",
 	"logout": "Wyloguj się",
-	"stats-summary": "$1 {{PLURAL:$1|osoba|osoby|osób}} wzięły udział w $2 {{PLURAL:$2|konkursie|konkursach}}.",
+	"stats-summary": "$1 {{PLURAL:$2|osoba wzięła|osoby wzięły|osób wzięło}} udział w $3 {{PLURAL:$4|konkursie|konkursach}}.",
 	"create-contest": "Utwórz konkurs",
 	"edit-contest": "Edytuj ustawienia konkursu",
 	"name-label": "Nazwa:",
@@ -50,8 +51,10 @@
 	"scores-legend": "Poniższe wyniki są obliczane w trakcie trwania konkursu co $1 minut(ę), a następnie ponownie po jego zakończeniu.",
 	"save-resets-scores": "Zapisanie informacji o konkursie spowoduje ponowne obliczenie wyników (w ciągu $1 minut(y)).",
 	"wikitext-scores": "Wstaw tabelę wyników Wikitext.",
+	"change-lang": "Zmień język",
 	"this-is-wscontest": "To jest narzędzie Wikisource Contest",
 	"gpl-link": "GPL 3.0+",
 	"source-code": "Kod źródłowy",
-	"issue-tracker": "Lista problemów"
+	"issue-tracker": "Lista problemów",
+	"translate-link": "Tłumaczenia"
 }
