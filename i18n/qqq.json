@@ -6,6 +6,7 @@
 			"McDutchie",
 			"Robby",
 			"Samwilson",
+			"Stefan2255",
 			"Stjn"
 		]
 	},
@@ -17,7 +18,7 @@
 	"logout": "Link to log out.",
 	"stats-summary": "Summary sentence about the stats for the whole tool. Parameters:\n\n* $1 — formatted number of people\n* $2 — unformatted number of people (for use with PLURAL)\n* $3 — formatted number of contests\n* $4 — unformatted number of contests (for use with PLURAL)",
 	"home-description": "Description of the tool on the home page. Explains that the tool is used for Wikisource proofreading contests.",
-	"home-instructions": "Explains what participants do during contests and links to Wikisource guides.",
+	"home-instructions": "Explains what participants do during contests and links to Wikisource guides.\n\nLink references can be found in:\n* [https://www.wikidata.org/wiki/Q15627479#sitelinks-wikisource|Help:Beginner's guide to proofreading]\n* [https://www.wikidata.org/wiki/Q15726807#sitelinks-wikisource|Help:Beginner's guide to validation]",
 	"home-score-components": "Introductory text about the scoring system components.",
 	"scoring-system": "Table Caption displayed on top of scoring system table on home page",
 	"action-taken": "Table Header text of 'action taken' on scoring system table",
