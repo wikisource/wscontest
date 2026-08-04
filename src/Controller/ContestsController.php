@@ -30,6 +30,18 @@ class ContestsController extends AbstractController {
 	}
 
 	/**
+	 * Normalize a username for comparison purposes. MediaWiki treats
+	 * underscores and spaces in usernames as interchangeable, but this
+	 * app was comparing them as plain strings, so e.g. "Foo_Bar" and
+	 * "Foo Bar" were treated as different users. T336157
+	 * @param string $username
+	 * @return string
+	 */
+	private static function normalizeUsername( string $username ): string {
+		return trim( str_replace( '_', ' ', $username ) );
+	}
+
+	/**
 	 * @param Session $session
 	 * @param ContestRepository $contestRepository
 	 * @return Response
@@ -133,7 +145,8 @@ class ContestsController extends AbstractController {
 			$isAdmin = false;
 			foreach ( $contest['admins'] as $admin ) {
 				$admins .= $admin['name'] . "\n";
-				$isAdmin = $isAdmin || $admin['name'] === $username;
+				$isAdmin = $isAdmin
+					|| self::normalizeUsername( $admin['name'] ) === self::normalizeUsername( $username );
 			}
 			if ( !$isAdmin ) {
 				throw $this->createAccessDeniedException();
@@ -189,7 +202,8 @@ class ContestsController extends AbstractController {
 			// check if the user is an admin
 			$isAdmin = false;
 			foreach ( $contest['admins'] as $admin ) {
-				$isAdmin = $isAdmin || $admin['name'] === $username;
+				$isAdmin = $isAdmin
+					|| self::normalizeUsername( $admin['name'] ) === self::normalizeUsername( $username );
 			}
 			if ( !$isAdmin ) {
 				throw $this->createAccessDeniedException();
@@ -223,6 +237,8 @@ class ContestsController extends AbstractController {
 		if ( !$username ) {
 			throw new AccessDeniedHttpException();
 		}
+		$normalizedUsername = self::normalizeUsername( $username );
+
 		if ( !$this->isCsrfTokenValid( 'contest-edit', $request->request->get( 'csrf_token' ) ) ) {
 			throw new AccessDeniedHttpException();
 		}
@@ -236,10 +252,13 @@ class ContestsController extends AbstractController {
 			}
 		}
 
-		$admins = array_filter( Str::explode( $request->request->get( 'admins', '' ) ) );
-		if ( !in_array( $username, $admins ) ) {
+		$admins = array_filter( array_map(
+			[ self::class, 'normalizeUsername' ],
+			Str::explode( $request->request->get( 'admins', '' ) )
+		) );
+		if ( !in_array( $normalizedUsername, $admins ) ) {
 			// Make sure the current user is always an admin, so they can't lock themselves out.
-			$admins[] = $username;
+			$admins[] = $normalizedUsername;
 		}
 
 		$indexPageUrls = array_map( 'urldecode', Str::explode( $request->request->get( 'index_pages' ) ) );
