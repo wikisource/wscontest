@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"PanWor",
 			"Rainbow P",
 			"Strebski",
 			"Thoji",
@@ -11,7 +12,7 @@
 	"homepage": "Główna",
 	"contests": "Konkursy",
 	"login": "Zaloguj się",
-	"logged-in-as": "Jesteś zalogowany jako $1.",
+	"logged-in-as": "Zalogowano się jako $1.",
 	"logout": "Wyloguj się",
 	"stats-summary": "$1 {{PLURAL:$2|osoba wzięła|osoby wzięły|osób wzięło}} udział w $3 {{PLURAL:$4|konkursie|konkursach}}.",
 	"create-contest": "Utwórz konkurs",
@@ -32,7 +33,7 @@
 	"cancel": "Anuluj",
 	"error-loading-wikisource": "Nie można załadować informacji Wikisource z $1",
 	"error-loading-indexpage": "Nie można załadować strony indeksowanej z $1",
-	"not-logged-in": "Nie jesteś zalogowany i nie możesz tworzyć nowych konkursów.",
+	"not-logged-in": "Nie zalogowano się, przez co nie możesz tworzyć nowych konkursów.",
 	"no-contests": "Nie jesteś administratorem żadnych konkursów.",
 	"contest": "Konkurs: $1",
 	"details": "Szczegóły",
