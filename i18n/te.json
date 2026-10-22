@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chaduvari",
 			"Divya4232"
 		]
 	},
@@ -48,7 +49,7 @@
 	"unable-to-save": "సేవ్ చేయడం సాధ్యం కాదు: $1",
 	"user": "వాడుకరి",
 	"points": "పాయింట్లు",
-	"contributions": "నా మార్పులు",
+	"contributions": "నా తోడ్పాట్లు",
 	"validations": "ధ్రువీకరణలు",
 	"index-page": "సూచిక పేజీ",
 	"index-pages": "సూచిక పేజీలు",
